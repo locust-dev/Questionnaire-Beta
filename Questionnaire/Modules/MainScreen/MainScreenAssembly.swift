@@ -10,12 +10,10 @@ final class MainScreenAssembly: Assembly {
     
     static func assembleModule() -> Module {
         
-        let networkService = MainScreenNetworkService()
-        
         let view = MainScreenViewController()
         let router = MainScreenRouter(transition: view)
         let presenter = MainScreenPresenter()
-        let interactor = MainScreenInteractor(networkService: networkService)
+        let interactor = MainScreenInteractor()
         
         view.presenter = presenter
         

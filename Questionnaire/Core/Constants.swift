@@ -6,4 +6,4 @@
 //
 
 typealias Colors = R.color
-// typealias Images = R.image
+typealias Images = R.image

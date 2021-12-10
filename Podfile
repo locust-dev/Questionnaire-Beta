@@ -9,4 +9,6 @@ target 'Questionnaire' do
   pod 'CocoaDebug', :configurations => ['Debug']
   pod 'R.swift'
   pod 'PureLayout'
+  pod 'SVProgressHUD', :git => 'https://github.com/SVProgressHUD/SVProgressHUD.git'
+
 end

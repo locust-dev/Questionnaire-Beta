@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		193D993227623E60004ACA7F /* MainScreenNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193D992B27623E60004ACA7F /* MainScreenNetworkService.swift */; };
 		193D993327623E60004ACA7F /* MainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193D992C27623E60004ACA7F /* MainScreenPresenter.swift */; };
 		193D993427623E60004ACA7F /* MainScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193D992D27623E60004ACA7F /* MainScreenRouter.swift */; };
 		193D993527623E60004ACA7F /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193D992E27623E60004ACA7F /* MainScreenViewController.swift */; };
@@ -57,11 +56,23 @@
 		1982B53D276327B8003DAB1A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 1982B53C276327B8003DAB1A /* FirebaseStorage */; };
 		1982B53F276327B8003DAB1A /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 1982B53E276327B8003DAB1A /* FirebaseStorageCombine-Community */; };
 		1982B541276327B8003DAB1A /* FirebaseStorageSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 1982B540276327B8003DAB1A /* FirebaseStorageSwift-Beta */; };
+		1982B544276330B8003DAB1A /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1982B543276330B8003DAB1A /* FirebaseAuthService.swift */; };
+		1982B546276335F1003DAB1A /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1982B545276335F1003DAB1A /* DispatchQueue.swift */; };
+		1982B54827633B1A003DAB1A /* AuthorizationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1982B54727633B1A003DAB1A /* AuthorizationInteractor.swift */; };
+		1982B54B27634287003DAB1A /* UIViewController+HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1982B54A27634287003DAB1A /* UIViewController+HUD.swift */; };
+		1982B54D2763446B003DAB1A /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1982B54C2763446B003DAB1A /* ProgressHUD.swift */; };
+		1982B54F27634582003DAB1A /* ProgressHUDSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1982B54E27634582003DAB1A /* ProgressHUDSize.swift */; };
+		1982B5512763467C003DAB1A /* ProgressHUDContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1982B5502763467C003DAB1A /* ProgressHUDContainer.swift */; };
+		1982B55327635130003DAB1A /* FirebaseUDKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1982B55227635130003DAB1A /* FirebaseUDKeys.swift */; };
+		1982B55927635858003DAB1A /* TestsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1982B55527635858003DAB1A /* TestsPresenter.swift */; };
+		1982B55A27635858003DAB1A /* TestsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1982B55627635858003DAB1A /* TestsRouter.swift */; };
+		1982B55B27635858003DAB1A /* TestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1982B55727635858003DAB1A /* TestsViewController.swift */; };
+		1982B55C27635858003DAB1A /* TestsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1982B55827635858003DAB1A /* TestsAssembly.swift */; };
+		1982B55E27636842003DAB1A /* Collection+SafeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1982B55D27636841003DAB1A /* Collection+SafeSubscript.swift */; };
 		7F0FA2D73F5CD2AADC74B53E /* Pods_Questionnaire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3998792933EDD44090A72F63 /* Pods_Questionnaire.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		193D992B27623E60004ACA7F /* MainScreenNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenNetworkService.swift; sourceTree = "<group>"; };
 		193D992C27623E60004ACA7F /* MainScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenPresenter.swift; sourceTree = "<group>"; };
 		193D992D27623E60004ACA7F /* MainScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenRouter.swift; sourceTree = "<group>"; };
 		193D992E27623E60004ACA7F /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +98,19 @@
 		1952AA92276100C600675931 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		1952AA94276100EE00675931 /* TransitionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionModel.swift; sourceTree = "<group>"; };
 		1982B50B27632647003DAB1A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1982B543276330B8003DAB1A /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
+		1982B545276335F1003DAB1A /* DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueue.swift; sourceTree = "<group>"; };
+		1982B54727633B1A003DAB1A /* AuthorizationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationInteractor.swift; sourceTree = "<group>"; };
+		1982B54A27634287003DAB1A /* UIViewController+HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+HUD.swift"; sourceTree = "<group>"; };
+		1982B54C2763446B003DAB1A /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
+		1982B54E27634582003DAB1A /* ProgressHUDSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUDSize.swift; sourceTree = "<group>"; };
+		1982B5502763467C003DAB1A /* ProgressHUDContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUDContainer.swift; sourceTree = "<group>"; };
+		1982B55227635130003DAB1A /* FirebaseUDKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUDKeys.swift; sourceTree = "<group>"; };
+		1982B55527635858003DAB1A /* TestsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsPresenter.swift; sourceTree = "<group>"; };
+		1982B55627635858003DAB1A /* TestsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsRouter.swift; sourceTree = "<group>"; };
+		1982B55727635858003DAB1A /* TestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsViewController.swift; sourceTree = "<group>"; };
+		1982B55827635858003DAB1A /* TestsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsAssembly.swift; sourceTree = "<group>"; };
+		1982B55D27636841003DAB1A /* Collection+SafeSubscript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+SafeSubscript.swift"; sourceTree = "<group>"; };
 		3998792933EDD44090A72F63 /* Pods_Questionnaire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Questionnaire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6ABDDB1C71174B43894F241 /* Pods-Questionnaire.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Questionnaire.release.xcconfig"; path = "Target Support Files/Pods-Questionnaire/Pods-Questionnaire.release.xcconfig"; sourceTree = "<group>"; };
 		F8198A1AF1F71C4DB43D17C5 /* Pods-Questionnaire.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Questionnaire.debug.xcconfig"; path = "Target Support Files/Pods-Questionnaire/Pods-Questionnaire.debug.xcconfig"; sourceTree = "<group>"; };
@@ -133,13 +157,12 @@
 		193D993927623E65004ACA7F /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
-				193D992B27623E60004ACA7F /* MainScreenNetworkService.swift */,
-				193D992C27623E60004ACA7F /* MainScreenPresenter.swift */,
-				193D992D27623E60004ACA7F /* MainScreenRouter.swift */,
-				193D992E27623E60004ACA7F /* MainScreenViewController.swift */,
 				193D992F27623E60004ACA7F /* MainScreenAssembly.swift */,
+				193D992C27623E60004ACA7F /* MainScreenPresenter.swift */,
+				193D992E27623E60004ACA7F /* MainScreenViewController.swift */,
 				193D993027623E60004ACA7F /* MainScreenInteractor.swift */,
 				193D993127623E60004ACA7F /* MainScreenModel.swift */,
+				193D992D27623E60004ACA7F /* MainScreenRouter.swift */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -147,6 +170,7 @@
 		193D994427624057004ACA7F /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
+				1982B54727633B1A003DAB1A /* AuthorizationInteractor.swift */,
 				193D993C27624052004ACA7F /* AuthorizationPresenter.swift */,
 				193D993D27624052004ACA7F /* AuthorizationRouter.swift */,
 				193D99522762507D004ACA7F /* AuthorizationViewModel.swift */,
@@ -192,8 +216,10 @@
 		1952AA852760FE3700675931 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				193D993927623E65004ACA7F /* MainScreen */,
+				1982B55F27639887003DAB1A /* Profile */,
 				193D994427624057004ACA7F /* Authorization */,
+				1982B5542763583D003DAB1A /* Tests */,
+				193D993927623E65004ACA7F /* MainScreen */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -201,9 +227,12 @@
 		1952AA872760FE5200675931 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				1982B5492763426F003DAB1A /* Extensions */,
+				1982B542276330AB003DAB1A /*  Firebase */,
 				1952AA8C2761003300675931 /* Protocols */,
 				1952AA712760FD3D00675931 /* AppDelegate.swift */,
 				193D994E27624C0C004ACA7F /* Constants.swift */,
+				1982B545276335F1003DAB1A /* DispatchQueue.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -218,6 +247,45 @@
 				193D995027624E1E004ACA7F /* Configurable.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		1982B542276330AB003DAB1A /*  Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				1982B543276330B8003DAB1A /* FirebaseAuthService.swift */,
+				1982B55227635130003DAB1A /* FirebaseUDKeys.swift */,
+			);
+			path = " Firebase";
+			sourceTree = "<group>";
+		};
+		1982B5492763426F003DAB1A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1982B55D27636841003DAB1A /* Collection+SafeSubscript.swift */,
+				1982B54A27634287003DAB1A /* UIViewController+HUD.swift */,
+				1982B54C2763446B003DAB1A /* ProgressHUD.swift */,
+				1982B54E27634582003DAB1A /* ProgressHUDSize.swift */,
+				1982B5502763467C003DAB1A /* ProgressHUDContainer.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1982B5542763583D003DAB1A /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				1982B55527635858003DAB1A /* TestsPresenter.swift */,
+				1982B55627635858003DAB1A /* TestsRouter.swift */,
+				1982B55727635858003DAB1A /* TestsViewController.swift */,
+				1982B55827635858003DAB1A /* TestsAssembly.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		1982B55F27639887003DAB1A /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		8A1A208643FF988542AF8E90 /* Pods */ = {
@@ -404,23 +472,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1982B55A27635858003DAB1A /* TestsRouter.swift in Sources */,
+				1982B55C27635858003DAB1A /* TestsAssembly.swift in Sources */,
+				1982B54827633B1A003DAB1A /* AuthorizationInteractor.swift in Sources */,
 				193D994127624052004ACA7F /* AuthorizationRouter.swift in Sources */,
+				1982B55927635858003DAB1A /* TestsPresenter.swift in Sources */,
+				1982B546276335F1003DAB1A /* DispatchQueue.swift in Sources */,
 				193D993427623E60004ACA7F /* MainScreenRouter.swift in Sources */,
+				1982B55E27636842003DAB1A /* Collection+SafeSubscript.swift in Sources */,
+				1982B5512763467C003DAB1A /* ProgressHUDContainer.swift in Sources */,
 				1952AA93276100C600675931 /* Assembly.swift in Sources */,
 				193D994227624052004ACA7F /* AuthorizationViewController.swift in Sources */,
+				1982B54B27634287003DAB1A /* UIViewController+HUD.swift in Sources */,
 				193D99532762507D004ACA7F /* AuthorizationViewModel.swift in Sources */,
 				1952AA95276100EE00675931 /* TransitionModel.swift in Sources */,
 				193D993B27623F0E004ACA7F /* ModuleTransitionHandler.swift in Sources */,
 				1952AA722760FD3D00675931 /* AppDelegate.swift in Sources */,
 				193D994327624052004ACA7F /* AuthorizationAssembly.swift in Sources */,
+				1982B55327635130003DAB1A /* FirebaseUDKeys.swift in Sources */,
 				193D994D27624BF6004ACA7F /* R.generated.swift in Sources */,
 				1952AA8E2761003D00675931 /* ViewOutput.swift in Sources */,
 				193D993727623E60004ACA7F /* MainScreenInteractor.swift in Sources */,
+				1982B55B27635858003DAB1A /* TestsViewController.swift in Sources */,
 				193D993527623E60004ACA7F /* MainScreenViewController.swift in Sources */,
 				193D994027624052004ACA7F /* AuthorizationPresenter.swift in Sources */,
-				193D993227623E60004ACA7F /* MainScreenNetworkService.swift in Sources */,
+				1982B54F27634582003DAB1A /* ProgressHUDSize.swift in Sources */,
+				1982B544276330B8003DAB1A /* FirebaseAuthService.swift in Sources */,
 				193D993327623E60004ACA7F /* MainScreenPresenter.swift in Sources */,
 				193D993827623E60004ACA7F /* MainScreenModel.swift in Sources */,
+				1982B54D2763446B003DAB1A /* ProgressHUD.swift in Sources */,
 				193D993627623E60004ACA7F /* MainScreenAssembly.swift in Sources */,
 				193D995127624E1E004ACA7F /* Configurable.swift in Sources */,
 				193D994F27624C0C004ACA7F /* Constants.swift in Sources */,

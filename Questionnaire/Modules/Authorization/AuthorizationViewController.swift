@@ -9,13 +9,14 @@
 import PureLayout
 import UIKit
 
-protocol AuthorizationViewInput: AnyObject {
+protocol AuthorizationViewInput: AnyObject, Loadable {
     func update(with viewModel: AuthorizationViewModel)
+    func showErrorAlert()
 }
 
 final class AuthorizationViewController: UIViewController {
 	
-    // MARK: - Public properties
+    // MARK: - Properties
     
 	var presenter: AuthorizationViewOutput?
     
@@ -30,13 +31,17 @@ final class AuthorizationViewController: UIViewController {
     
 	override func viewDidLoad() {
         super.viewDidLoad()
-        
         drawSelf()
         presenter?.viewIsReady()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
     
-    // MARK: - Drawning
+    
+    // MARK: - Drawing
     
     private func drawSelf() {
         
@@ -46,7 +51,12 @@ final class AuthorizationViewController: UIViewController {
         mainLabel.numberOfLines = 0
         
         loginTextField.backgroundColor = .white
+        loginTextField.autocapitalizationType = .none
+        
         passwordTextField.backgroundColor = .white
+        passwordTextField.autocapitalizationType = .none
+        
+        confirmButton.addTarget(self, action: #selector(confirmLogin), for: .touchUpInside)
         
         view.addSubview(mainLabel)
         view.addSubview(loginTextField)
@@ -81,11 +91,33 @@ final class AuthorizationViewController: UIViewController {
         forgotPasswordButton.autoAlignAxis(toSuperviewAxis: .vertical)
     }
     
+    
+    // MARK: - Actions
+    
+    @objc private func confirmLogin() {
+        presenter?.didTapConfirmButton(email: loginTextField.text, password: passwordTextField.text)
+    }
+    
+    @objc private func forgotPassword() {
+        presenter?.didTapForgotPasswordButton()
+    }
+
 }
 
 
 // MARK: - AuthorizationViewInput
 extension AuthorizationViewController: AuthorizationViewInput {
+    
+    func showErrorAlert() {
+        
+        // TODO: - ...
+        let alert = UIAlertController(title: "Oops", message: "Looks like your credentials are wrong", preferredStyle: .actionSheet)
+        
+        let okAction = UIAlertAction(title: "Ok", style: .cancel)
+        alert.addAction(okAction)
+        
+        present(alert, animated: true)
+    }
     
     func update(with viewModel: AuthorizationViewModel) {
         mainLabel.text = viewModel.mainTitle

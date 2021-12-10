@@ -6,7 +6,9 @@
 //  Copyright © 2021 FINCH. All rights reserved.
 //
 
-protocol AuthorizationRouterInput {  }
+protocol AuthorizationRouterInput {
+    func openMainScreen()
+}
 
 final class AuthorizationRouter {
     
@@ -25,4 +27,9 @@ final class AuthorizationRouter {
 
 
 // MARK: - AuthorizationRouterInput
-extension AuthorizationRouter: AuthorizationRouterInput {  }
+extension AuthorizationRouter: AuthorizationRouterInput {
+    
+    func openMainScreen() {
+        transition.push(moduleType: MainScreenAssembly.self)
+    }
+}

@@ -8,13 +8,29 @@
 
 import UIKit
 
-protocol MainScreenViewInput: AnyObject {  }
+protocol MainScreenViewInput: AnyObject {
+    func set(viewControllers: [UIViewController]?)
+}
 
-final class MainScreenViewController: UIViewController {
+final class MainScreenViewController: UITabBarController {
+    
+//    // MARK: - Locals
+//
+//    enum Locals {
+//
+//        enum LineView {
+//
+//            static let frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 0.5)
+//            static let backgroundAlpha: CGFloat = 0.15
+//        }
+//    }
+//
     
     // MARK: - Properties
     
     var presenter: MainScreenViewOutput?
+    
+    private var isFirstLoaded = true
     
     
     // MARK: - Life cycle
@@ -23,15 +39,28 @@ final class MainScreenViewController: UIViewController {
         super.viewDidLoad()
         
         drawSelf()
-        presenter?.viewIsReady()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if isFirstLoaded {
+            presenter?.viewWillAppear()
+            isFirstLoaded = false
+        }
     }
     
     
     // MARK: - Drawing
     
     private func drawSelf() {
+            
+        view.backgroundColor = .white
         
-        view.backgroundColor = .blue
+        tabBar.isHidden = true
+        tabBar.isTranslucent = false
+        tabBar.shadowImage = UIImage()
+        tabBar.backgroundImage = UIImage()
     }
     
 }
@@ -39,5 +68,10 @@ final class MainScreenViewController: UIViewController {
 
 // MARK: - MainScreenViewInput
 extension MainScreenViewController: MainScreenViewInput {
+    
+    func set(viewControllers: [UIViewController]?) {
+        tabBar.isHidden = false
+        self.viewControllers = viewControllers
+    }
     
 }

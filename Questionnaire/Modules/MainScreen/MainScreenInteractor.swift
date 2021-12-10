@@ -6,7 +6,11 @@
 //  Copyright © 2021 FINCH. All rights reserved.
 //
 
-protocol MainScreenInteractorInput {  }
+import Foundation
+
+protocol MainScreenInteractorInput {
+    var isAuthorized: Bool { get }
+}
 
 final class MainScreenInteractor {
     
@@ -14,17 +18,24 @@ final class MainScreenInteractor {
     
     weak var presenter: MainScreenInteractorOutput?
     
-    private let networkService: MainScreenNetworkServiceInput
-    
-    
-    // MARK: - Init
-    
-    init(networkService: MainScreenNetworkServiceInput) {
-        self.networkService = networkService
-    }
+//    // MARK: - Init
+//
+//    init(networkService: MainScreenNetworkServiceInput) {
+//        self.networkService = networkService
+//    }
     
 }
 
 
 // MARK: - MainScreenInteractorInput
-extension MainScreenInteractor: MainScreenInteractorInput {  }
+extension MainScreenInteractor: MainScreenInteractorInput {
+    
+    var isAuthorized: Bool {
+        
+        guard let authorizedUserId = UserDefaults.standard.string(forKey: FirebaseUDKeys.userId.rawValue) else {
+            return false
+        }
+        
+        return true
+    }
+}

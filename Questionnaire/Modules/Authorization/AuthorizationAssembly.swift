@@ -8,16 +8,29 @@
 
 final class AuthorizationAssembly: Assembly {
     
-    static func assembleModule() -> Module {
+    static func assembleModule(with model: TransitionModel) -> Module {
+        
+        guard let model = model as? Model else {
+            fatalError("Wrong model for AuthorizationModule")
+        }
+        
+        let authService = FirebaseAuthService()
         
         let view = AuthorizationViewController()
         let router = AuthorizationRouter(transition: view)
+        let interactor = AuthorizationInteractor(authorizationService: authService)
         let presenter = AuthorizationPresenter()
         
         view.presenter = presenter
         
+        interactor.presenter = presenter
+        
+        presenter.interactor = interactor
         presenter.view = view
         presenter.router = router
+        
+        view.tabBarItem.title = model.tabBarTitle
+        view.tabBarItem.image = Images.tabbar_profile()
         
         return view
     }
@@ -28,6 +41,8 @@ final class AuthorizationAssembly: Assembly {
 // MARK: - Model
 extension AuthorizationAssembly {
     
-    struct Model: TransitionModel {  }
-    
+    struct Model: TransitionModel {
+        
+        let tabBarTitle: String
+    }
 }

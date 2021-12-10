@@ -32,7 +32,7 @@ extension AppDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        let rootViewController = AuthorizationAssembly.assembleModule()
-        window?.rootViewController = UINavigationController(rootViewController: rootViewController)
+        let rootViewController = MainScreenAssembly.assembleModule()
+        window?.rootViewController = rootViewController
     }
 }
