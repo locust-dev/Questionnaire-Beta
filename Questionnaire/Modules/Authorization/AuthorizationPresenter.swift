@@ -12,8 +12,12 @@ protocol AuthorizationViewOutput: ViewOutput {
 }
 
 protocol AuthorizationInteractorOutput: AnyObject {
-    func didSuccessAuthorize()
+    func didSuccessAuthorize(userModel: AuthorizedUserModel)
     func didFailAuthorize()
+}
+
+protocol AuthorizationModuleOutput: AnyObject {
+    func didSuccessAuthorized(userModel: AuthorizedUserModel)
 }
 
 final class AuthorizationPresenter {
@@ -25,6 +29,14 @@ final class AuthorizationPresenter {
     var router: AuthorizationRouterInput?
     var interactor: AuthorizationInteractorInput?
     
+    private let moduleOutput: AuthorizationModuleOutput?
+    
+    
+    // MARK: - Init
+    
+    init(moduleOutput: AuthorizationModuleOutput?) {
+        self.moduleOutput = moduleOutput
+    }
 }
 
 
@@ -33,7 +45,7 @@ extension AuthorizationPresenter: AuthorizationViewOutput {
     
     func viewIsReady() {
         
-        // MARK: - MOCK
+        // TODO: - From config
         let viewModel = AuthorizationViewModel(mainTitle: "Authorization screen", confirmButtonTitle: "Login", forgotPassButtonTitle: "Forgot password?")
         view?.update(with: viewModel)
     }
@@ -54,9 +66,9 @@ extension AuthorizationPresenter: AuthorizationViewOutput {
 // MARK: AuthorizationInteractorOutput
 extension AuthorizationPresenter: AuthorizationInteractorOutput {
     
-    func didSuccessAuthorize() {
+    func didSuccessAuthorize(userModel: AuthorizedUserModel) {
         view?.hideHUD()
-        router?.openMainScreen()
+        moduleOutput?.didSuccessAuthorized(userModel: userModel)
     }
     
     func didFailAuthorize() {

@@ -14,18 +14,6 @@ protocol MainScreenViewInput: AnyObject {
 
 final class MainScreenViewController: UITabBarController {
     
-//    // MARK: - Locals
-//
-//    enum Locals {
-//
-//        enum LineView {
-//
-//            static let frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 0.5)
-//            static let backgroundAlpha: CGFloat = 0.15
-//        }
-//    }
-//
-    
     // MARK: - Properties
     
     var presenter: MainScreenViewOutput?

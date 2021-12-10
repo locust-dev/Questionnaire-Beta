@@ -20,22 +20,33 @@ final class MainScreenPresenter {
     
     var interactor: MainScreenInteractorInput?
     var router: MainScreenRouterInput?
+    var authorizedUser: AuthorizedUserModel?
     
     
     // MARK: - Private methods
     
-    private func prepareViewControllers() -> [UIViewController] {
+    private func setViewControllers() -> [UIViewController] {
+        
+        let userModule: Module
+        
+        if let userModel = authorizedUser,
+           interactor?.isAuthorized == true {
+            let profileModel = ProfileAssembly.Model(tabBarTitle: "Profile", username: userModel.username, userID: userModel.userID)
+            userModule = ProfileAssembly.assembleModule(with: profileModel)
+            
+        } else {
+            // TODO: - From config
+            let authModel = AuthorizationAssembly.Model(tabBarTitle: "Profile", moduleOutput: self)
+            userModule = AuthorizationAssembly.assembleModule(with: authModel)
+        }
         
         // TODO: - From config
-        
-        let authModel = AuthorizationAssembly.Model(tabBarTitle: "Profile")
-        let authModule = AuthorizationAssembly.assembleModule(with: authModel)
-        
         let testsModel = TestsAssembly.Model(tabBarTitle: "Tests")
         let testsModule = TestsAssembly.assembleModule(with: testsModel)
         
-        return [testsModule, authModule]
+        return [testsModule, userModule]
     }
+
 }
 
 
@@ -43,10 +54,20 @@ final class MainScreenPresenter {
 extension MainScreenPresenter: MainScreenViewOutput {
     
     func viewWillAppear() {
-        view?.set(viewControllers: prepareViewControllers())
+        view?.set(viewControllers: setViewControllers())
     }
 }
 
 
 // MARK: - MainScreenInteractorOutput
 extension MainScreenPresenter: MainScreenInteractorOutput {  }
+
+
+// MARK: - AuthorizationModuleOutput
+extension MainScreenPresenter: AuthorizationModuleOutput {
+    
+    func didSuccessAuthorized(userModel: AuthorizedUserModel) {
+        authorizedUser = userModel
+        view?.set(viewControllers: setViewControllers())
+    }
+}

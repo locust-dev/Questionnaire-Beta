@@ -6,6 +6,8 @@
 //  Copyright © 2021 FINCH. All rights reserved.
 //
 
+import UIKit
+
 final class AuthorizationAssembly: Assembly {
     
     static func assembleModule(with model: TransitionModel) -> Module {
@@ -19,7 +21,7 @@ final class AuthorizationAssembly: Assembly {
         let view = AuthorizationViewController()
         let router = AuthorizationRouter(transition: view)
         let interactor = AuthorizationInteractor(authorizationService: authService)
-        let presenter = AuthorizationPresenter()
+        let presenter = AuthorizationPresenter(moduleOutput: model.moduleOutput)
         
         view.presenter = presenter
         
@@ -44,5 +46,6 @@ extension AuthorizationAssembly {
     struct Model: TransitionModel {
         
         let tabBarTitle: String
+        weak var moduleOutput: AuthorizationModuleOutput?
     }
 }

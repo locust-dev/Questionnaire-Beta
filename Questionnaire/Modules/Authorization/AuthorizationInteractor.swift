@@ -35,8 +35,9 @@ extension AuthorizationInteractor: AuthorizationInteractorInput {
         authorizationService.signIn(email: email, password: password) { result in
             
             switch result {
-            case .success(_):
-                self.presenter?.didSuccessAuthorize()
+            case .success(let userData):
+                let userModel = AuthorizedUserModel(username: userData?.description.description ?? "Deafult", userID: userData?.user.uid ?? "111")
+                self.presenter?.didSuccessAuthorize(userModel: userModel)
                 
             case .failure(_):
                 self.presenter?.didFailAuthorize()

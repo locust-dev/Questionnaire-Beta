@@ -8,4 +8,5 @@
 enum FirebaseUDKeys: String {
     
     case userId = "firebaseAuthorizedUserID"
+    case isAuthorized = "isAuthorized"
 }

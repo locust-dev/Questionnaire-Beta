@@ -17,13 +17,7 @@ final class MainScreenInteractor {
     // MARK: - Properties
     
     weak var presenter: MainScreenInteractorOutput?
-    
-//    // MARK: - Init
-//
-//    init(networkService: MainScreenNetworkServiceInput) {
-//        self.networkService = networkService
-//    }
-    
+
 }
 
 
@@ -31,11 +25,6 @@ final class MainScreenInteractor {
 extension MainScreenInteractor: MainScreenInteractorInput {
     
     var isAuthorized: Bool {
-        
-        guard let authorizedUserId = UserDefaults.standard.string(forKey: FirebaseUDKeys.userId.rawValue) else {
-            return false
-        }
-        
-        return true
+       UserDefaults.standard.bool(forKey: FirebaseUDKeys.isAuthorized.rawValue)
     }
 }

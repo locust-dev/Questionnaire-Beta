@@ -1,5 +1,5 @@
 //
-//  TestsAssembly.swift
+//  ProfileAssembly.swift
 //  Questionnaire
 //
 //  Created Ilya Turin on 10.12.2021.
@@ -8,17 +8,17 @@
 
 import UIKit
 
-final class TestsAssembly: Assembly {
+final class ProfileAssembly: Assembly {
     
     static func assembleModule(with model: TransitionModel) -> Module {
         
         guard let model = model as? Model else {
-            fatalError("Wrong model for TestsModule")
+            fatalError("Wrong model for ProfileModule")
         }
         
-        let view = TestsViewController()
-        let router = TestsRouter(transition: view)
-        let presenter = TestsPresenter()
+        let view = ProfileViewController()
+        let router = ProfileRouter(transition: view)
+        let presenter = ProfilePresenter(username: model.username, userID: model.userID)
         
         view.presenter = presenter
         
@@ -26,7 +26,7 @@ final class TestsAssembly: Assembly {
         presenter.router = router
         
         view.tabBarItem.title = model.tabBarTitle
-        view.tabBarItem.image = Images.tabbar_tests()
+        view.tabBarItem.image = Images.tabbar_profile()
         
         return UINavigationController(rootViewController: view)
     }
@@ -35,10 +35,13 @@ final class TestsAssembly: Assembly {
 
 
 // MARK: - Model
-extension TestsAssembly {
+extension ProfileAssembly {
     
     struct Model: TransitionModel {
         
         let tabBarTitle: String
+        let username: String
+        let userID: String
     }
+    
 }
