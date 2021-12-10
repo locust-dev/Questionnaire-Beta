@@ -24,7 +24,7 @@ extension AuthorizationPresenter: AuthorizationViewOutput {
     
     func viewIsReady() {
         
-        let viewModel = AuthorizationViewModel(mainTitle: "Authorization screen")
+        let viewModel = AuthorizationViewModel(mainTitle: "Authorization screen", confirmButtonTitle: "Login", forgotPassButtonTitle: "Forgot password?")
         view?.update(with: viewModel)
     }
     

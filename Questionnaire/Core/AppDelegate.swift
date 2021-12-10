@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,14 +15,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.makeKeyAndVisible()
-        
-        let rootViewController = AuthorizationAssembly.assembleModule()
-        window?.rootViewController = UINavigationController(rootViewController: rootViewController)
+        makeRootViewController()
+        FirebaseApp.configure()
         
         return true
     }
 
 }
 
+
+// MARK: - Private methods
+extension AppDelegate {
+    
+    private func makeRootViewController() {
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        
+        let rootViewController = AuthorizationAssembly.assembleModule()
+        window?.rootViewController = UINavigationController(rootViewController: rootViewController)
+    }
+}

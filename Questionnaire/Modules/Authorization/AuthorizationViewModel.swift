@@ -8,5 +8,7 @@
 struct AuthorizationViewModel {
     
     let mainTitle: String
+    let confirmButtonTitle: String
+    let forgotPassButtonTitle: String
     
 }
