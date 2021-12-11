@@ -57,7 +57,7 @@ extension AuthorizationPresenter: AuthorizationViewOutput {
     
     func didTapForgotPasswordButton() {
         
-        // ...
+        // TODO: - Handle errors
     }
     
 }
@@ -75,5 +75,5 @@ extension AuthorizationPresenter: AuthorizationInteractorOutput {
         view?.hideHUD()
         view?.showErrorAlert()
     }
-
+    
 }

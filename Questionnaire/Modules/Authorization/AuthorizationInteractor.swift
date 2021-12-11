@@ -36,6 +36,8 @@ extension AuthorizationInteractor: AuthorizationInteractorInput {
             
             switch result {
             case .success(let userData):
+                
+                // TODO: - Add check
                 let userModel = AuthorizedUserModel(username: userData?.description.description ?? "Deafult", userID: userData?.user.uid ?? "111")
                 self.presenter?.didSuccessAuthorize(userModel: userModel)
                 
