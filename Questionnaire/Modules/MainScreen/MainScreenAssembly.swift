@@ -10,10 +10,13 @@ final class MainScreenAssembly: Assembly {
     
     static func assembleModule() -> Module {
         
+        let authService = FirebaseAuthService()
+        let databaseService = FBDatabaseService()
+        
         let view = MainScreenViewController()
         let router = MainScreenRouter(transition: view)
         let presenter = MainScreenPresenter()
-        let interactor = MainScreenInteractor()
+        let interactor = MainScreenInteractor(databaseService: databaseService, authService: authService)
         
         view.presenter = presenter
         

@@ -15,9 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        makeRootViewController()
         FirebaseApp.configure()
-        
+        makeRootViewController()
         return true
     }
 
@@ -31,8 +30,6 @@ extension AppDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        
-        let rootViewController = MainScreenAssembly.assembleModule()
-        window?.rootViewController = rootViewController
+        window?.rootViewController = MainScreenAssembly.assembleModule()
     }
 }

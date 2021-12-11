@@ -8,6 +8,9 @@
 import FirebaseAuth
 
 protocol FirebaseAuthServiceProtocol {
+    
+    var isAuthorized: Bool { get }
+    
     func signIn(email: String, password: String, completion: @escaping (Result<AuthDataResult?, Error>) -> Void)
 }
 
@@ -24,6 +27,10 @@ final class FirebaseAuthService {
 
 // MARK: - FirebaseAuthServiceProtocol
 extension FirebaseAuthService: FirebaseAuthServiceProtocol {
+    
+    var isAuthorized: Bool {
+        UserDefaults.standard.bool(forKey: FirebaseUDKeys.isAuthorized.rawValue)
+    }
     
     func signIn(email: String, password: String, completion: @escaping (Result<AuthDataResult?, Error>) -> Void) {
         

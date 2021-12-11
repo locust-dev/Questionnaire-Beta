@@ -54,6 +54,7 @@ final class MainScreenPresenter {
 extension MainScreenPresenter: MainScreenViewOutput {
     
     func viewWillAppear() {
+        interactor?.getData(.categories)
         view?.set(viewControllers: setViewControllers())
     }
 }
