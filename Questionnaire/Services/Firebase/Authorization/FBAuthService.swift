@@ -32,7 +32,7 @@ final class FBAuthService {
     
     // MARK: - Private methods
     
-    private func saveUserToken(_ token: String?) {
+    private func changeCurrentUserToken(_ token: String?) {
         userDefaults.set(token, forKey: UserDefaultsKey.userId.rawValue)
     }
     
@@ -56,12 +56,12 @@ extension FBAuthService: FBAuthServiceProtocol {
             }
             
             // TODO: - Error when server didnt send Token
-            self?.saveUserToken(result?.user.uid)
+            self?.changeCurrentUserToken(result?.user.uid)
             completion(.success(result))
         }
     }
     
     func logOut() {
-        saveUserToken(nil)
+        changeCurrentUserToken(nil)
     }
 }

@@ -8,6 +8,6 @@
 enum FBDatabaseRequestKey: String {
     
     case categories
-    case questions
-    case answers
+    case tests
+    case rightAnswers
 }
