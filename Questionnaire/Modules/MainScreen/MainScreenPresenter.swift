@@ -67,8 +67,7 @@ extension MainScreenPresenter: MainScreenInteractorOutput {  }
 // MARK: - AuthorizationModuleOutput
 extension MainScreenPresenter: AuthorizationModuleOutput {
     
-    func didSuccessAuthorized(userModel: AuthorizedUserModel) {
-        authorizedUser = userModel
+    func didSuccessAuthorized() {
         view?.set(viewControllers: createViewControllers())
     }
 }

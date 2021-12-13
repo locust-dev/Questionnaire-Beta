@@ -1,5 +1,5 @@
 //
-//  TestCatogoriesInteractor.swift
+//  TestCategoriesInteractor.swift
 //  Questionnaire
 //
 //  Created by Ilya Turin on 13.12.2021.
@@ -14,7 +14,7 @@ protocol TestCategoriesInteractorInput {
     func getCategories()
 }
 
-final class TestCategoriesInteractor {
+final class TestCategoriesInteractor: Parser {
     
     // MARK: - Properties
     
@@ -50,14 +50,15 @@ extension TestCategoriesInteractor: TestCategoriesInteractorInput {
             switch result {
                 
             case .success(let categoriesData):
-                
-                guard let categories = categoriesData as? [String] else {
+                guard let categories = self?.parseArray(rawData: categoriesData, type: TestCategoryModel.self)
+                else {
+                    // TODO: - Error model
                     self?.presenter?.didFailObtainCategories(error: nil)
                     return
                 }
-                
+
                 self?.presenter?.didSuccessObtain(categories: categories)
-                
+
             case .failure(let error):
                 self?.presenter?.didFailObtainCategories(error: error)
             }

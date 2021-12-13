@@ -12,12 +12,12 @@ protocol AuthorizationViewOutput: ViewOutput {
 }
 
 protocol AuthorizationInteractorOutput: AnyObject {
-    func didSuccessAuthorize(userModel: AuthorizedUserModel)
+    func didSuccessAuthorize()
     func didFailAuthorize()
 }
 
 protocol AuthorizationModuleOutput: AnyObject {
-    func didSuccessAuthorized(userModel: AuthorizedUserModel)
+    func didSuccessAuthorized()
 }
 
 final class AuthorizationPresenter {
@@ -66,9 +66,9 @@ extension AuthorizationPresenter: AuthorizationViewOutput {
 // MARK: AuthorizationInteractorOutput
 extension AuthorizationPresenter: AuthorizationInteractorOutput {
     
-    func didSuccessAuthorize(userModel: AuthorizedUserModel) {
+    func didSuccessAuthorize() {
         view?.hideHUD()
-        moduleOutput?.didSuccessAuthorized(userModel: userModel)
+        moduleOutput?.didSuccessAuthorized()
     }
     
     func didFailAuthorize() {

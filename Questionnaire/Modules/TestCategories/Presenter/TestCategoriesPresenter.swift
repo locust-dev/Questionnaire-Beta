@@ -9,7 +9,7 @@
 protocol TestCategoriesViewOutput: ViewOutput {  }
 
 protocol TestCategoriesInteractorOutput: AnyObject {
-    func didSuccessObtain(categories: [String])
+    func didSuccessObtain(categories: [TestCategoryModel])
     func didFailObtainCategories(error: Error?)
 }
 
@@ -48,7 +48,7 @@ extension TestCategoriesPresenter: TestCategoriesViewOutput {
 // MARK: - TestCategoriesInteractorOutput
 extension TestCategoriesPresenter: TestCategoriesInteractorOutput {
     
-    func didSuccessObtain(categories: [String]) {
+    func didSuccessObtain(categories: [TestCategoryModel]) {
         
         view?.hideHUD()
         

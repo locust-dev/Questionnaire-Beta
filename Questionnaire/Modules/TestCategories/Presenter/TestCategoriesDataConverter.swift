@@ -6,7 +6,7 @@
 //
 
 protocol TestCategoriesDataConverterInput: AnyObject {
-    func convert(categories: [String]) -> TestCategoriesViewModel
+    func convert(categories: [TestCategoryModel]) -> TestCategoriesViewModel
 }
 
 final class TestCategoriesDataConverter {
@@ -18,9 +18,9 @@ final class TestCategoriesDataConverter {
     
     // MARK: - Private methods
 
-    private func createCategoryRow(category: String) -> TestCategoriesViewModel.Row {
+    private func createCategoryRow(category: TestCategoryModel) -> TestCategoriesViewModel.Row {
 
-        let model = TestCategoryCell.Model(name: category)
+        let model = TestCategoryCell.Model(name: category.fullTitle)
         let configurator = CategoryCellConfigurator(item: model)
         return TestCategoriesViewModel.Row(configurator: configurator)
     }
@@ -30,10 +30,8 @@ final class TestCategoriesDataConverter {
 // MARK: - TestCategoriesDataConverterInput
 extension TestCategoriesDataConverter: TestCategoriesDataConverterInput {
     
-    func convert(categories: [String]) -> TestCategoriesViewModel {
-        
+    func convert(categories: [TestCategoryModel]) -> TestCategoriesViewModel {
         let rows = categories.map { createCategoryRow(category: $0) }
-        
         return TestCategoriesViewModel.init(rows: rows)
     }
     

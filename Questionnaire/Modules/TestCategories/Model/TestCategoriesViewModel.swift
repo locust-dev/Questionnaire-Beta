@@ -23,5 +23,6 @@ struct TestCategoriesViewModel {
         }
         
         var configurator: TableCellConfiguratorProtocol
+        
     }
 }
