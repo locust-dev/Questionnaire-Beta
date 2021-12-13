@@ -1,14 +1,14 @@
 //
-//  TestsRouter.swift
+//  TestCategoriesRouter.swift
 //  Questionnaire
 //
 //  Created Ilya Turin on 10.12.2021.
 //  Copyright © 2021 FINCH. All rights reserved.
 //
 
-protocol TestsRouterInput {  }
+protocol TestCategoriesRouterInput {  }
 
-final class TestsRouter {
+final class TestCategoriesRouter {
     
     // MARK: - Properties
     
@@ -24,5 +24,5 @@ final class TestsRouter {
 }
 
 
-// MARK: - TestsRouterInput
-extension TestsRouter: TestsRouterInput {  }
+// MARK: - TestCategoriesRouterInput
+extension TestCategoriesRouter: TestCategoriesRouterInput {  }

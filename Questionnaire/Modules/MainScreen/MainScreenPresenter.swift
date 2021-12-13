@@ -20,18 +20,19 @@ final class MainScreenPresenter {
     
     var interactor: MainScreenInteractorInput?
     var router: MainScreenRouterInput?
+    
+    // TODO: - Think about usability
     var authorizedUser: AuthorizedUserModel?
     
     
     // MARK: - Private methods
     
-    private func setViewControllers() -> [UIViewController] {
+    private func createViewControllers() -> [UIViewController] {
         
         let userModule: Module
         
-        if let userModel = authorizedUser,
-           interactor?.isAuthorized == true {
-            let profileModel = ProfileAssembly.Model(tabBarTitle: "Profile", username: userModel.username, userID: userModel.userID)
+        if interactor?.isAuthorized == true {
+            let profileModel = ProfileAssembly.Model(moduleOutput: self ,tabBarTitle: "Profile", username: "MAX", userID: "123")
             userModule = ProfileAssembly.assembleModule(with: profileModel)
             
         } else {
@@ -41,8 +42,8 @@ final class MainScreenPresenter {
         }
         
         // TODO: - From config
-        let testsModel = TestsAssembly.Model(tabBarTitle: "Tests")
-        let testsModule = TestsAssembly.assembleModule(with: testsModel)
+        let testsModel = TestCategoriesAssembly.Model(tabBarTitle: "Tests")
+        let testsModule = TestCategoriesAssembly.assembleModule(with: testsModel)
         
         return [testsModule, userModule]
     }
@@ -54,8 +55,7 @@ final class MainScreenPresenter {
 extension MainScreenPresenter: MainScreenViewOutput {
     
     func viewWillAppear() {
-        interactor?.getData(.categories)
-        view?.set(viewControllers: setViewControllers())
+        view?.set(viewControllers: createViewControllers())
     }
 }
 
@@ -69,6 +69,18 @@ extension MainScreenPresenter: AuthorizationModuleOutput {
     
     func didSuccessAuthorized(userModel: AuthorizedUserModel) {
         authorizedUser = userModel
-        view?.set(viewControllers: setViewControllers())
+        view?.set(viewControllers: createViewControllers())
+    }
+}
+
+
+// MARK: - ProfileModuleOutput
+extension MainScreenPresenter: ProfileModuleOutput {
+    
+    func didTapLogOutButton() {
+        interactor?.logOut()
+        
+        let viewControllers = createViewControllers()
+        view?.set(viewControllers: viewControllers)
     }
 }

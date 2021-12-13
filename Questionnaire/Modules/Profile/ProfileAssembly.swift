@@ -18,7 +18,7 @@ final class ProfileAssembly: Assembly {
         
         let view = ProfileViewController()
         let router = ProfileRouter(transition: view)
-        let presenter = ProfilePresenter(username: model.username, userID: model.userID)
+        let presenter = ProfilePresenter(username: model.username, userID: model.userID, moduleOutput: model.moduleOutput)
         
         view.presenter = presenter
         
@@ -38,6 +38,8 @@ final class ProfileAssembly: Assembly {
 extension ProfileAssembly {
     
     struct Model: TransitionModel {
+        
+        weak var moduleOutput: ProfileModuleOutput?
         
         let tabBarTitle: String
         let username: String

@@ -16,12 +16,12 @@ final class AuthorizationInteractor {
     
     weak var presenter: AuthorizationInteractorOutput?
     
-    private let authorizationService: FirebaseAuthServiceProtocol
+    private let authorizationService: FBAuthServiceProtocol
     
     
     // MARK: - Init
     
-    init(authorizationService: FirebaseAuthServiceProtocol) {
+    init(authorizationService: FBAuthServiceProtocol) {
         self.authorizationService = authorizationService
     }
     

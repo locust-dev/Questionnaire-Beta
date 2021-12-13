@@ -6,7 +6,13 @@
 //  Copyright © 2021 FINCH. All rights reserved.
 //
 
-protocol ProfileViewOutput: ViewOutput {  }
+protocol ProfileViewOutput: ViewOutput {
+    func didTapLogOutButton()
+}
+
+protocol ProfileModuleOutput: AnyObject {
+    func didTapLogOutButton()
+}
 
 final class ProfilePresenter {
     
@@ -18,13 +24,15 @@ final class ProfilePresenter {
     
     private let username: String
     private let userID: String
+    private let moduleOutput: ProfileModuleOutput?
     
     
     // MARK: - Init
     
-    init(username: String, userID: String) {
+    init(username: String, userID: String, moduleOutput: ProfileModuleOutput?) {
         self.username = username
         self.userID = userID
+        self.moduleOutput = moduleOutput
     }
     
 }
@@ -37,5 +45,9 @@ extension ProfilePresenter: ProfileViewOutput {
         
         let viewModel = ProfileViewModel(username: username, userID: userID)
         view?.update(with: viewModel)
+    }
+    
+    func didTapLogOutButton() {
+        moduleOutput?.didTapLogOutButton()
     }
 }

@@ -7,7 +7,7 @@
 //
 
 protocol MainScreenRouterInput {
-    func openAuthorization()
+   
 }
 
 final class MainScreenRouter {
@@ -29,7 +29,5 @@ final class MainScreenRouter {
 // MARK: - MainScreenRouterInput
 extension MainScreenRouter: MainScreenRouterInput {
     
-    func openAuthorization() {
-       // transition.present(animated: true, moduleType: AuthorizationAssembly.self)
-    }
+   
 }

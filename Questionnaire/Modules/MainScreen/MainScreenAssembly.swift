@@ -10,7 +10,7 @@ final class MainScreenAssembly: Assembly {
     
     static func assembleModule() -> Module {
         
-        let authService = FirebaseAuthService()
+        let authService = FBAuthService()
         let databaseService = FBDatabaseService()
         
         let view = MainScreenViewController()

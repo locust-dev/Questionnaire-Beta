@@ -16,7 +16,7 @@ final class AuthorizationAssembly: Assembly {
             fatalError("Wrong model for AuthorizationModule")
         }
         
-        let authService = FirebaseAuthService()
+        let authService = FBAuthService()
         
         let view = AuthorizationViewController()
         let router = AuthorizationRouter(transition: view)
