@@ -77,6 +77,12 @@ extension TestListPresenter: TestListInteractorOutput {
 extension TestListPresenter: TestListTableViewManagerDelegate {
     
     func didTapOnTest(_ test: Test) {
-        router?.openTest(with: test.questions)
+        
+        guard let questions = test.questions else {
+            view?.showAlertIfNoTests()
+            return
+        }
+        
+        router?.openTest(with: questions)
     }
 }

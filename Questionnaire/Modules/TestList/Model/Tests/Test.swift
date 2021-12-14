@@ -7,7 +7,7 @@
 
 struct Test: Decodable {
     
-    let id: Int
-    let testName: String
-    let questions: [Question]
+    let id: Int?
+    let testName: String?
+    let questions: [Question]?
 }

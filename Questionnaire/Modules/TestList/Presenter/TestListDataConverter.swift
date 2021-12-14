@@ -20,8 +20,7 @@ final class TestListDataConverter {
     // MARK: - Private methods
 
     private func createTestRow(test: Test) -> TestListViewModel.Row {
-
-        let model = TestCell.Model(testName: test.testName)
+        let model = TestCell.Model(testName: test.testName ?? "< Test without name >")
         let configurator = TestCellConfigurator(item: model)
         return TestListViewModel.Row(configurator: configurator)
     }

@@ -48,6 +48,13 @@
 		19436D492768C5E600D2FA0A /* TestQuestionConfirmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D482768C5E600D2FA0A /* TestQuestionConfirmCell.swift */; };
 		19436D4B2768CD2000D2FA0A /* Delegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D4A2768CD2000D2FA0A /* Delegatable.swift */; };
 		19436D4D2768DA7C00D2FA0A /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D4C2768DA7C00D2FA0A /* UIStackView.swift */; };
+		19436D562768DD1E00D2FA0A /* TestResultDataConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D4F2768DD1E00D2FA0A /* TestResultDataConverter.swift */; };
+		19436D572768DD1E00D2FA0A /* TestResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D502768DD1E00D2FA0A /* TestResultPresenter.swift */; };
+		19436D582768DD1E00D2FA0A /* TestResultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D512768DD1E00D2FA0A /* TestResultRouter.swift */; };
+		19436D592768DD1E00D2FA0A /* TestResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D522768DD1E00D2FA0A /* TestResultViewController.swift */; };
+		19436D5A2768DD1E00D2FA0A /* TestResultAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D532768DD1E00D2FA0A /* TestResultAssembly.swift */; };
+		19436D5B2768DD1E00D2FA0A /* TestResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D542768DD1E00D2FA0A /* TestResultViewModel.swift */; };
+		19436D5C2768DD1E00D2FA0A /* TestResultTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D552768DD1E00D2FA0A /* TestResultTableViewManager.swift */; };
 		1952AA722760FD3D00675931 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1952AA712760FD3D00675931 /* AppDelegate.swift */; };
 		1952AA7B2760FD3E00675931 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1952AA7A2760FD3E00675931 /* Assets.xcassets */; };
 		1952AA7E2760FD3E00675931 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1952AA7C2760FD3E00675931 /* LaunchScreen.storyboard */; };
@@ -162,6 +169,13 @@
 		19436D482768C5E600D2FA0A /* TestQuestionConfirmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionConfirmCell.swift; sourceTree = "<group>"; };
 		19436D4A2768CD2000D2FA0A /* Delegatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegatable.swift; sourceTree = "<group>"; };
 		19436D4C2768DA7C00D2FA0A /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
+		19436D4F2768DD1E00D2FA0A /* TestResultDataConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultDataConverter.swift; sourceTree = "<group>"; };
+		19436D502768DD1E00D2FA0A /* TestResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultPresenter.swift; sourceTree = "<group>"; };
+		19436D512768DD1E00D2FA0A /* TestResultRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultRouter.swift; sourceTree = "<group>"; };
+		19436D522768DD1E00D2FA0A /* TestResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultViewController.swift; sourceTree = "<group>"; };
+		19436D532768DD1E00D2FA0A /* TestResultAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultAssembly.swift; sourceTree = "<group>"; };
+		19436D542768DD1E00D2FA0A /* TestResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultViewModel.swift; sourceTree = "<group>"; };
+		19436D552768DD1E00D2FA0A /* TestResultTableViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultTableViewManager.swift; sourceTree = "<group>"; };
 		1952AA6E2760FD3D00675931 /* Questionnaire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Questionnaire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1952AA712760FD3D00675931 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1952AA7A2760FD3E00675931 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -521,6 +535,20 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		19436D4E2768DCED00D2FA0A /* TestResult */ = {
+			isa = PBXGroup;
+			children = (
+				19436D4F2768DD1E00D2FA0A /* TestResultDataConverter.swift */,
+				19436D502768DD1E00D2FA0A /* TestResultPresenter.swift */,
+				19436D512768DD1E00D2FA0A /* TestResultRouter.swift */,
+				19436D522768DD1E00D2FA0A /* TestResultViewController.swift */,
+				19436D532768DD1E00D2FA0A /* TestResultAssembly.swift */,
+				19436D542768DD1E00D2FA0A /* TestResultViewModel.swift */,
+				19436D552768DD1E00D2FA0A /* TestResultTableViewManager.swift */,
+			);
+			path = TestResult;
+			sourceTree = "<group>";
+		};
 		1952AA652760FD3D00675931 = {
 			isa = PBXGroup;
 			children = (
@@ -559,6 +587,7 @@
 		1952AA852760FE3700675931 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				19436D4E2768DCED00D2FA0A /* TestResult */,
 				19436D212768A59E00D2FA0A /* TestQuestion */,
 				19304D612768923000EA403A /* TestList */,
 				1982B5542763583D003DAB1A /* TestCategories */,
@@ -1017,17 +1046,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				1982B55A27635858003DAB1A /* TestCategoriesRouter.swift in Sources */,
+				19436D5B2768DD1E00D2FA0A /* TestResultViewModel.swift in Sources */,
 				1982B55C27635858003DAB1A /* TestCategoriesAssembly.swift in Sources */,
 				1982B54827633B1A003DAB1A /* AuthorizationInteractor.swift in Sources */,
+				19436D592768DD1E00D2FA0A /* TestResultViewController.swift in Sources */,
 				193D994127624052004ACA7F /* AuthorizationRouter.swift in Sources */,
 				1982B55927635858003DAB1A /* TestCategoriesPresenter.swift in Sources */,
 				1982B546276335F1003DAB1A /* DispatchQueue.swift in Sources */,
 				19304D6B2768925000EA403A /* TestListRouter.swift in Sources */,
+				19436D572768DD1E00D2FA0A /* TestResultPresenter.swift in Sources */,
 				193D993427623E60004ACA7F /* MainScreenRouter.swift in Sources */,
 				19D5C9D82767538C000109F2 /* AlertAction.swift in Sources */,
 				19304D79276897B400EA403A /* Question.swift in Sources */,
 				19436D4B2768CD2000D2FA0A /* Delegatable.swift in Sources */,
 				1982B55E27636842003DAB1A /* Collection+SafeSubscript.swift in Sources */,
+				19436D582768DD1E00D2FA0A /* TestResultRouter.swift in Sources */,
 				19D5C9D127674B43000109F2 /* TestCategoriesDataConverter.swift in Sources */,
 				19D5C9C62767396F000109F2 /* TestCategoriesCell.swift in Sources */,
 				19304D81276898F100EA403A /* TestCell.swift in Sources */,
@@ -1069,6 +1102,7 @@
 				193D993727623E60004ACA7F /* MainScreenInteractor.swift in Sources */,
 				19436D342768A5DB00D2FA0A /* TestQuestionViewModel.swift in Sources */,
 				19D5C9C1276736D0000109F2 /* TestCategoriesViewModel.swift in Sources */,
+				19436D5A2768DD1E00D2FA0A /* TestResultAssembly.swift in Sources */,
 				1982B55B27635858003DAB1A /* TestCategoriesViewController.swift in Sources */,
 				19436D432768AB6D00D2FA0A /* AnswerButton.swift in Sources */,
 				193D993527623E60004ACA7F /* MainScreenViewController.swift in Sources */,
@@ -1076,9 +1110,11 @@
 				1982B565276398E7003DAB1A /* ProfileRouter.swift in Sources */,
 				1982B56C27639B10003DAB1A /* AuthorizedUserModel.swift in Sources */,
 				19304D6D2768925000EA403A /* TestListAssembly.swift in Sources */,
+				19436D562768DD1E00D2FA0A /* TestResultDataConverter.swift in Sources */,
 				1982B5692763998A003DAB1A /* ProfileViewModel.swift in Sources */,
 				19436D312768A5DB00D2FA0A /* TestQuestionAssembly.swift in Sources */,
 				19D5C9D327674BF1000109F2 /* TableCellConfigurator.swift in Sources */,
+				19436D5C2768DD1E00D2FA0A /* TestResultTableViewManager.swift in Sources */,
 				193D994027624052004ACA7F /* AuthorizationPresenter.swift in Sources */,
 				19304D74276896DD00EA403A /* TestsModel.swift in Sources */,
 				19D5C9CC27673F69000109F2 /* CellConfigurator.swift in Sources */,

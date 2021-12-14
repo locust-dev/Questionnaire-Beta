@@ -40,8 +40,10 @@ final class TestQuestionPresenter {
     
     private func setQuestion() {
         
-        guard let question = questions[safe: currentQuestionNumber - 1] else {
-            // TODO: - Handle not yet questions
+        guard let question = questions[safe: currentQuestionNumber - 1],
+              currentQuestionNumber <= questions.count
+        else {
+            router?.openResults(userAnswers: userAnswers)
             return
         }
         
@@ -58,7 +60,6 @@ extension TestQuestionPresenter: TestQuestionViewOutput {
     func viewIsReady() {
         setQuestion()
     }
-    
 }
 
 
@@ -83,5 +84,4 @@ extension TestQuestionPresenter: TestQuestionTableViewManagerDelegate {
         currentQuestionNumber += 1
         setQuestion()
     }
-
 }
