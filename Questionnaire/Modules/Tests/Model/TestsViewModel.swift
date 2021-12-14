@@ -1,11 +1,12 @@
 //
-//  TestCategoriesViewModel.swift
+//  TestsViewModel.swift
 //  Questionnaire
 //
-//  Created by Ilya Turin on 13.12.2021.
+//  Created Ilya Turin on 14.12.2021.
+//  Copyright © 2021 FINCH. All rights reserved.
 //
 
-struct TestCategoriesViewModel {
+struct TestsViewModel {
     
     // MARK: - Properties
     
@@ -24,7 +25,6 @@ struct TestCategoriesViewModel {
         
         var configurator: TableCellConfiguratorProtocol
         
-        let categoryId: String
-        
     }
+    
 }

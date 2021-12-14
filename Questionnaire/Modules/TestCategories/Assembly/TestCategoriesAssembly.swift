@@ -13,7 +13,7 @@ final class TestCategoriesAssembly: Assembly {
     static func assembleModule(with model: TransitionModel) -> Module {
         
         guard let model = model as? Model else {
-            fatalError("Wrong model for TestsModule")
+            fatalError("Wrong model for TestCategoriesModule")
         }
         
         let authService = FBAuthService()

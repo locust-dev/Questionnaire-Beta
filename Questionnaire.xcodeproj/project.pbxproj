@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19304D692768925000EA403A /* TestsDataConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D622768925000EA403A /* TestsDataConverter.swift */; };
+		19304D6A2768925000EA403A /* TestsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D632768925000EA403A /* TestsPresenter.swift */; };
+		19304D6B2768925000EA403A /* TestsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D642768925000EA403A /* TestsRouter.swift */; };
+		19304D6C2768925000EA403A /* TestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D652768925000EA403A /* TestsViewController.swift */; };
+		19304D6D2768925000EA403A /* TestsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D662768925000EA403A /* TestsAssembly.swift */; };
+		19304D6E2768925000EA403A /* TestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D672768925000EA403A /* TestsViewModel.swift */; };
+		19304D6F2768925000EA403A /* TestsTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D682768925000EA403A /* TestsTableViewManager.swift */; };
+		19304D71276894BC00EA403A /* TestsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D70276894BC00EA403A /* TestsInteractor.swift */; };
+		19304D74276896DD00EA403A /* TestsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D73276896DD00EA403A /* TestsModel.swift */; };
+		19304D77276897AF00EA403A /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D76276897AF00EA403A /* Test.swift */; };
+		19304D79276897B400EA403A /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D78276897B400EA403A /* Question.swift */; };
+		19304D81276898F100EA403A /* TestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D80276898F100EA403A /* TestCell.swift */; };
 		193D993327623E60004ACA7F /* MainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193D992C27623E60004ACA7F /* MainScreenPresenter.swift */; };
 		193D993427623E60004ACA7F /* MainScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193D992D27623E60004ACA7F /* MainScreenRouter.swift */; };
 		193D993527623E60004ACA7F /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193D992E27623E60004ACA7F /* MainScreenViewController.swift */; };
@@ -96,6 +108,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		19304D622768925000EA403A /* TestsDataConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsDataConverter.swift; sourceTree = "<group>"; };
+		19304D632768925000EA403A /* TestsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsPresenter.swift; sourceTree = "<group>"; };
+		19304D642768925000EA403A /* TestsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsRouter.swift; sourceTree = "<group>"; };
+		19304D652768925000EA403A /* TestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsViewController.swift; sourceTree = "<group>"; };
+		19304D662768925000EA403A /* TestsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsAssembly.swift; sourceTree = "<group>"; };
+		19304D672768925000EA403A /* TestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsViewModel.swift; sourceTree = "<group>"; };
+		19304D682768925000EA403A /* TestsTableViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsTableViewManager.swift; sourceTree = "<group>"; };
+		19304D70276894BC00EA403A /* TestsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsInteractor.swift; sourceTree = "<group>"; };
+		19304D73276896DD00EA403A /* TestsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsModel.swift; sourceTree = "<group>"; };
+		19304D76276897AF00EA403A /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		19304D78276897B400EA403A /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		19304D80276898F100EA403A /* TestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCell.swift; sourceTree = "<group>"; };
 		193D992C27623E60004ACA7F /* MainScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenPresenter.swift; sourceTree = "<group>"; };
 		193D992D27623E60004ACA7F /* MainScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenRouter.swift; sourceTree = "<group>"; };
 		193D992E27623E60004ACA7F /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
@@ -200,6 +224,89 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19304D612768923000EA403A /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				19304D7D2768986A00EA403A /* Assembly */,
+				19304D7A2768985A00EA403A /* Presenter */,
+				19304D7E2768986F00EA403A /* Interactor */,
+				19304D7C2768986500EA403A /* View */,
+				19304D72276896D600EA403A /* Model */,
+				19304D7B2768986100EA403A /* Router */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		19304D72276896D600EA403A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				19304D672768925000EA403A /* TestsViewModel.swift */,
+				19304D75276897A100EA403A /* Tests */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		19304D75276897A100EA403A /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				19304D73276896DD00EA403A /* TestsModel.swift */,
+				19304D76276897AF00EA403A /* Test.swift */,
+				19304D78276897B400EA403A /* Question.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		19304D7A2768985A00EA403A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				19304D622768925000EA403A /* TestsDataConverter.swift */,
+				19304D632768925000EA403A /* TestsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		19304D7B2768986100EA403A /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				19304D642768925000EA403A /* TestsRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		19304D7C2768986500EA403A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				19304D7F276898EC00EA403A /* Cells */,
+				19304D682768925000EA403A /* TestsTableViewManager.swift */,
+				19304D652768925000EA403A /* TestsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		19304D7D2768986A00EA403A /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				19304D662768925000EA403A /* TestsAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		19304D7E2768986F00EA403A /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				19304D70276894BC00EA403A /* TestsInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		19304D7F276898EC00EA403A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				19304D80276898F100EA403A /* TestCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		193D993927623E65004ACA7F /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,10 +370,11 @@
 		1952AA852760FE3700675931 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				1982B5542763583D003DAB1A /* TestCategories */,
+				19304D612768923000EA403A /* Tests */,
 				193D993927623E65004ACA7F /* MainScreen */,
 				1982B55F27639887003DAB1A /* Profile */,
 				193D994427624057004ACA7F /* Authorization */,
-				1982B5542763583D003DAB1A /* TestCategories */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -723,18 +831,24 @@
 				193D994127624052004ACA7F /* AuthorizationRouter.swift in Sources */,
 				1982B55927635858003DAB1A /* TestCategoriesPresenter.swift in Sources */,
 				1982B546276335F1003DAB1A /* DispatchQueue.swift in Sources */,
+				19304D6B2768925000EA403A /* TestsRouter.swift in Sources */,
 				193D993427623E60004ACA7F /* MainScreenRouter.swift in Sources */,
 				19D5C9D82767538C000109F2 /* AlertAction.swift in Sources */,
+				19304D79276897B400EA403A /* Question.swift in Sources */,
 				1982B55E27636842003DAB1A /* Collection+SafeSubscript.swift in Sources */,
 				19D5C9D127674B43000109F2 /* TestCategoriesDataConverter.swift in Sources */,
 				19D5C9C62767396F000109F2 /* TestCategoriesCell.swift in Sources */,
+				19304D81276898F100EA403A /* TestCell.swift in Sources */,
 				1982B5512763467C003DAB1A /* ProgressHUDContainer.swift in Sources */,
 				1952AA93276100C600675931 /* Assembly.swift in Sources */,
+				19304D6C2768925000EA403A /* TestsViewController.swift in Sources */,
 				193D994227624052004ACA7F /* AuthorizationViewController.swift in Sources */,
 				1982B564276398E7003DAB1A /* ProfilePresenter.swift in Sources */,
 				19D5C9E12767B2D0000109F2 /* ErrorModel.swift in Sources */,
 				1982B54B27634287003DAB1A /* UIViewController+HUD.swift in Sources */,
+				19304D6E2768925000EA403A /* TestsViewModel.swift in Sources */,
 				193D99532762507D004ACA7F /* AuthorizationViewModel.swift in Sources */,
+				19304D6F2768925000EA403A /* TestsTableViewManager.swift in Sources */,
 				1952AA95276100EE00675931 /* TransitionModel.swift in Sources */,
 				19BB25F32764C35E004F165B /* FBDatabaseReference.swift in Sources */,
 				19D5C9D527675343000109F2 /* Alertable.swift in Sources */,
@@ -745,7 +859,9 @@
 				1952AA722760FD3D00675931 /* AppDelegate.swift in Sources */,
 				1982B567276398E7003DAB1A /* ProfileAssembly.swift in Sources */,
 				19BB25F12764A8B4004F165B /* FBDatabaseService.swift in Sources */,
+				19304D77276897AF00EA403A /* Test.swift in Sources */,
 				193D994327624052004ACA7F /* AuthorizationAssembly.swift in Sources */,
+				19304D6A2768925000EA403A /* TestsPresenter.swift in Sources */,
 				193D994D27624BF6004ACA7F /* R.generated.swift in Sources */,
 				1952AA8E2761003D00675931 /* ViewOutput.swift in Sources */,
 				193D993727623E60004ACA7F /* MainScreenInteractor.swift in Sources */,
@@ -755,9 +871,11 @@
 				19D5C9CF27674098000109F2 /* TestCategoriesInteractor.swift in Sources */,
 				1982B565276398E7003DAB1A /* ProfileRouter.swift in Sources */,
 				1982B56C27639B10003DAB1A /* AuthorizedUserModel.swift in Sources */,
+				19304D6D2768925000EA403A /* TestsAssembly.swift in Sources */,
 				1982B5692763998A003DAB1A /* ProfileViewModel.swift in Sources */,
 				19D5C9D327674BF1000109F2 /* TableCellConfigurator.swift in Sources */,
 				193D994027624052004ACA7F /* AuthorizationPresenter.swift in Sources */,
+				19304D74276896DD00EA403A /* TestsModel.swift in Sources */,
 				19D5C9CC27673F69000109F2 /* CellConfigurator.swift in Sources */,
 				19D5C9DB27679F6B000109F2 /* TestCategoryModel.swift in Sources */,
 				1982B54F27634582003DAB1A /* ProgressHUDSize.swift in Sources */,
@@ -765,6 +883,7 @@
 				193D993327623E60004ACA7F /* MainScreenPresenter.swift in Sources */,
 				193D993827623E60004ACA7F /* MainScreenModel.swift in Sources */,
 				1982B54D2763446B003DAB1A /* ProgressHUD.swift in Sources */,
+				19304D692768925000EA403A /* TestsDataConverter.swift in Sources */,
 				19BB25F92764CC18004F165B /* FBDatabaseRequestKey.swift in Sources */,
 				193D993627623E60004ACA7F /* MainScreenAssembly.swift in Sources */,
 				19D5C9C827673B21000109F2 /* UITableVIew+RegisterCell.swift in Sources */,
@@ -772,6 +891,7 @@
 				193D995127624E1E004ACA7F /* Configurable.swift in Sources */,
 				193D994F27624C0C004ACA7F /* Constants.swift in Sources */,
 				19D5C9DE2767AEAA000109F2 /* Parser.swift in Sources */,
+				19304D71276894BC00EA403A /* TestsInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

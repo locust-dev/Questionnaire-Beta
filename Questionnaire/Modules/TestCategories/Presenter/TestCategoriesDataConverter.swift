@@ -22,7 +22,7 @@ final class TestCategoriesDataConverter {
 
         let model = TestCategoryCell.Model(name: category.fullTitle)
         let configurator = CategoryCellConfigurator(item: model)
-        return TestCategoriesViewModel.Row(configurator: configurator)
+        return TestCategoriesViewModel.Row(configurator: configurator, categoryId: category.identifier)
     }
 }
 
@@ -32,7 +32,7 @@ extension TestCategoriesDataConverter: TestCategoriesDataConverterInput {
     
     func convert(categories: [TestCategoryModel]) -> TestCategoriesViewModel {
         let rows = categories.map { createCategoryRow(category: $0) }
-        return TestCategoriesViewModel.init(rows: rows)
+        return TestCategoriesViewModel(rows: rows)
     }
     
 }

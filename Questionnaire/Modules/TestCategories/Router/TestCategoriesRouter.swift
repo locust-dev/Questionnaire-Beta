@@ -6,7 +6,9 @@
 //  Copyright © 2021 FINCH. All rights reserved.
 //
 
-protocol TestCategoriesRouterInput {  }
+protocol TestCategoriesRouterInput {
+    func openTests(by categoryId: String)
+}
 
 final class TestCategoriesRouter {
     
@@ -25,4 +27,11 @@ final class TestCategoriesRouter {
 
 
 // MARK: - TestCategoriesRouterInput
-extension TestCategoriesRouter: TestCategoriesRouterInput {  }
+extension TestCategoriesRouter: TestCategoriesRouterInput {
+    
+    func openTests(by categoryId: String) {
+        let testsModel = TestsAssembly.Model(categoryId: categoryId)
+        transition.push(with: testsModel, openModuleType: TestsAssembly.self)
+    }
+    
+}

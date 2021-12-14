@@ -7,14 +7,14 @@
 
 import Foundation
 
-protocol TestCategoriesInteractorInput {
+protocol TestCategoriesInteractorInput: Parser {
     
     var isAuthorized: Bool { get }
     
     func getCategories()
 }
 
-final class TestCategoriesInteractor: Parser {
+final class TestCategoriesInteractor {
     
     // MARK: - Properties
     
