@@ -1,34 +1,34 @@
 //
-//  TestsPresenter.swift
+//  TestListPresenter.swift
 //  Questionnaire
 //
 //  Created Ilya Turin on 14.12.2021.
 //  Copyright © 2021 FINCH. All rights reserved.
 //
 
-protocol TestsViewOutput: ViewOutput {  }
+protocol TestListViewOutput: ViewOutput {  }
 
-protocol TestsInteractorOutput: AnyObject {
+protocol TestListInteractorOutput: AnyObject {
     func didSuccessObtainTests(_ tests: [TestsModel])
     func didFailObtainTests()
 }
 
-final class TestsPresenter {
+final class TestListPresenter {
     
     // MARK: - Properties
     
-    weak var view: TestsViewInput?
+    weak var view: TestListViewInput?
     
-    var router: TestsRouterInput?
-    var interactor: TestsInteractorInput?
+    var router: TestListRouterInput?
+    var interactor: TestListInteractorInput?
 
-    private let dataConverter: TestsDataConverterInput
+    private let dataConverter: TestListDataConverterInput
     private let categoryId: String
     
     
     // MARK: - Init
     
-    init(dataConverter: TestsDataConverterInput,
+    init(dataConverter: TestListDataConverterInput,
          categoryId: String) {
         
         self.dataConverter = dataConverter
@@ -38,8 +38,8 @@ final class TestsPresenter {
 }
 
 
-// MARK: - TestsViewOutput
-extension TestsPresenter: TestsViewOutput {
+// MARK: - TestListViewOutput
+extension TestListPresenter: TestListViewOutput {
     
     func viewIsReady() {
         view?.showHUD()
@@ -49,13 +49,13 @@ extension TestsPresenter: TestsViewOutput {
 }
 
 
-// MARK: - TestsInteractorOutput
-extension TestsPresenter: TestsInteractorOutput {
+// MARK: - TestListInteractorOutput
+extension TestListPresenter: TestListInteractorOutput {
     
     func didSuccessObtainTests(_ tests: [TestsModel]) {
         view?.hideHUD()
         
-        guard let testsByCurrentCategory = tests.filter { $0.categoryIdentifier == categoryId }.first
+        guard let testsByCurrentCategory = tests.filter({ $0.categoryIdentifier == categoryId }).first
         else {
             // TODO: - Handle error
             return
@@ -73,5 +73,10 @@ extension TestsPresenter: TestsInteractorOutput {
 }
 
 
-// MARK: - TestsTableViewManagerDelegate
-extension TestsPresenter: TestsTableViewManagerDelegate {  }
+// MARK: - TestListTableViewManagerDelegate
+extension TestListPresenter: TestListTableViewManagerDelegate {
+    
+    func didTapOnTest(_ test: Test) {
+        router?.openTest(with: test.questions)
+    }
+}

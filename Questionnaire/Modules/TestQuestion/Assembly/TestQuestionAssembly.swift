@@ -1,28 +1,26 @@
 //
-//  TestsAssembly.swift
+//  TestQuestionAssembly.swift
 //  Questionnaire
 //
 //  Created Ilya Turin on 14.12.2021.
 //  Copyright © 2021 FINCH. All rights reserved.
 //
 
-final class TestsAssembly: Assembly {
+final class TestQuestionAssembly: Assembly {
     
     static func assembleModule(with model: TransitionModel) -> Module {
         
         guard let model = model as? Model else {
-            fatalError("Wrong model for TestsModule")
+            fatalError("Wrong model for TestQuestionModule")
         }
         
-        let databaseService = FBDatabaseService()
+        let tableViewManager = TestQuestionTableViewManager()
+        let dataConverter = TestQuestionDataConverter()
         
-        let tableViewManager = TestsTableViewManager()
-        let dataConverter = TestsDataConverter()
-        
-        let interactor = TestsInteractor(databaseService: databaseService)
-        let view = TestsViewController()
-        let router = TestsRouter(transition: view)
-        let presenter = TestsPresenter(dataConverter: dataConverter, categoryId: model.categoryId)
+        let view = TestQuestionViewController()
+        let router = TestQuestionRouter(transition: view)
+        let presenter = TestQuestionPresenter(dataConverter: dataConverter, questions: model.questions)
+        let interactor = TestQuestionInteractor()
         
         tableViewManager.delegate = presenter
         
@@ -30,8 +28,8 @@ final class TestsAssembly: Assembly {
         view.tableViewManager = tableViewManager
         
         presenter.view = view
-        presenter.router = router
         presenter.interactor = interactor
+        presenter.router = router
         
         interactor.presenter = presenter
         
@@ -42,11 +40,11 @@ final class TestsAssembly: Assembly {
 
 
 // MARK: - Model
-extension TestsAssembly {
+extension TestQuestionAssembly {
     
     struct Model: TransitionModel {
         
-        let categoryId: String
+        let questions: [Question]
     }
     
 }

@@ -1,5 +1,5 @@
 //
-//  TestsViewController.swift
+//  TestListViewController.swift
 //  Questionnaire
 //
 //  Created Ilya Turin on 14.12.2021.
@@ -8,16 +8,16 @@
 
 import UIKit
 
-protocol TestsViewInput: Loadable, AnyObject {
-    func update(with viewModel: TestsViewModel)
+protocol TestListViewInput: Loadable, AnyObject {
+    func update(with viewModel: TestListViewModel)
 }
 
-final class TestsViewController: UIViewController {
+final class TestListViewController: UIViewController {
 	
     // MARK: - Public properties
     
-	var presenter: TestsViewOutput?
-    var tableViewManager: TestsTableViewManagerInput?
+	var presenter: TestListViewOutput?
+    var tableViewManager: TestListTableViewManagerInput?
     
     private let tableView = UITableView()
     
@@ -44,10 +44,10 @@ final class TestsViewController: UIViewController {
 }
 
 
-// MARK: - TestsViewInput
-extension TestsViewController: TestsViewInput {
+// MARK: - TestListViewInput
+extension TestListViewController: TestListViewInput {
     
-    func update(with viewModel: TestsViewModel) {
+    func update(with viewModel: TestListViewModel) {
         tableViewManager?.update(with: viewModel)
     }
     

@@ -36,6 +36,7 @@ extension TestCategoriesTableViewManager: TestCategoriesTableViewManagerInput {
         tableView.register(TestCategoryCell.self)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorStyle = .none
         self.tableView = tableView
     }
     

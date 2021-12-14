@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		19304D692768925000EA403A /* TestsDataConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D622768925000EA403A /* TestsDataConverter.swift */; };
-		19304D6A2768925000EA403A /* TestsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D632768925000EA403A /* TestsPresenter.swift */; };
-		19304D6B2768925000EA403A /* TestsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D642768925000EA403A /* TestsRouter.swift */; };
-		19304D6C2768925000EA403A /* TestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D652768925000EA403A /* TestsViewController.swift */; };
-		19304D6D2768925000EA403A /* TestsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D662768925000EA403A /* TestsAssembly.swift */; };
-		19304D6E2768925000EA403A /* TestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D672768925000EA403A /* TestsViewModel.swift */; };
-		19304D6F2768925000EA403A /* TestsTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D682768925000EA403A /* TestsTableViewManager.swift */; };
-		19304D71276894BC00EA403A /* TestsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D70276894BC00EA403A /* TestsInteractor.swift */; };
+		19304D692768925000EA403A /* TestListDataConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D622768925000EA403A /* TestListDataConverter.swift */; };
+		19304D6A2768925000EA403A /* TestListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D632768925000EA403A /* TestListPresenter.swift */; };
+		19304D6B2768925000EA403A /* TestListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D642768925000EA403A /* TestListRouter.swift */; };
+		19304D6C2768925000EA403A /* TestListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D652768925000EA403A /* TestListViewController.swift */; };
+		19304D6D2768925000EA403A /* TestListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D662768925000EA403A /* TestListAssembly.swift */; };
+		19304D6E2768925000EA403A /* TestListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D672768925000EA403A /* TestListViewModel.swift */; };
+		19304D6F2768925000EA403A /* TestListTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D682768925000EA403A /* TestListTableViewManager.swift */; };
+		19304D71276894BC00EA403A /* TestListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D70276894BC00EA403A /* TestListInteractor.swift */; };
 		19304D74276896DD00EA403A /* TestsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D73276896DD00EA403A /* TestsModel.swift */; };
 		19304D77276897AF00EA403A /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D76276897AF00EA403A /* Test.swift */; };
 		19304D79276897B400EA403A /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D78276897B400EA403A /* Question.swift */; };
@@ -34,6 +34,20 @@
 		193D994F27624C0C004ACA7F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193D994E27624C0C004ACA7F /* Constants.swift */; };
 		193D995127624E1E004ACA7F /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193D995027624E1E004ACA7F /* Configurable.swift */; };
 		193D99532762507D004ACA7F /* AuthorizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193D99522762507D004ACA7F /* AuthorizationViewModel.swift */; };
+		19436D2C2768A5DB00D2FA0A /* TestQuestionDataConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D222768A5DB00D2FA0A /* TestQuestionDataConverter.swift */; };
+		19436D2E2768A5DB00D2FA0A /* TestQuestionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D242768A5DB00D2FA0A /* TestQuestionPresenter.swift */; };
+		19436D2F2768A5DB00D2FA0A /* TestQuestionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D252768A5DB00D2FA0A /* TestQuestionRouter.swift */; };
+		19436D302768A5DB00D2FA0A /* TestQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D262768A5DB00D2FA0A /* TestQuestionViewController.swift */; };
+		19436D312768A5DB00D2FA0A /* TestQuestionAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D272768A5DB00D2FA0A /* TestQuestionAssembly.swift */; };
+		19436D322768A5DB00D2FA0A /* TestQuestionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D282768A5DB00D2FA0A /* TestQuestionInteractor.swift */; };
+		19436D342768A5DB00D2FA0A /* TestQuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D2A2768A5DB00D2FA0A /* TestQuestionViewModel.swift */; };
+		19436D352768A5DB00D2FA0A /* TestQuestionTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D2B2768A5DB00D2FA0A /* TestQuestionTableViewManager.swift */; };
+		19436D3E2768A83F00D2FA0A /* TestQuestionTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D3D2768A83F00D2FA0A /* TestQuestionTitleCell.swift */; };
+		19436D402768A85400D2FA0A /* TestAnswersCounterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D3F2768A85400D2FA0A /* TestAnswersCounterCell.swift */; };
+		19436D432768AB6D00D2FA0A /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D422768AB6D00D2FA0A /* AnswerButton.swift */; };
+		19436D492768C5E600D2FA0A /* TestQuestionConfirmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D482768C5E600D2FA0A /* TestQuestionConfirmCell.swift */; };
+		19436D4B2768CD2000D2FA0A /* Delegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D4A2768CD2000D2FA0A /* Delegatable.swift */; };
+		19436D4D2768DA7C00D2FA0A /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D4C2768DA7C00D2FA0A /* UIStackView.swift */; };
 		1952AA722760FD3D00675931 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1952AA712760FD3D00675931 /* AppDelegate.swift */; };
 		1952AA7B2760FD3E00675931 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1952AA7A2760FD3E00675931 /* Assets.xcassets */; };
 		1952AA7E2760FD3E00675931 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1952AA7C2760FD3E00675931 /* LaunchScreen.storyboard */; };
@@ -107,14 +121,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		19304D622768925000EA403A /* TestsDataConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsDataConverter.swift; sourceTree = "<group>"; };
-		19304D632768925000EA403A /* TestsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsPresenter.swift; sourceTree = "<group>"; };
-		19304D642768925000EA403A /* TestsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsRouter.swift; sourceTree = "<group>"; };
-		19304D652768925000EA403A /* TestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsViewController.swift; sourceTree = "<group>"; };
-		19304D662768925000EA403A /* TestsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsAssembly.swift; sourceTree = "<group>"; };
-		19304D672768925000EA403A /* TestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsViewModel.swift; sourceTree = "<group>"; };
-		19304D682768925000EA403A /* TestsTableViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsTableViewManager.swift; sourceTree = "<group>"; };
-		19304D70276894BC00EA403A /* TestsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsInteractor.swift; sourceTree = "<group>"; };
+		19304D622768925000EA403A /* TestListDataConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListDataConverter.swift; sourceTree = "<group>"; };
+		19304D632768925000EA403A /* TestListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListPresenter.swift; sourceTree = "<group>"; };
+		19304D642768925000EA403A /* TestListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListRouter.swift; sourceTree = "<group>"; };
+		19304D652768925000EA403A /* TestListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListViewController.swift; sourceTree = "<group>"; };
+		19304D662768925000EA403A /* TestListAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListAssembly.swift; sourceTree = "<group>"; };
+		19304D672768925000EA403A /* TestListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListViewModel.swift; sourceTree = "<group>"; };
+		19304D682768925000EA403A /* TestListTableViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListTableViewManager.swift; sourceTree = "<group>"; };
+		19304D70276894BC00EA403A /* TestListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListInteractor.swift; sourceTree = "<group>"; };
 		19304D73276896DD00EA403A /* TestsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsModel.swift; sourceTree = "<group>"; };
 		19304D76276897AF00EA403A /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		19304D78276897B400EA403A /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -134,6 +148,20 @@
 		193D994E27624C0C004ACA7F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		193D995027624E1E004ACA7F /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		193D99522762507D004ACA7F /* AuthorizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewModel.swift; sourceTree = "<group>"; };
+		19436D222768A5DB00D2FA0A /* TestQuestionDataConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionDataConverter.swift; sourceTree = "<group>"; };
+		19436D242768A5DB00D2FA0A /* TestQuestionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionPresenter.swift; sourceTree = "<group>"; };
+		19436D252768A5DB00D2FA0A /* TestQuestionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionRouter.swift; sourceTree = "<group>"; };
+		19436D262768A5DB00D2FA0A /* TestQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionViewController.swift; sourceTree = "<group>"; };
+		19436D272768A5DB00D2FA0A /* TestQuestionAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionAssembly.swift; sourceTree = "<group>"; };
+		19436D282768A5DB00D2FA0A /* TestQuestionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionInteractor.swift; sourceTree = "<group>"; };
+		19436D2A2768A5DB00D2FA0A /* TestQuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionViewModel.swift; sourceTree = "<group>"; };
+		19436D2B2768A5DB00D2FA0A /* TestQuestionTableViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionTableViewManager.swift; sourceTree = "<group>"; };
+		19436D3D2768A83F00D2FA0A /* TestQuestionTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionTitleCell.swift; sourceTree = "<group>"; };
+		19436D3F2768A85400D2FA0A /* TestAnswersCounterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAnswersCounterCell.swift; sourceTree = "<group>"; };
+		19436D422768AB6D00D2FA0A /* AnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
+		19436D482768C5E600D2FA0A /* TestQuestionConfirmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionConfirmCell.swift; sourceTree = "<group>"; };
+		19436D4A2768CD2000D2FA0A /* Delegatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegatable.swift; sourceTree = "<group>"; };
+		19436D4C2768DA7C00D2FA0A /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		1952AA6E2760FD3D00675931 /* Questionnaire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Questionnaire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1952AA712760FD3D00675931 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1952AA7A2760FD3E00675931 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -222,7 +250,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		19304D612768923000EA403A /* Tests */ = {
+		19304D612768923000EA403A /* TestList */ = {
 			isa = PBXGroup;
 			children = (
 				19304D7D2768986A00EA403A /* Assembly */,
@@ -232,13 +260,13 @@
 				19304D72276896D600EA403A /* Model */,
 				19304D7B2768986100EA403A /* Router */,
 			);
-			path = Tests;
+			path = TestList;
 			sourceTree = "<group>";
 		};
 		19304D72276896D600EA403A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				19304D672768925000EA403A /* TestsViewModel.swift */,
+				19304D672768925000EA403A /* TestListViewModel.swift */,
 				19304D75276897A100EA403A /* Tests */,
 			);
 			path = Model;
@@ -257,8 +285,8 @@
 		19304D7A2768985A00EA403A /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				19304D622768925000EA403A /* TestsDataConverter.swift */,
-				19304D632768925000EA403A /* TestsPresenter.swift */,
+				19304D622768925000EA403A /* TestListDataConverter.swift */,
+				19304D632768925000EA403A /* TestListPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -266,7 +294,7 @@
 		19304D7B2768986100EA403A /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				19304D642768925000EA403A /* TestsRouter.swift */,
+				19304D642768925000EA403A /* TestListRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -275,8 +303,8 @@
 			isa = PBXGroup;
 			children = (
 				19304D7F276898EC00EA403A /* Cells */,
-				19304D682768925000EA403A /* TestsTableViewManager.swift */,
-				19304D652768925000EA403A /* TestsViewController.swift */,
+				19304D682768925000EA403A /* TestListTableViewManager.swift */,
+				19304D652768925000EA403A /* TestListViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -284,7 +312,7 @@
 		19304D7D2768986A00EA403A /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
-				19304D662768925000EA403A /* TestsAssembly.swift */,
+				19304D662768925000EA403A /* TestListAssembly.swift */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
@@ -292,7 +320,7 @@
 		19304D7E2768986F00EA403A /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				19304D70276894BC00EA403A /* TestsInteractor.swift */,
+				19304D70276894BC00EA403A /* TestListInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -410,6 +438,89 @@
 			path = Authorization;
 			sourceTree = "<group>";
 		};
+		19436D212768A59E00D2FA0A /* TestQuestion */ = {
+			isa = PBXGroup;
+			children = (
+				19436D362768A68100D2FA0A /* Assembly */,
+				19436D392768A69000D2FA0A /* Presenter */,
+				19436D3B2768A69A00D2FA0A /* Interactor */,
+				19436D372768A68700D2FA0A /* View */,
+				19436D3A2768A69600D2FA0A /* Model */,
+				19436D382768A68C00D2FA0A /* Router */,
+			);
+			path = TestQuestion;
+			sourceTree = "<group>";
+		};
+		19436D362768A68100D2FA0A /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				19436D272768A5DB00D2FA0A /* TestQuestionAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		19436D372768A68700D2FA0A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				19436D3C2768A80300D2FA0A /* Cells */,
+				19436D2B2768A5DB00D2FA0A /* TestQuestionTableViewManager.swift */,
+				19436D262768A5DB00D2FA0A /* TestQuestionViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		19436D382768A68C00D2FA0A /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				19436D252768A5DB00D2FA0A /* TestQuestionRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		19436D392768A69000D2FA0A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				19436D222768A5DB00D2FA0A /* TestQuestionDataConverter.swift */,
+				19436D242768A5DB00D2FA0A /* TestQuestionPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		19436D3A2768A69600D2FA0A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				19436D2A2768A5DB00D2FA0A /* TestQuestionViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		19436D3B2768A69A00D2FA0A /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				19436D282768A5DB00D2FA0A /* TestQuestionInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		19436D3C2768A80300D2FA0A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				19436D3D2768A83F00D2FA0A /* TestQuestionTitleCell.swift */,
+				19436D3F2768A85400D2FA0A /* TestAnswersCounterCell.swift */,
+				19436D482768C5E600D2FA0A /* TestQuestionConfirmCell.swift */,
+				19436D412768AB5400D2FA0A /* Views */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		19436D412768AB5400D2FA0A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				19436D422768AB6D00D2FA0A /* AnswerButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		1952AA652760FD3D00675931 = {
 			isa = PBXGroup;
 			children = (
@@ -448,8 +559,9 @@
 		1952AA852760FE3700675931 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				19436D212768A59E00D2FA0A /* TestQuestion */,
+				19304D612768923000EA403A /* TestList */,
 				1982B5542763583D003DAB1A /* TestCategories */,
-				19304D612768923000EA403A /* Tests */,
 				193D993927623E65004ACA7F /* MainScreen */,
 				1982B55F27639887003DAB1A /* Profile */,
 				193D994427624057004ACA7F /* Authorization */,
@@ -475,6 +587,7 @@
 				1952AA94276100EE00675931 /* TransitionModel.swift */,
 				193D993A27623F0E004ACA7F /* ModuleTransitionHandler.swift */,
 				193D995027624E1E004ACA7F /* Configurable.swift */,
+				19436D4A2768CD2000D2FA0A /* Delegatable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -501,6 +614,7 @@
 				1982B54A27634287003DAB1A /* UIViewController+HUD.swift */,
 				19D5C9C727673B21000109F2 /* UITableVIew+RegisterCell.swift */,
 				19D5C9C927673EBA000109F2 /* NSObject.swift */,
+				19436D4C2768DA7C00D2FA0A /* UIStackView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -908,48 +1022,62 @@
 				193D994127624052004ACA7F /* AuthorizationRouter.swift in Sources */,
 				1982B55927635858003DAB1A /* TestCategoriesPresenter.swift in Sources */,
 				1982B546276335F1003DAB1A /* DispatchQueue.swift in Sources */,
-				19304D6B2768925000EA403A /* TestsRouter.swift in Sources */,
+				19304D6B2768925000EA403A /* TestListRouter.swift in Sources */,
 				193D993427623E60004ACA7F /* MainScreenRouter.swift in Sources */,
 				19D5C9D82767538C000109F2 /* AlertAction.swift in Sources */,
 				19304D79276897B400EA403A /* Question.swift in Sources */,
+				19436D4B2768CD2000D2FA0A /* Delegatable.swift in Sources */,
 				1982B55E27636842003DAB1A /* Collection+SafeSubscript.swift in Sources */,
 				19D5C9D127674B43000109F2 /* TestCategoriesDataConverter.swift in Sources */,
 				19D5C9C62767396F000109F2 /* TestCategoriesCell.swift in Sources */,
 				19304D81276898F100EA403A /* TestCell.swift in Sources */,
 				1982B5512763467C003DAB1A /* ProgressHUDContainer.swift in Sources */,
+				19436D322768A5DB00D2FA0A /* TestQuestionInteractor.swift in Sources */,
 				1952AA93276100C600675931 /* Assembly.swift in Sources */,
-				19304D6C2768925000EA403A /* TestsViewController.swift in Sources */,
+				19436D2C2768A5DB00D2FA0A /* TestQuestionDataConverter.swift in Sources */,
+				19304D6C2768925000EA403A /* TestListViewController.swift in Sources */,
 				193D994227624052004ACA7F /* AuthorizationViewController.swift in Sources */,
 				1982B564276398E7003DAB1A /* ProfilePresenter.swift in Sources */,
+				19436D3E2768A83F00D2FA0A /* TestQuestionTitleCell.swift in Sources */,
+				19436D492768C5E600D2FA0A /* TestQuestionConfirmCell.swift in Sources */,
 				19D5C9E12767B2D0000109F2 /* ErrorModel.swift in Sources */,
 				1982B54B27634287003DAB1A /* UIViewController+HUD.swift in Sources */,
-				19304D6E2768925000EA403A /* TestsViewModel.swift in Sources */,
+				19436D2F2768A5DB00D2FA0A /* TestQuestionRouter.swift in Sources */,
+				19436D4D2768DA7C00D2FA0A /* UIStackView.swift in Sources */,
+				19304D6E2768925000EA403A /* TestListViewModel.swift in Sources */,
 				193D99532762507D004ACA7F /* AuthorizationViewModel.swift in Sources */,
-				19304D6F2768925000EA403A /* TestsTableViewManager.swift in Sources */,
+				19436D352768A5DB00D2FA0A /* TestQuestionTableViewManager.swift in Sources */,
+				19304D6F2768925000EA403A /* TestListTableViewManager.swift in Sources */,
 				1952AA95276100EE00675931 /* TransitionModel.swift in Sources */,
 				19BB25F32764C35E004F165B /* FBDatabaseReference.swift in Sources */,
 				19D5C9D527675343000109F2 /* Alertable.swift in Sources */,
 				19D5C9CA27673EBA000109F2 /* NSObject.swift in Sources */,
 				193D993B27623F0E004ACA7F /* ModuleTransitionHandler.swift in Sources */,
 				19D5C9C4276738FA000109F2 /* EmptyTableView.swift in Sources */,
+				19436D2E2768A5DB00D2FA0A /* TestQuestionPresenter.swift in Sources */,
 				19D5C9BE27673692000109F2 /* TestCategoriesTableViewManager.swift in Sources */,
 				1952AA722760FD3D00675931 /* AppDelegate.swift in Sources */,
 				1982B567276398E7003DAB1A /* ProfileAssembly.swift in Sources */,
 				19BB25F12764A8B4004F165B /* FBDatabaseService.swift in Sources */,
 				19304D77276897AF00EA403A /* Test.swift in Sources */,
 				193D994327624052004ACA7F /* AuthorizationAssembly.swift in Sources */,
-				19304D6A2768925000EA403A /* TestsPresenter.swift in Sources */,
+				19304D6A2768925000EA403A /* TestListPresenter.swift in Sources */,
 				193D994D27624BF6004ACA7F /* R.generated.swift in Sources */,
+				19436D302768A5DB00D2FA0A /* TestQuestionViewController.swift in Sources */,
+				19436D402768A85400D2FA0A /* TestAnswersCounterCell.swift in Sources */,
 				1952AA8E2761003D00675931 /* ViewOutput.swift in Sources */,
 				193D993727623E60004ACA7F /* MainScreenInteractor.swift in Sources */,
+				19436D342768A5DB00D2FA0A /* TestQuestionViewModel.swift in Sources */,
 				19D5C9C1276736D0000109F2 /* TestCategoriesViewModel.swift in Sources */,
 				1982B55B27635858003DAB1A /* TestCategoriesViewController.swift in Sources */,
+				19436D432768AB6D00D2FA0A /* AnswerButton.swift in Sources */,
 				193D993527623E60004ACA7F /* MainScreenViewController.swift in Sources */,
 				19D5C9CF27674098000109F2 /* TestCategoriesInteractor.swift in Sources */,
 				1982B565276398E7003DAB1A /* ProfileRouter.swift in Sources */,
 				1982B56C27639B10003DAB1A /* AuthorizedUserModel.swift in Sources */,
-				19304D6D2768925000EA403A /* TestsAssembly.swift in Sources */,
+				19304D6D2768925000EA403A /* TestListAssembly.swift in Sources */,
 				1982B5692763998A003DAB1A /* ProfileViewModel.swift in Sources */,
+				19436D312768A5DB00D2FA0A /* TestQuestionAssembly.swift in Sources */,
 				19D5C9D327674BF1000109F2 /* TableCellConfigurator.swift in Sources */,
 				193D994027624052004ACA7F /* AuthorizationPresenter.swift in Sources */,
 				19304D74276896DD00EA403A /* TestsModel.swift in Sources */,
@@ -959,7 +1087,7 @@
 				1982B544276330B8003DAB1A /* FBAuthService.swift in Sources */,
 				193D993327623E60004ACA7F /* MainScreenPresenter.swift in Sources */,
 				1982B54D2763446B003DAB1A /* ProgressHUD.swift in Sources */,
-				19304D692768925000EA403A /* TestsDataConverter.swift in Sources */,
+				19304D692768925000EA403A /* TestListDataConverter.swift in Sources */,
 				19BB25F92764CC18004F165B /* FBDatabaseRequestKey.swift in Sources */,
 				193D993627623E60004ACA7F /* MainScreenAssembly.swift in Sources */,
 				19D5C9C827673B21000109F2 /* UITableVIew+RegisterCell.swift in Sources */,
@@ -967,7 +1095,7 @@
 				193D995127624E1E004ACA7F /* Configurable.swift in Sources */,
 				193D994F27624C0C004ACA7F /* Constants.swift in Sources */,
 				19D5C9DE2767AEAA000109F2 /* Parser.swift in Sources */,
-				19304D71276894BC00EA403A /* TestsInteractor.swift in Sources */,
+				19304D71276894BC00EA403A /* TestListInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

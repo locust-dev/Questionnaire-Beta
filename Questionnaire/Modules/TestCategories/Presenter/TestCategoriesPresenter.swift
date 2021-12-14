@@ -34,7 +34,7 @@ final class TestCategoriesPresenter {
 }
 
 
-// MARK: - TestsViewOutput
+// MARK: - TestListViewOutput
 extension TestCategoriesPresenter: TestCategoriesViewOutput {
     
     func viewIsReady() {

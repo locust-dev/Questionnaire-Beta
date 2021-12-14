@@ -1,5 +1,5 @@
 //
-//  TestsInteractor.swift
+//  TestListInteractor.swift
 //  Questionnaire
 //
 //  Created by Ilya Turin on 14.12.2021.
@@ -7,15 +7,15 @@
 
 import Foundation
 
-protocol TestsInteractorInput: Parser {
+protocol TestListInteractorInput: Parser {
     func getTests()
 }
 
-final class TestsInteractor {
+final class TestListInteractor {
     
     // MARK: - Properties
     
-    weak var presenter: TestsInteractorOutput?
+    weak var presenter: TestListInteractorOutput?
 
     private let databaseService: FBDatabaseService
     
@@ -30,7 +30,7 @@ final class TestsInteractor {
 
 
 // MARK: - MainScreenInteractorInput
-extension TestsInteractor: TestsInteractorInput {
+extension TestListInteractor: TestListInteractorInput {
     
     func getTests() {
         

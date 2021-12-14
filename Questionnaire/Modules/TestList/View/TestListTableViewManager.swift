@@ -1,5 +1,5 @@
 //
-//  TestsTableViewManager.swift
+//  TestListTableViewManager.swift
 //  Questionnaire
 //
 //  Created Ilya Turin on 14.12.2021.
@@ -8,37 +8,40 @@
 
 import UIKit
 
-protocol TestsTableViewManagerDelegate: AnyObject {  }
-
-protocol TestsTableViewManagerInput {
-    func setup(tableView: UITableView)
-    func update(with viewModel: TestsViewModel)
+protocol TestListTableViewManagerDelegate: AnyObject {
+    func didTapOnTest(_ test: Test)
 }
 
-final class TestsTableViewManager: NSObject {
+protocol TestListTableViewManagerInput {
+    func setup(tableView: UITableView)
+    func update(with viewModel: TestListViewModel)
+}
+
+final class TestListTableViewManager: NSObject {
     
     // MARK: - Properties
     
-    weak var delegate: TestsTableViewManagerDelegate?
+    weak var delegate: TestListTableViewManagerDelegate?
     
     private weak var tableView: UITableView?
     
-    private var viewModel: TestsViewModel?
+    private var viewModel: TestListViewModel?
     
 }
 
 
-// MARK: - TestsTableViewManagerInput
-extension TestsTableViewManager: TestsTableViewManagerInput {
+// MARK: - TestListTableViewManagerInput
+extension TestListTableViewManager: TestListTableViewManagerInput {
     
     func setup(tableView: UITableView) {
         tableView.register(TestCell.self)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorStyle = .none
         self.tableView = tableView
     }
     
-    func update(with viewModel: TestsViewModel) {
+    func update(with viewModel: TestListViewModel) {
         self.viewModel = viewModel
         tableView?.reloadData()
     }
@@ -47,7 +50,7 @@ extension TestsTableViewManager: TestsTableViewManagerInput {
 
 
 // MARK: - UITableViewDataSource
-extension TestsTableViewManager: UITableViewDataSource {
+extension TestListTableViewManager: UITableViewDataSource {
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.rows.count ?? 0
@@ -68,9 +71,14 @@ extension TestsTableViewManager: UITableViewDataSource {
 
 
 // MARK: - UITableViewDelegate
-extension TestsTableViewManager: UITableViewDelegate {
+extension TestListTableViewManager: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        guard let test = viewModel?.tests[safe: indexPath.row] else {
+            return
+        }
+        
+        delegate?.didTapOnTest(test)
     }
 }

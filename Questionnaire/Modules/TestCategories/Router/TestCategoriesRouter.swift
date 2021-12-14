@@ -30,8 +30,8 @@ final class TestCategoriesRouter {
 extension TestCategoriesRouter: TestCategoriesRouterInput {
     
     func openTests(by categoryId: String) {
-        let testsModel = TestsAssembly.Model(categoryId: categoryId)
-        transition.push(with: testsModel, openModuleType: TestsAssembly.self)
+        let testsModel = TestListAssembly.Model(categoryId: categoryId)
+        transition.push(with: testsModel, openModuleType: TestListAssembly.self)
     }
     
 }
