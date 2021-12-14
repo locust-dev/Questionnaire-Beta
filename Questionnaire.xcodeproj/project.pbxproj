@@ -24,7 +24,6 @@
 		193D993527623E60004ACA7F /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193D992E27623E60004ACA7F /* MainScreenViewController.swift */; };
 		193D993627623E60004ACA7F /* MainScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193D992F27623E60004ACA7F /* MainScreenAssembly.swift */; };
 		193D993727623E60004ACA7F /* MainScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193D993027623E60004ACA7F /* MainScreenInteractor.swift */; };
-		193D993827623E60004ACA7F /* MainScreenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193D993127623E60004ACA7F /* MainScreenModel.swift */; };
 		193D993B27623F0E004ACA7F /* ModuleTransitionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193D993A27623F0E004ACA7F /* ModuleTransitionHandler.swift */; };
 		193D994027624052004ACA7F /* AuthorizationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193D993C27624052004ACA7F /* AuthorizationPresenter.swift */; };
 		193D994127624052004ACA7F /* AuthorizationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193D993D27624052004ACA7F /* AuthorizationRouter.swift */; };
@@ -125,7 +124,6 @@
 		193D992E27623E60004ACA7F /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		193D992F27623E60004ACA7F /* MainScreenAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenAssembly.swift; sourceTree = "<group>"; };
 		193D993027623E60004ACA7F /* MainScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenInteractor.swift; sourceTree = "<group>"; };
-		193D993127623E60004ACA7F /* MainScreenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenModel.swift; sourceTree = "<group>"; };
 		193D993A27623F0E004ACA7F /* ModuleTransitionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleTransitionHandler.swift; sourceTree = "<group>"; };
 		193D993C27624052004ACA7F /* AuthorizationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenter.swift; sourceTree = "<group>"; };
 		193D993D27624052004ACA7F /* AuthorizationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationRouter.swift; sourceTree = "<group>"; };
@@ -307,15 +305,94 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		193D993927623E65004ACA7F /* MainScreen */ = {
+		19304D8227689E8D00EA403A /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
 				193D992F27623E60004ACA7F /* MainScreenAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		19304D8327689E9200EA403A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
 				193D992C27623E60004ACA7F /* MainScreenPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		19304D8427689E9700EA403A /* View */ = {
+			isa = PBXGroup;
+			children = (
 				193D992E27623E60004ACA7F /* MainScreenViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		19304D8527689E9A00EA403A /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
 				193D993027623E60004ACA7F /* MainScreenInteractor.swift */,
-				193D993127623E60004ACA7F /* MainScreenModel.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		19304D8727689EA800EA403A /* Router */ = {
+			isa = PBXGroup;
+			children = (
 				193D992D27623E60004ACA7F /* MainScreenRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		19304D8827689EB200EA403A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				1982B560276398E7003DAB1A /* ProfilePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		19304D8927689EB600EA403A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1982B5682763998A003DAB1A /* ProfileViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		19304D8A27689EC200EA403A /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				1982B561276398E7003DAB1A /* ProfileRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		19304D8B27689EC800EA403A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1982B562276398E7003DAB1A /* ProfileViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		19304D8C27689ECB00EA403A /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				1982B563276398E7003DAB1A /* ProfileAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		193D993927623E65004ACA7F /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				19304D8227689E8D00EA403A /* Assembly */,
+				19304D8327689E9200EA403A /* Presenter */,
+				19304D8527689E9A00EA403A /* Interactor */,
+				19304D8427689E9700EA403A /* View */,
+				19304D8727689EA800EA403A /* Router */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -355,6 +432,7 @@
 			isa = PBXGroup;
 			children = (
 				19D5C9D9276755BC000109F2 /* Services */,
+				1982B5492763426F003DAB1A /* Extensions */,
 				1952AA872760FE5200675931 /* Core */,
 				1952AA852760FE3700675931 /* Modules */,
 				1952AA7A2760FD3E00675931 /* Assets.xcassets */,
@@ -384,8 +462,6 @@
 			children = (
 				1952AA712760FD3D00675931 /* AppDelegate.swift */,
 				19D5C9DC2767AE9E000109F2 /* Parser */,
-				19D5C9C2276738EF000109F2 /* Views */,
-				1982B5492763426F003DAB1A /* Extensions */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -416,6 +492,7 @@
 			isa = PBXGroup;
 			children = (
 				193D994E27624C0C004ACA7F /* Constants.swift */,
+				19D5C9C2276738EF000109F2 /* Views */,
 				19D5C9E32767B60D000109F2 /* CellConfigurator */,
 				1952AA8C2761003300675931 /* Protocols */,
 				19D5C9DF2767B2C9000109F2 /* Errors */,
@@ -444,11 +521,11 @@
 		1982B55F27639887003DAB1A /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				1982B560276398E7003DAB1A /* ProfilePresenter.swift */,
-				1982B5682763998A003DAB1A /* ProfileViewModel.swift */,
-				1982B561276398E7003DAB1A /* ProfileRouter.swift */,
-				1982B562276398E7003DAB1A /* ProfileViewController.swift */,
-				1982B563276398E7003DAB1A /* ProfileAssembly.swift */,
+				19304D8C27689ECB00EA403A /* Assembly */,
+				19304D8827689EB200EA403A /* Presenter */,
+				19304D8B27689EC800EA403A /* View */,
+				19304D8927689EB600EA403A /* Model */,
+				19304D8A27689EC200EA403A /* Router */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -881,7 +958,6 @@
 				1982B54F27634582003DAB1A /* ProgressHUDSize.swift in Sources */,
 				1982B544276330B8003DAB1A /* FBAuthService.swift in Sources */,
 				193D993327623E60004ACA7F /* MainScreenPresenter.swift in Sources */,
-				193D993827623E60004ACA7F /* MainScreenModel.swift in Sources */,
 				1982B54D2763446B003DAB1A /* ProgressHUD.swift in Sources */,
 				19304D692768925000EA403A /* TestsDataConverter.swift in Sources */,
 				19BB25F92764CC18004F165B /* FBDatabaseRequestKey.swift in Sources */,
