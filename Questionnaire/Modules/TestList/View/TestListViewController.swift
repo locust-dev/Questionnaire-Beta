@@ -10,7 +10,7 @@ import UIKit
 
 protocol TestListViewInput: Loadable, Alertable {
     func update(with viewModel: TestListViewModel)
-    func showAlertIfNoTests()
+    func showAlertIfNoQuestionsInTest()
 }
 
 final class TestListViewController: UIViewController {
@@ -52,7 +52,7 @@ extension TestListViewController: TestListViewInput {
         tableViewManager?.update(with: viewModel)
     }
     
-    func showAlertIfNoTests() {
+    func showAlertIfNoQuestionsInTest() {
         // TODO: - Config
         showAlert(title: "Oops", message: "It seems this test does not have any questions yet! Attempt to try later!", buttonTitle: "Ok")
     }

@@ -81,7 +81,7 @@ extension TestListPresenter: TestListTableViewManagerDelegate {
         guard let questions = test.questions,
               let testId = test.testId
         else {
-            view?.showAlertIfNoTests()
+            view?.showAlertIfNoQuestionsInTest()
             return
         }
         
