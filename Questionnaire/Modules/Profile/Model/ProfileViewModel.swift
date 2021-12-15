@@ -7,6 +7,7 @@
 
 struct ProfileViewModel {
     
-    let username: String
-    let userID: String
+    let firstName: String
+    let lastName: String
+
 }

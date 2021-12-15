@@ -22,16 +22,12 @@ final class ProfilePresenter {
     
     var router: ProfileRouterInput?
     
-    private let username: String
-    private let userID: String
     private let moduleOutput: ProfileModuleOutput?
     
     
     // MARK: - Init
     
-    init(username: String, userID: String, moduleOutput: ProfileModuleOutput?) {
-        self.username = username
-        self.userID = userID
+    init(moduleOutput: ProfileModuleOutput?) {
         self.moduleOutput = moduleOutput
     }
     
@@ -42,9 +38,8 @@ final class ProfilePresenter {
 extension ProfilePresenter: ProfileViewOutput {
     
     func viewIsReady() {
-        
-        let viewModel = ProfileViewModel(username: username, userID: userID)
-        view?.update(with: viewModel)
+//        let viewModel = ProfileViewModel(firstName: , lastName: )
+//        view?.update(with: viewModel)
     }
     
     func didTapLogOutButton() {
