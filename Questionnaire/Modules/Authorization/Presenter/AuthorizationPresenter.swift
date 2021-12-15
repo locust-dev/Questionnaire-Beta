@@ -12,8 +12,8 @@ protocol AuthorizationViewOutput: ViewOutput {
 }
 
 protocol AuthorizationInteractorOutput: AnyObject {
-    func didSuccessAuthorize()
-    func didFailAuthorize()
+    func didSuccessAuthorize(userToken: String?)
+    func didFailAuthorize(error: ErrorModel)
 }
 
 protocol AuthorizationModuleOutput: AnyObject {
@@ -46,7 +46,7 @@ extension AuthorizationPresenter: AuthorizationViewOutput {
     func viewIsReady() {
         
         // TODO: - From config
-        let viewModel = AuthorizationViewModel(mainTitle: "Authorization screen", confirmButtonTitle: "Login", forgotPassButtonTitle: "Forgot password?")
+        let viewModel = AuthorizationViewModel(mainTitle: "Пожалуйста, войдите", confirmButtonTitle: "Войти", forgotPassButtonTitle: "Забыли пароль?")
         view?.update(with: viewModel)
     }
     
@@ -66,14 +66,20 @@ extension AuthorizationPresenter: AuthorizationViewOutput {
 // MARK: AuthorizationInteractorOutput
 extension AuthorizationPresenter: AuthorizationInteractorOutput {
     
-    func didSuccessAuthorize() {
-        view?.hideHUD()
-        moduleOutput?.didSuccessAuthorized()
-    }
-    
-    func didFailAuthorize() {
+    func didFailAuthorize(error: ErrorModel) {
         view?.hideHUD()
         view?.showErrorAlert()
+    }
+    
+    func didSuccessAuthorize(userToken: String?) {
+        view?.hideHUD()
+        
+        guard let userToken = userToken else {
+            moduleOutput?.didSuccessAuthorized()
+            return
+        }
+
+        router?.openRegistration(userToken: userToken, moduleOutput: moduleOutput as? RegistrationModuleOutput)
     }
     
 }

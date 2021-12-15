@@ -10,8 +10,10 @@ import FirebaseAuth
 protocol FBAuthServiceProtocol {
     
     var isAuthorized: Bool { get }
+    var currentUserToken: String? { get }
     
-    func signIn(email: String, password: String, completion: @escaping (Result<AuthDataResult?, Error>) -> Void)
+    func signIn(email: String, password: String, completion: @escaping (Result<String?, ErrorModel>) -> Void)
+    func setCurrentUserToken(_ token: String?)
     func logOut()
 }
 
@@ -29,13 +31,6 @@ final class FBAuthService {
     
     private let userDefaults = UserDefaults.standard
     
-    
-    // MARK: - Private methods
-    
-    private func changeCurrentUserToken(_ token: String?) {
-        userDefaults.set(token, forKey: UserDefaultsKey.userId.rawValue)
-    }
-    
 }
 
 
@@ -46,22 +41,26 @@ extension FBAuthService: FBAuthServiceProtocol {
         userDefaults.value(forKey: UserDefaultsKey.userId.rawValue) != nil
     }
     
-    func signIn(email: String, password: String, completion: @escaping (Result<AuthDataResult?, Error>) -> Void) {
+    var currentUserToken: String? {
+        userDefaults.value(forKey: UserDefaultsKey.userId.rawValue) as? String
+    }
+    
+    func signIn(email: String, password: String, completion: @escaping (Result<String?, ErrorModel>) -> Void) {
         
-        FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) { [weak self] result, error in
-            
-            if let error = error {
-                completion(.failure(error))
-                return
+        globalQueue {
+            FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) { result, error in
+                error != nil
+                    ? completion(.failure(.serverError))
+                    : completion(.success(result?.user.uid))
             }
-            
-            // TODO: - Error when server didnt send Token
-            self?.changeCurrentUserToken(result?.user.uid)
-            completion(.success(result))
         }
     }
     
+    func setCurrentUserToken(_ token: String?) {
+        userDefaults.set(token, forKey: UserDefaultsKey.userId.rawValue)
+    }
+    
     func logOut() {
-        changeCurrentUserToken(nil)
+        setCurrentUserToken(nil)
     }
 }

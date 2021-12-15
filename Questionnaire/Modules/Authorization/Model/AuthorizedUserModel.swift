@@ -5,8 +5,7 @@
 //  Created by Ilya Turin on 10.12.2021.
 //
 
-struct AuthorizedUserModel {
+struct AuthorizedUserModel: Decodable {
     
-    let username: String
-    let userID: String
+    let firstName: String?
 }

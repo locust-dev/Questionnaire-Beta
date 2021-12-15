@@ -33,6 +33,11 @@ extension ModuleTransitionHandler {
         show(view, sender: nil)
     }
     
+    func show<ModuleType: Assembly>(openModuleType: ModuleType.Type) {
+        let view = ModuleType.assembleModule()
+        show(view, sender: nil)
+    }
+    
     func push<ModuleType: Assembly>(with model: TransitionModel, openModuleType: ModuleType.Type) {
         let view = ModuleType.assembleModule(with: model)
         navigationController?.pushViewController(view, animated: true)

@@ -7,7 +7,7 @@
 //
 
 protocol AuthorizationRouterInput {
-    //func openProfile(with userModel: AuthorizedUserModel)
+    func openRegistration(userToken: String, moduleOutput: RegistrationModuleOutput?)
 }
 
 final class AuthorizationRouter {
@@ -29,11 +29,9 @@ final class AuthorizationRouter {
 // MARK: - AuthorizationRouterInput
 extension AuthorizationRouter: AuthorizationRouterInput {
     
-//    func openProfile(with userModel: AuthorizedUserModel) {
-//
-//        let profileModel = ProfileAssembly.Model(username: userModel.username,
-//                                                 userID: userModel.userID)
-//
-//        transition.push(with: profileModel, openModuleType: ProfileAssembly.self)
-//    }
+    func openRegistration(userToken: String, moduleOutput: RegistrationModuleOutput?) {
+        let model = RegistrationAssembly.Model(moduleOutput: moduleOutput, token: userToken)
+        transition.push(with: model, openModuleType: RegistrationAssembly.self)
+    }
+    
 }

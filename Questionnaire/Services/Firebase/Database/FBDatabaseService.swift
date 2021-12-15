@@ -9,7 +9,8 @@ import FirebaseDatabase
 import Foundation
 
 protocol FBDatabaseServiceProtocol: AnyObject {
-    func getData(_ key: FBDatabaseRequestKey, completion: @escaping (Result<Any, ErrorModel>) -> Void)
+    func getData(_ key: FBDatabasePath, completion: @escaping (Result<Any, ErrorModel>) -> Void)
+    func saveNewUser(_ newUser: NewUserModel, completion: @escaping (Result<String, ErrorModel>) -> Void)
 }
 
 final class FBDatabaseService {
@@ -24,16 +25,35 @@ final class FBDatabaseService {
 // MARK: - FirebaseDatabaseServiceProtocol
 extension FBDatabaseService: FBDatabaseServiceProtocol {
     
-    func getData(_ key: FBDatabaseRequestKey, completion: @escaping (Result<Any, ErrorModel>) -> Void) {
+    func getData(_ key: FBDatabasePath, completion: @escaping (Result<Any, ErrorModel>) -> Void) {
         
-        databaseReference.child(key.rawValue).getData { error, data in
-              
-            guard let value = data.value, error == nil else {
-                completion(.failure(.somethingWentWrong))
-                return
+        globalQueue {
+            self.databaseReference.child(key.stringPath).getData { error, data in
+                
+                mainQueue {
+                    guard let value = data.value, error == nil else {
+                        completion(.failure(.somethingWentWrong))
+                        return
+                    }
+                    
+                    completion(.success(value))
+                }
             }
-            
-            completion(.success(value))
+        }
+    }
+    
+    func saveNewUser(_ newUser: NewUserModel, completion: @escaping (Result<String, ErrorModel>) -> Void) {
+        
+        globalQueue {
+            let path = FBDatabasePath.user(token: newUser.uniqueToken).stringPath
+            self.databaseReference.child(path).setValue(newUser.asDictionary) { error, _ in
+                
+                mainQueue {
+                    error != nil
+                        ? completion(.failure(.errorToSaveNewUser))
+                        : completion(.success(newUser.uniqueToken))
+                }
+            }
         }
     }
     

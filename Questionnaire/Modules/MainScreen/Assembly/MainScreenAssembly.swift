@@ -14,7 +14,6 @@ final class MainScreenAssembly: Assembly {
         let databaseService = FBDatabaseService()
         
         let view = MainScreenViewController()
-        let router = MainScreenRouter(transition: view)
         let presenter = MainScreenPresenter()
         let interactor = MainScreenInteractor(databaseService: databaseService, authService: authService)
         
@@ -22,7 +21,6 @@ final class MainScreenAssembly: Assembly {
         
         presenter.view = view
         presenter.interactor = interactor
-        presenter.router = router
         
         interactor.presenter = presenter
         

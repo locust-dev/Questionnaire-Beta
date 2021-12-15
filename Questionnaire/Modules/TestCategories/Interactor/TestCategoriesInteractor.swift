@@ -45,7 +45,7 @@ extension TestCategoriesInteractor: TestCategoriesInteractorInput {
     
     func getCategories() {
         
-        databaseService.getData(FBDatabaseRequestKey.categories) { [weak self] result in
+        databaseService.getData(FBDatabasePath.categories) { [weak self] result in
             
             switch result {
                 

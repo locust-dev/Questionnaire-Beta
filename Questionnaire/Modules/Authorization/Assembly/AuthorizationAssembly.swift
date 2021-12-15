@@ -17,10 +17,11 @@ final class AuthorizationAssembly: Assembly {
         }
         
         let authService = FBAuthService()
+        let databaseService = FBDatabaseService()
         
         let view = AuthorizationViewController()
         let router = AuthorizationRouter(transition: view)
-        let interactor = AuthorizationInteractor(authorizationService: authService)
+        let interactor = AuthorizationInteractor(authorizationService: authService, databaseService: databaseService)
         let presenter = AuthorizationPresenter(moduleOutput: model.moduleOutput)
         
         view.presenter = presenter
@@ -34,7 +35,7 @@ final class AuthorizationAssembly: Assembly {
         view.tabBarItem.title = model.tabBarTitle
         view.tabBarItem.image = Images.tabbar_profile()
         
-        return view
+        return UINavigationController(rootViewController: view)
     }
 
 }

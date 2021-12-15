@@ -19,10 +19,6 @@ final class MainScreenPresenter {
     weak var view: MainScreenViewInput?
     
     var interactor: MainScreenInteractorInput?
-    var router: MainScreenRouterInput?
-    
-    // TODO: - Think about usability
-    var authorizedUser: AuthorizedUserModel?
     
     
     // MARK: - Private methods
@@ -78,8 +74,15 @@ extension MainScreenPresenter: ProfileModuleOutput {
     
     func didTapLogOutButton() {
         interactor?.logOut()
-        
-        let viewControllers = createViewControllers()
-        view?.set(viewControllers: viewControllers)
+        view?.set(viewControllers: createViewControllers())
+    }
+}
+
+
+// MARK: - RegistrationModuleOutput
+extension MainScreenPresenter: RegistrationModuleOutput {
+    
+    func didSuccessToSaveNewUser() {
+        view?.set(viewControllers: createViewControllers())
     }
 }

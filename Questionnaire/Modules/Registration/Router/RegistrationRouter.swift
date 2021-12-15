@@ -1,16 +1,16 @@
 //
-//  MainScreenRouter.swift
+//  RegistrationRouter.swift
 //  Questionnaire
 //
-//  Created Ilya Turin on 09.12.2021.
+//  Created Ilya Turin on 15.12.2021.
 //  Copyright © 2021 FINCH. All rights reserved.
 //
 
-protocol MainScreenRouterInput {
-   
+protocol RegistrationRouterInput {
+
 }
 
-final class MainScreenRouter {
+final class RegistrationRouter {
     
     // MARK: - Properties
     
@@ -26,8 +26,7 @@ final class MainScreenRouter {
 }
 
 
-// MARK: - MainScreenRouterInput
-extension MainScreenRouter: MainScreenRouterInput {
-    
-   
+// MARK: - RegistrationRouterInput
+extension RegistrationRouter: RegistrationRouterInput {
+
 }

@@ -10,5 +10,9 @@ import Foundation
 enum ErrorModel: Error {
     
     case somethingWentWrong
+    case serverError
+    
+    // Users
+    case errorToSaveNewUser
     
 }
