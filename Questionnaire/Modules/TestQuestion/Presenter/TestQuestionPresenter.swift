@@ -24,15 +24,18 @@ final class TestQuestionPresenter {
     
     private let dataConverter: TestQuestionDataConverterInput
     private let questions: [Question]
+    private let testId: String
     
     
     // MARK: - Init
     
     init(dataConverter: TestQuestionDataConverterInput,
-         questions: [Question]) {
+         questions: [Question],
+         testId: String) {
         
         self.dataConverter = dataConverter
         self.questions = questions
+        self.testId = testId
     }
     
     
@@ -43,7 +46,7 @@ final class TestQuestionPresenter {
         guard let question = questions[safe: currentQuestionNumber - 1],
               currentQuestionNumber <= questions.count
         else {
-            router?.openResults(userAnswers: userAnswers)
+            router?.openResults(userAnswers: userAnswers, testId: testId)
             return
         }
         

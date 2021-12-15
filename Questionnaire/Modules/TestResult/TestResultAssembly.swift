@@ -14,12 +14,15 @@ final class TestResultAssembly: Assembly {
             fatalError("Wrong model for TestResultModule")
         }
         
+        let databaseService = FBDatabaseService()
+        
         let tableViewManager = TestResultTableViewManager()
         let dataConverter = TestResultDataConverter()
         
+        let interactor = TestResultInteractor(databaseService: databaseService)
         let view = TestResultViewController()
         let router = TestResultRouter(transition: view)
-        let presenter = TestResultPresenter(dataConverter: dataConverter, userAnswers: model.userAnswers)
+        let presenter = TestResultPresenter(dataConverter: dataConverter, userAnswers: model.userAnswers, testId: model.testId)
         
         tableViewManager.delegate = presenter
         
@@ -27,7 +30,10 @@ final class TestResultAssembly: Assembly {
         view.tableViewManager = tableViewManager
         
         presenter.view = view
+        presenter.interactor = interactor
         presenter.router = router
+        
+        interactor.presenter = presenter
         
         return view
     }
@@ -41,6 +47,7 @@ extension TestResultAssembly {
     struct Model: TransitionModel {
         
         let userAnswers: [Int: Int]
+        let testId: String
     }
     
 }

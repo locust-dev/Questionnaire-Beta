@@ -7,7 +7,7 @@
 //
 
 protocol TestQuestionRouterInput {
-    func openResults(userAnswers: [Int: Int])
+    func openResults(userAnswers: [Int: Int], testId: String)
 }
 
 final class TestQuestionRouter {
@@ -29,8 +29,8 @@ final class TestQuestionRouter {
 // MARK: - TestQuestionRouterInput
 extension TestQuestionRouter: TestQuestionRouterInput {
     
-    func openResults(userAnswers: [Int: Int]) {
-        let model = TestResultAssembly.Model(userAnswers: userAnswers)
+    func openResults(userAnswers: [Int: Int], testId: String) {
+        let model = TestResultAssembly.Model(userAnswers: userAnswers, testId: testId)
         transition.push(with: model, openModuleType: TestResultAssembly.self)
     }
 }

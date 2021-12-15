@@ -19,7 +19,7 @@ final class TestQuestionAssembly: Assembly {
         
         let view = TestQuestionViewController()
         let router = TestQuestionRouter(transition: view)
-        let presenter = TestQuestionPresenter(dataConverter: dataConverter, questions: model.questions)
+        let presenter = TestQuestionPresenter(dataConverter: dataConverter, questions: model.questions, testId: model.testId)
         let interactor = TestQuestionInteractor()
         
         tableViewManager.delegate = presenter
@@ -45,6 +45,7 @@ extension TestQuestionAssembly {
     struct Model: TransitionModel {
         
         let questions: [Question]
+        let testId: String
     }
     
 }

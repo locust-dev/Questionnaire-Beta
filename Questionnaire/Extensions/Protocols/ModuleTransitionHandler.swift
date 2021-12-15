@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseMLModelDownloader
 
 protocol ModuleTransitionHandler where Self: UIViewController {  }
 
@@ -66,6 +67,10 @@ extension ModuleTransitionHandler {
             view.removeFromSuperview()
             removeFromParent()
         }
+    }
+    
+    func dismiss(animated: Bool, completion: (() -> Void)?) {
+        dismiss(animated: animated, completion: completion)
     }
 }
 

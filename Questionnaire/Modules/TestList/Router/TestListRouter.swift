@@ -7,7 +7,7 @@
 //
 
 protocol TestListRouterInput {
-    func openTest(with questions: [Question])
+    func openTest(with questions: [Question], testId: String)
 }
 
 final class TestListRouter {
@@ -29,8 +29,8 @@ final class TestListRouter {
 // MARK: - TestListRouterInput
 extension TestListRouter: TestListRouterInput {
     
-    func openTest(with questions: [Question]) {
-        let model = TestQuestionAssembly.Model(questions: questions)
+    func openTest(with questions: [Question], testId: String) {
+        let model = TestQuestionAssembly.Model(questions: questions, testId: testId)
         transition.push(with: model, openModuleType: TestQuestionAssembly.self)
     }
 }

@@ -6,7 +6,9 @@
 //  Copyright © 2021 FINCH. All rights reserved.
 //
 
-protocol TestResultRouterInput {  }
+protocol TestResultRouterInput {
+    func closeModule()
+}
 
 final class TestResultRouter {
     
@@ -25,4 +27,9 @@ final class TestResultRouter {
 
 
 // MARK: - TestResultRouterInput
-extension TestResultRouter: TestResultRouterInput {  }
+extension TestResultRouter: TestResultRouterInput {
+    
+    func closeModule() {
+        transition.popToRootViewController(animated: true)
+    }
+}

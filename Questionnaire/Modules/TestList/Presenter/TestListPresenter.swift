@@ -78,11 +78,13 @@ extension TestListPresenter: TestListTableViewManagerDelegate {
     
     func didTapOnTest(_ test: Test) {
         
-        guard let questions = test.questions else {
+        guard let questions = test.questions,
+              let testId = test.testId
+        else {
             view?.showAlertIfNoTests()
             return
         }
         
-        router?.openTest(with: questions)
+        router?.openTest(with: questions, testId: testId)
     }
 }

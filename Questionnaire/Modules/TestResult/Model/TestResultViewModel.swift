@@ -8,6 +8,7 @@
 
 struct TestResultViewModel {
     
-    // Here you should implement view model
-    
+    let percentage: String?
+    let questionsWithMistakes: [Int]
+    let quitButtonTitle: String
 }

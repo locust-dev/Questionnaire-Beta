@@ -55,6 +55,8 @@
 		19436D5A2768DD1E00D2FA0A /* TestResultAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D532768DD1E00D2FA0A /* TestResultAssembly.swift */; };
 		19436D5B2768DD1E00D2FA0A /* TestResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D542768DD1E00D2FA0A /* TestResultViewModel.swift */; };
 		19436D5C2768DD1E00D2FA0A /* TestResultTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D552768DD1E00D2FA0A /* TestResultTableViewManager.swift */; };
+		19436D5E2768EE7400D2FA0A /* TestResultInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D5D2768EE7400D2FA0A /* TestResultInteractor.swift */; };
+		19436D602768F0B600D2FA0A /* RightAnswersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D5F2768F0B600D2FA0A /* RightAnswersModel.swift */; };
 		1952AA722760FD3D00675931 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1952AA712760FD3D00675931 /* AppDelegate.swift */; };
 		1952AA7B2760FD3E00675931 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1952AA7A2760FD3E00675931 /* Assets.xcassets */; };
 		1952AA7E2760FD3E00675931 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1952AA7C2760FD3E00675931 /* LaunchScreen.storyboard */; };
@@ -176,6 +178,8 @@
 		19436D532768DD1E00D2FA0A /* TestResultAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultAssembly.swift; sourceTree = "<group>"; };
 		19436D542768DD1E00D2FA0A /* TestResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultViewModel.swift; sourceTree = "<group>"; };
 		19436D552768DD1E00D2FA0A /* TestResultTableViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultTableViewManager.swift; sourceTree = "<group>"; };
+		19436D5D2768EE7400D2FA0A /* TestResultInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultInteractor.swift; sourceTree = "<group>"; };
+		19436D5F2768F0B600D2FA0A /* RightAnswersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightAnswersModel.swift; sourceTree = "<group>"; };
 		1952AA6E2760FD3D00675931 /* Questionnaire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Questionnaire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1952AA712760FD3D00675931 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1952AA7A2760FD3E00675931 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -538,13 +542,12 @@
 		19436D4E2768DCED00D2FA0A /* TestResult */ = {
 			isa = PBXGroup;
 			children = (
-				19436D4F2768DD1E00D2FA0A /* TestResultDataConverter.swift */,
-				19436D502768DD1E00D2FA0A /* TestResultPresenter.swift */,
-				19436D512768DD1E00D2FA0A /* TestResultRouter.swift */,
-				19436D522768DD1E00D2FA0A /* TestResultViewController.swift */,
-				19436D532768DD1E00D2FA0A /* TestResultAssembly.swift */,
-				19436D542768DD1E00D2FA0A /* TestResultViewModel.swift */,
-				19436D552768DD1E00D2FA0A /* TestResultTableViewManager.swift */,
+				197002C92769DCF2000C7194 /* Assembly */,
+				197002CC2769DD05000C7194 /* Presenter */,
+				197002CB2769DCFF000C7194 /* Interactor */,
+				197002C82769DCEE000C7194 /* View */,
+				197002C72769DCE1000C7194 /* Model */,
+				197002CA2769DCFC000C7194 /* Router */,
 			);
 			path = TestResult;
 			sourceTree = "<group>";
@@ -619,6 +622,57 @@
 				19436D4A2768CD2000D2FA0A /* Delegatable.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		197002C72769DCE1000C7194 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				19436D5F2768F0B600D2FA0A /* RightAnswersModel.swift */,
+				19436D542768DD1E00D2FA0A /* TestResultViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		197002C82769DCEE000C7194 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				19436D522768DD1E00D2FA0A /* TestResultViewController.swift */,
+				19436D552768DD1E00D2FA0A /* TestResultTableViewManager.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		197002C92769DCF2000C7194 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				19436D532768DD1E00D2FA0A /* TestResultAssembly.swift */,
+			);
+			name = Assembly;
+			sourceTree = "<group>";
+		};
+		197002CA2769DCFC000C7194 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				19436D512768DD1E00D2FA0A /* TestResultRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		197002CB2769DCFF000C7194 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				19436D5D2768EE7400D2FA0A /* TestResultInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		197002CC2769DD05000C7194 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				19436D4F2768DD1E00D2FA0A /* TestResultDataConverter.swift */,
+				19436D502768DD1E00D2FA0A /* TestResultPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		1982B542276330AB003DAB1A /* Firebase */ = {
@@ -1068,6 +1122,7 @@
 				19436D322768A5DB00D2FA0A /* TestQuestionInteractor.swift in Sources */,
 				1952AA93276100C600675931 /* Assembly.swift in Sources */,
 				19436D2C2768A5DB00D2FA0A /* TestQuestionDataConverter.swift in Sources */,
+				19436D5E2768EE7400D2FA0A /* TestResultInteractor.swift in Sources */,
 				19304D6C2768925000EA403A /* TestListViewController.swift in Sources */,
 				193D994227624052004ACA7F /* AuthorizationViewController.swift in Sources */,
 				1982B564276398E7003DAB1A /* ProfilePresenter.swift in Sources */,
@@ -1100,6 +1155,7 @@
 				19436D402768A85400D2FA0A /* TestAnswersCounterCell.swift in Sources */,
 				1952AA8E2761003D00675931 /* ViewOutput.swift in Sources */,
 				193D993727623E60004ACA7F /* MainScreenInteractor.swift in Sources */,
+				19436D602768F0B600D2FA0A /* RightAnswersModel.swift in Sources */,
 				19436D342768A5DB00D2FA0A /* TestQuestionViewModel.swift in Sources */,
 				19D5C9C1276736D0000109F2 /* TestCategoriesViewModel.swift in Sources */,
 				19436D5A2768DD1E00D2FA0A /* TestResultAssembly.swift in Sources */,
