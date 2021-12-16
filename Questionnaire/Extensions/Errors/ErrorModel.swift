@@ -13,6 +13,9 @@ enum ErrorModel: Error {
     case serverError
     
     // Users
+    case userNotAuthorized
     case errorToSaveNewUser
+    case errorToLoadUserInfo
     
+
 }

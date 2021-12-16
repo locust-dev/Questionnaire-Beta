@@ -14,6 +14,11 @@ protocol ProfileModuleOutput: AnyObject {
     func didTapLogOutButton()
 }
 
+protocol ProfileInteractorOutput: AnyObject {
+    func didSuccessFetchUserData(profile: ProfileModel)
+    func didFailFetchUserData(error: ErrorModel)
+}
+
 final class ProfilePresenter {
     
     // MARK: - Properties
@@ -21,13 +26,18 @@ final class ProfilePresenter {
     weak var view: ProfileViewInput?
     
     var router: ProfileRouterInput?
+    var interactor: ProfileInteractorInput?
     
     private let moduleOutput: ProfileModuleOutput?
+    private let dataConverter: ProfileDataConverterInput
     
     
     // MARK: - Init
     
-    init(moduleOutput: ProfileModuleOutput?) {
+    init(dataConverter: ProfileDataConverterInput,
+         moduleOutput: ProfileModuleOutput?) {
+        
+        self.dataConverter = dataConverter
         self.moduleOutput = moduleOutput
     }
     
@@ -38,11 +48,28 @@ final class ProfilePresenter {
 extension ProfilePresenter: ProfileViewOutput {
     
     func viewIsReady() {
-//        let viewModel = ProfileViewModel(firstName: , lastName: )
-//        view?.update(with: viewModel)
+        view?.showHUD()
+        interactor?.fetchUserData()
     }
     
     func didTapLogOutButton() {
         moduleOutput?.didTapLogOutButton()
     }
+}
+
+
+// MARK: - ProfileInteractorOutput
+extension ProfilePresenter: ProfileInteractorOutput {
+    
+    func didSuccessFetchUserData(profile: ProfileModel) {
+        view?.hideHUD()
+        let viewModel = dataConverter.convert(profileModel: profile)
+        view?.update(with: viewModel)
+    }
+    
+    func didFailFetchUserData(error: ErrorModel) {
+    
+        // TODO: - ...
+    }
+    
 }

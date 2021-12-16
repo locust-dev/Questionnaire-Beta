@@ -5,8 +5,10 @@
 //  Created by Ilya Turin on 14.12.2021.
 //
 
-protocol TestResultInteractorInput: Parser {
-    func getRightAnswers()
+import Foundation
+
+protocol TestResultInteractorInput: AnyObject {
+    func getRightAnswers(by testId: String)
 }
 
 final class TestResultInteractor {
@@ -30,15 +32,14 @@ final class TestResultInteractor {
 // MARK: - TestResultInteractorInput
 extension TestResultInteractor: TestResultInteractorInput {
     
-    func getRightAnswers() {
+    func getRightAnswers(by testId: String) {
         
-        // TODO: - think about request only test id answers!
-        databaseService.getData(.rightAnswers) { [weak self] result in
+        databaseService.getData(.rightAnswers(testId: testId)) { [weak self] result in
             
             switch result {
                 
             case .success(let answersData):
-                guard let answers = self?.parseArray(rawData: answersData, type: RightAnswersModel.self) else {
+                guard let answers = answersData as? [Int] else {
                     self?.presenter?.didFailObtainAnswers()
                     return
                 }

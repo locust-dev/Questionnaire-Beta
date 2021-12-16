@@ -50,7 +50,7 @@ extension TestCategoriesInteractor: TestCategoriesInteractorInput {
             switch result {
                 
             case .success(let categoriesData):
-                guard let categories = self?.parseArray(rawData: categoriesData, type: TestCategoryModel.self)
+                guard let categories = self?.parseJson(rawData: categoriesData, type: [TestCategoryModel].self)
                 else {
                     // TODO: - Error model
                     self?.presenter?.didFailObtainCategories(error: nil)

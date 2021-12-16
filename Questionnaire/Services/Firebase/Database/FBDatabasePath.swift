@@ -8,8 +8,9 @@
 enum FBDatabasePath {
    
     case categories
-    case tests
-    case rightAnswers
+    case rightAnswers(testId: String)
+    case test(categoryId: String)
+    case allowedTests(token: String)
     case user(token: String)
     
     var stringPath: String {
@@ -19,13 +20,16 @@ enum FBDatabasePath {
         case .categories:
             return "categories"
             
-        case .tests:
-            return "tests"
+        case .rightAnswers(let testId):
+            return "rightAnswers/\(testId)"
             
-        case .rightAnswers:
-            return "rightAnswers"
+        case .test(let categoryId):
+            return "tests/\(categoryId)"
+            
+        case .allowedTests(let token):
+            return "users/\(token)/allowedTests"
               
-        case .user(token: let token):
+        case .user(let token):
             return "users/\(token)"
         }
     }

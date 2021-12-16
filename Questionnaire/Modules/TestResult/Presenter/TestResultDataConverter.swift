@@ -9,7 +9,7 @@
 import Foundation
 
 protocol TestResultDataConverterInput {
-    func convert(rightAnswers: RightAnswersModel, userAnswers: [Int: Int]) -> TestResultViewModel
+    func convert(rightAnswers: [Int], userAnswers: [Int: Int]) -> TestResultViewModel
 }
 
 final class TestResultDataConverter {
@@ -32,20 +32,20 @@ final class TestResultDataConverter {
 // MARK: - TestResultDataConverterInput
 extension TestResultDataConverter: TestResultDataConverterInput {
   
-    func convert(rightAnswers: RightAnswersModel, userAnswers: [Int : Int]) -> TestResultViewModel {
+    func convert(rightAnswers: [Int], userAnswers: [Int : Int]) -> TestResultViewModel {
         
         var matches = 0
         var questionWithMistakes = [Int]()
         
         userAnswers.forEach { (questionNumber, userAnswer) in
-            if rightAnswers.each[questionNumber - 1] == userAnswer {
+            if rightAnswers[questionNumber - 1] == userAnswer {
                 matches += 1
             } else {
                 questionWithMistakes.append(questionNumber)
             }
         }
         
-        let percentString = convertToPercent(Float(matches) / Float(rightAnswers.each.count))
+        let percentString = convertToPercent(Float(matches) / Float(rightAnswers.count))
         
         // TODO: - Localized
         return TestResultViewModel(percentage: percentString,

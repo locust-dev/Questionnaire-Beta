@@ -15,11 +15,12 @@ final class TestListAssembly: Assembly {
         }
         
         let databaseService = FBDatabaseService()
+        let authService = FBAuthService()
         
         let tableViewManager = TestListTableViewManager()
         let dataConverter = TestListDataConverter()
         
-        let interactor = TestListInteractor(databaseService: databaseService)
+        let interactor = TestListInteractor(databaseService: databaseService, authService: authService)
         let view = TestListViewController()
         let router = TestListRouter(transition: view)
         let presenter = TestListPresenter(dataConverter: dataConverter, categoryId: model.categoryId)

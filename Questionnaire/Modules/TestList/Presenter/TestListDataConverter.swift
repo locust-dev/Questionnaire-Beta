@@ -7,7 +7,7 @@
 //
 
 protocol TestListDataConverterInput {
-    func convert(tests: TestsModel) -> TestListViewModel
+    func convert(tests: [Test], allowedTests: [String]) -> TestListViewModel
 }
 
 final class TestListDataConverter {
@@ -30,9 +30,18 @@ final class TestListDataConverter {
 // MARK: - TestListDataConverterInput
 extension TestListDataConverter: TestListDataConverterInput {
     
-    func convert(tests: TestsModel) -> TestListViewModel {
-        let rows = tests.each.map { createTestRow(test: $0) }
-        return TestListViewModel(rows: rows, tests: tests.each)
+    func convert(tests: [Test], allowedTests: [String]) -> TestListViewModel {
+        
+        let rows: [TestListViewModel.Row] = tests.compactMap { test in
+            
+            guard allowedTests.filter({ $0 == test.testId }).first != nil else {
+                return nil
+            }
+            
+            return createTestRow(test: test)
+        }
+        
+        return TestListViewModel(rows: rows, tests: tests)
     }
     
 }

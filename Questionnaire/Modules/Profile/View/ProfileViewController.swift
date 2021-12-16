@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ProfileViewInput: AnyObject {
+protocol ProfileViewInput: Loadable, Alertable  {
     func update(with viewModel: ProfileViewModel)
 }
 
@@ -18,8 +18,6 @@ final class ProfileViewController: UIViewController {
     
 	var presenter: ProfileViewOutput?
     
-    private let username = UILabel()
-    private let userInfo = UILabel()
     private let logOutButton = UIButton()
     
     
@@ -39,8 +37,7 @@ final class ProfileViewController: UIViewController {
         
         view.backgroundColor = .red
         
-        username.numberOfLines = 0
-        userInfo.numberOfLines = 0
+        navigationController?.navigationBar.prefersLargeTitles = true
         
         logOutButton.addTarget(self, action: #selector(logOutTap), for: .touchUpInside)
         logOutButton.layer.cornerRadius = 15
@@ -48,12 +45,8 @@ final class ProfileViewController: UIViewController {
         logOutButton.layer.borderColor = UIColor.darkGray.cgColor
         logOutButton.layer.borderWidth = 1
         
-        view.addSubview(username)
-        view.addSubview(userInfo)
         view.addSubview(logOutButton)
         
-        username.autoPinEdgesToSuperviewSafeArea(with: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20), excludingEdge: .bottom)
-        userInfo.autoPinEdge(.top, to: .bottom, of: username, withOffset: 50)
         logOutButton.autoPinEdge(.bottom, to: .bottom, of: view, withOffset: -20)
         logOutButton.autoAlignAxis(toSuperviewAxis: .vertical)
         logOutButton.autoSetDimensions(to: CGSize(width: 150, height: 50))
@@ -74,8 +67,7 @@ extension ProfileViewController: ProfileViewInput {
     
     func update(with viewModel: ProfileViewModel) {
         
-        username.text = viewModel.username
-        userInfo.text = viewModel.userID
+        title = viewModel.fullName
         
         // TODO: - From localized
         logOutButton.setTitle("Log out", for: .normal)

@@ -11,7 +11,7 @@ protocol TestResultViewOutput: ViewOutput {
 }
 
 protocol TestResultInteractorOutput: AnyObject {
-    func didSuccessObtainAnswers(_ answers: [RightAnswersModel])
+    func didSuccessObtainAnswers(_ answers: [Int])
     func didFailObtainAnswers()
 }
 
@@ -52,7 +52,7 @@ extension TestResultPresenter: TestResultViewOutput {
     
     func viewIsReady() {
         view?.showHUD()
-        interactor?.getRightAnswers()
+        interactor?.getRightAnswers(by: testId)
     }
     
 }
@@ -61,15 +61,9 @@ extension TestResultPresenter: TestResultViewOutput {
 // MARK: - TestResultInteractorOutput
 extension TestResultPresenter: TestResultInteractorOutput {
     
-    func didSuccessObtainAnswers(_ answers: [RightAnswersModel]) {
-        
+    func didSuccessObtainAnswers(_ answers: [Int]) {
         view?.hideHUD()
-        
-        guard let filteredAnswers = answers.filter({ $0.testId == testId }).first else {
-            return
-        }
-        
-        let viewModel = dataConverter.convert(rightAnswers: filteredAnswers, userAnswers: userAnswers)
+        let viewModel = dataConverter.convert(rightAnswers: answers, userAnswers: userAnswers)
         view?.update(with: viewModel)
     }
     

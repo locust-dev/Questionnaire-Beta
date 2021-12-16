@@ -9,8 +9,8 @@
 protocol TestListViewOutput: ViewOutput {  }
 
 protocol TestListInteractorOutput: AnyObject {
-    func didSuccessObtainTests(_ tests: [TestsModel])
-    func didFailObtainTests()
+    func didSuccessObtainTests(_ tests: [Test], allowedTests: [String])
+    func didFailObtainTests(error: ErrorModel)
 }
 
 final class TestListPresenter {
@@ -43,7 +43,7 @@ extension TestListPresenter: TestListViewOutput {
     
     func viewIsReady() {
         view?.showHUD()
-        interactor?.getTests()
+        interactor?.fetchTests(by: categoryId)
     }
     
 }
@@ -52,20 +52,13 @@ extension TestListPresenter: TestListViewOutput {
 // MARK: - TestListInteractorOutput
 extension TestListPresenter: TestListInteractorOutput {
     
-    func didSuccessObtainTests(_ tests: [TestsModel]) {
+    func didSuccessObtainTests(_ tests: [Test], allowedTests: [String]) {
         view?.hideHUD()
-        
-        guard let testsByCurrentCategory = tests.filter({ $0.categoryIdentifier == categoryId }).first
-        else {
-            // TODO: - Handle error
-            return
-        }
-        
-        let viewModel = dataConverter.convert(tests: testsByCurrentCategory)
+        let viewModel = dataConverter.convert(tests: tests, allowedTests: allowedTests)
         view?.update(with: viewModel)
     }
     
-    func didFailObtainTests() {
+    func didFailObtainTests(error: ErrorModel) {
         
         // TODO: - ...
     }

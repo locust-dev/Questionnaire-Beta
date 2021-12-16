@@ -9,5 +9,9 @@ struct ProfileViewModel {
     
     let firstName: String
     let lastName: String
+    
+    var fullName: String {
+        "\(firstName) \(lastName)"
+    }
 
 }

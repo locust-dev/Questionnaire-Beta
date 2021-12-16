@@ -25,7 +25,6 @@ struct TestListViewModel {
         }
         
         var configurator: TableCellConfiguratorProtocol
-        
     }
     
 }
