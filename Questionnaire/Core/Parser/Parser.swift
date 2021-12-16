@@ -20,8 +20,8 @@ extension Parser {
         if (rawData as? NSNull) != nil {
             return nil
         }
-        
-        do {
+       
+        do { 
             let json = try JSONSerialization.data(withJSONObject: rawData)
             let decodedData = try JSONDecoder().decode(Model.self, from: json)
             return decodedData

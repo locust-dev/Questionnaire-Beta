@@ -10,6 +10,7 @@ import UIKit
 
 protocol MainScreenViewInput: AnyObject {
     func set(viewControllers: [UIViewController]?)
+    func updateProfileTabUsername(_ username: String)
 }
 
 final class MainScreenViewController: UITabBarController {
@@ -60,6 +61,18 @@ extension MainScreenViewController: MainScreenViewInput {
     func set(viewControllers: [UIViewController]?) {
         tabBar.isHidden = false
         self.viewControllers = viewControllers
+    }
+    
+    func updateProfileTabUsername(_ username: String) {
+        
+        guard let viewControllers = viewControllers else {
+            return
+        }
+        
+        for viewController in viewControllers {
+            let profileVC = (viewController as? UINavigationController)?.topViewController as? ProfileViewController
+            profileVC?.title = username
+        }
     }
     
 }

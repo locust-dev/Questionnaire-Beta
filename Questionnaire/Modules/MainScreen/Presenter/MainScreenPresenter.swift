@@ -10,7 +10,9 @@ import UIKit
 
 protocol MainScreenViewOutput: ViewOutput {  }
 
-protocol MainScreenInteractorOutput: AnyObject {  }
+protocol MainScreenInteractorOutput: AnyObject {
+    func didObtainFullname(_ fullname: String?)
+}
 
 final class MainScreenPresenter {
     
@@ -52,12 +54,18 @@ extension MainScreenPresenter: MainScreenViewOutput {
     
     func viewWillAppear() {
         view?.set(viewControllers: createViewControllers())
+        interactor?.getUserFullname()
     }
 }
 
 
 // MARK: - MainScreenInteractorOutput
-extension MainScreenPresenter: MainScreenInteractorOutput {  }
+extension MainScreenPresenter: MainScreenInteractorOutput {
+    
+    func didObtainFullname(_ fullname: String?) {
+        view?.updateProfileTabUsername(fullname ?? "Profile")
+    }
+}
 
 
 // MARK: - AuthorizationModuleOutput

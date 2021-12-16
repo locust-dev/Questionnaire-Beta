@@ -11,4 +11,8 @@ struct ProfileModel: Decodable {
     let lastName: String
     let uniqueToken: String
     let allowedTests: [String]?
+    
+    var fullName: String {
+        "\(firstName) \(lastName)"
+    }
 }

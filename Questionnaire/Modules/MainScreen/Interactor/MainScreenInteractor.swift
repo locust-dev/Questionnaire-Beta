@@ -8,11 +8,12 @@
 
 import Foundation
 
-protocol MainScreenInteractorInput {
+protocol MainScreenInteractorInput: Parser {
     
     var isAuthorized: Bool { get }
     
     func logOut()
+    func getUserFullname()
 }
 
 final class MainScreenInteractor {
@@ -48,4 +49,23 @@ extension MainScreenInteractor: MainScreenInteractorInput {
         authService.logOut()
     }
     
+    func getUserFullname() {
+        
+        guard let userToken = authService.currentUserToken else {
+            return
+        }
+        
+        databaseService.getData(.user(token: userToken)) { [weak self] result in
+            
+            switch result {
+                
+            case .success(let userData):
+                let fullname = self?.parseJson(rawData: userData, type: ProfileModel.self)?.fullName
+                self?.presenter?.didObtainFullname(fullname)
+                
+            case .failure(_):
+                break
+            }
+        }
+    }
 }
