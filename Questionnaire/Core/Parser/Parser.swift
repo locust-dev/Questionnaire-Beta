@@ -17,6 +17,10 @@ extension Parser {
     
     func parseJson<Model: Decodable>(rawData: Any, type: Model.Type) -> Model? {
         
+        if (rawData as? NSNull) != nil {
+            return nil
+        }
+        
         do {
             let json = try JSONSerialization.data(withJSONObject: rawData)
             let decodedData = try JSONDecoder().decode(Model.self, from: json)

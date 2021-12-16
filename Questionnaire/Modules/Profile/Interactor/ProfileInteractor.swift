@@ -7,6 +7,7 @@
 
 protocol ProfileInteractorInput: Parser {
     func fetchUserData()
+    func logOut()
 }
 
 final class ProfileInteractor {
@@ -33,6 +34,10 @@ final class ProfileInteractor {
 
 // MARK: - ProfileInteractorInput
 extension ProfileInteractor: ProfileInteractorInput {
+    
+    func logOut() {
+        authService.logOut()
+    }
     
     func fetchUserData() {
         

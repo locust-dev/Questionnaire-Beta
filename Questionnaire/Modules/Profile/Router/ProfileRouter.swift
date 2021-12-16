@@ -6,7 +6,7 @@
 //  Copyright © 2021 FINCH. All rights reserved.
 //
 
-protocol ProfileRouterInput {  }
+protocol ProfileRouterInput { }
 
 final class ProfileRouter {
     
