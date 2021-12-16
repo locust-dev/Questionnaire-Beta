@@ -28,7 +28,7 @@ final class MainScreenPresenter {
         let userModule: Module
         
         if interactor?.isAuthorized == true {
-            let profileModel = ProfileAssembly.Model(moduleOutput: self ,tabBarTitle: "Profile", username: "MAX", userID: "123")
+            let profileModel = ProfileAssembly.Model(moduleOutput: self , tabBarTitle: "username")
             userModule = ProfileAssembly.assembleModule(with: profileModel)
             
         } else {

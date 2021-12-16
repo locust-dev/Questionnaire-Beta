@@ -1,5 +1,5 @@
 //
-//  UIViewController+HUD.swift
+//  Loadable.swift
 //  Questionnaire
 //
 //  Created by Ilya Turin on 10.12.2021.

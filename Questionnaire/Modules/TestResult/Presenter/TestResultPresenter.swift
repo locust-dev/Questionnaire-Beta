@@ -8,11 +8,12 @@
 
 protocol TestResultViewOutput: ViewOutput {
     func didTapFinishButton()
+    func didTapOkErrorButton()
 }
 
 protocol TestResultInteractorOutput: AnyObject {
     func didSuccessObtainAnswers(_ answers: [Int])
-    func didFailObtainAnswers()
+    func didFailObtainAnswers(error: ErrorModel)
 }
 
 final class TestResultPresenter {
@@ -50,6 +51,10 @@ extension TestResultPresenter: TestResultViewOutput {
         router?.closeModule()
     }
     
+    func didTapOkErrorButton() {
+        router?.closeModule()
+    }
+    
     func viewIsReady() {
         view?.showHUD()
         interactor?.getRightAnswers(by: testId)
@@ -67,10 +72,11 @@ extension TestResultPresenter: TestResultInteractorOutput {
         view?.update(with: viewModel)
     }
     
-    func didFailObtainAnswers() {
-        
-        // TODO: - ...
+    func didFailObtainAnswers(error: ErrorModel) {
+        view?.hideHUD()
+        view?.showErrorPlaceholder(error)
     }
+
 }
 
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19221A42276B81DE0061495F /* ErrorPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19221A41276B81DE0061495F /* ErrorPlaceholder.swift */; };
+		19221A44276B84950061495F /* Errorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19221A43276B84950061495F /* Errorable.swift */; };
 		19304D692768925000EA403A /* TestListDataConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D622768925000EA403A /* TestListDataConverter.swift */; };
 		19304D6A2768925000EA403A /* TestListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D632768925000EA403A /* TestListPresenter.swift */; };
 		19304D6B2768925000EA403A /* TestListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D642768925000EA403A /* TestListRouter.swift */; };
@@ -91,7 +93,7 @@
 		1982B544276330B8003DAB1A /* FBAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1982B543276330B8003DAB1A /* FBAuthService.swift */; };
 		1982B546276335F1003DAB1A /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1982B545276335F1003DAB1A /* DispatchQueue.swift */; };
 		1982B54827633B1A003DAB1A /* AuthorizationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1982B54727633B1A003DAB1A /* AuthorizationInteractor.swift */; };
-		1982B54B27634287003DAB1A /* UIViewController+HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1982B54A27634287003DAB1A /* UIViewController+HUD.swift */; };
+		1982B54B27634287003DAB1A /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1982B54A27634287003DAB1A /* Loadable.swift */; };
 		1982B54D2763446B003DAB1A /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1982B54C2763446B003DAB1A /* ProgressHUD.swift */; };
 		1982B54F27634582003DAB1A /* ProgressHUDSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1982B54E27634582003DAB1A /* ProgressHUDSize.swift */; };
 		1982B5512763467C003DAB1A /* ProgressHUDContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1982B5502763467C003DAB1A /* ProgressHUDContainer.swift */; };
@@ -138,6 +140,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		19221A41276B81DE0061495F /* ErrorPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPlaceholder.swift; sourceTree = "<group>"; };
+		19221A43276B84950061495F /* Errorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errorable.swift; sourceTree = "<group>"; };
 		19304D622768925000EA403A /* TestListDataConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListDataConverter.swift; sourceTree = "<group>"; };
 		19304D632768925000EA403A /* TestListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListPresenter.swift; sourceTree = "<group>"; };
 		19304D642768925000EA403A /* TestListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListRouter.swift; sourceTree = "<group>"; };
@@ -198,7 +202,7 @@
 		1982B543276330B8003DAB1A /* FBAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBAuthService.swift; sourceTree = "<group>"; };
 		1982B545276335F1003DAB1A /* DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueue.swift; sourceTree = "<group>"; };
 		1982B54727633B1A003DAB1A /* AuthorizationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationInteractor.swift; sourceTree = "<group>"; };
-		1982B54A27634287003DAB1A /* UIViewController+HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+HUD.swift"; sourceTree = "<group>"; };
+		1982B54A27634287003DAB1A /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		1982B54C2763446B003DAB1A /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		1982B54E27634582003DAB1A /* ProgressHUDSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUDSize.swift; sourceTree = "<group>"; };
 		1982B5502763467C003DAB1A /* ProgressHUDContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUDContainer.swift; sourceTree = "<group>"; };
@@ -600,14 +604,14 @@
 		1952AA852760FE3700675931 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				193D993927623E65004ACA7F /* MainScreen */,
+				193D994427624057004ACA7F /* Authorization */,
+				1982B55F27639887003DAB1A /* Profile */,
+				19861D90276A349D00D3C041 /* Registration */,
 				19436D4E2768DCED00D2FA0A /* TestResult */,
 				19436D212768A59E00D2FA0A /* TestQuestion */,
 				19304D612768923000EA403A /* TestList */,
 				1982B5542763583D003DAB1A /* TestCategories */,
-				193D993927623E65004ACA7F /* MainScreen */,
-				1982B55F27639887003DAB1A /* Profile */,
-				193D994427624057004ACA7F /* Authorization */,
-				19861D90276A349D00D3C041 /* Registration */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -626,6 +630,7 @@
 			children = (
 				19D5C9E32767B60D000109F2 /* CellConfigurator */,
 				19D5C9D627675382000109F2 /* Alertable */,
+				1982B54A27634287003DAB1A /* Loadable.swift */,
 				1952AA8D2761003D00675931 /* ViewOutput.swift */,
 				1952AA92276100C600675931 /* Assembly.swift */,
 				1952AA94276100EE00675931 /* TransitionModel.swift */,
@@ -704,7 +709,6 @@
 				19D5C9DF2767B2C9000109F2 /* Errors */,
 				1982B545276335F1003DAB1A /* DispatchQueue.swift */,
 				1982B55D27636841003DAB1A /* Collection+SafeSubscript.swift */,
-				1982B54A27634287003DAB1A /* UIViewController+HUD.swift */,
 				19D5C9C727673B21000109F2 /* UITableVIew+RegisterCell.swift */,
 				19D5C9C927673EBA000109F2 /* NSObject.swift */,
 				19436D4C2768DA7C00D2FA0A /* UIStackView.swift */,
@@ -932,6 +936,8 @@
 			isa = PBXGroup;
 			children = (
 				19D5C9E02767B2D0000109F2 /* ErrorModel.swift */,
+				19221A41276B81DE0061495F /* ErrorPlaceholder.swift */,
+				19221A43276B84950061495F /* Errorable.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -1201,6 +1207,7 @@
 				19304D81276898F100EA403A /* TestCell.swift in Sources */,
 				1982B5512763467C003DAB1A /* ProgressHUDContainer.swift in Sources */,
 				19436D322768A5DB00D2FA0A /* TestQuestionInteractor.swift in Sources */,
+				19221A42276B81DE0061495F /* ErrorPlaceholder.swift in Sources */,
 				1952AA93276100C600675931 /* Assembly.swift in Sources */,
 				19861D9A276A353800D3C041 /* RegistrationRouter.swift in Sources */,
 				19436D2C2768A5DB00D2FA0A /* TestQuestionDataConverter.swift in Sources */,
@@ -1211,7 +1218,7 @@
 				19436D3E2768A83F00D2FA0A /* TestQuestionTitleCell.swift in Sources */,
 				19436D492768C5E600D2FA0A /* TestQuestionConfirmCell.swift in Sources */,
 				19D5C9E12767B2D0000109F2 /* ErrorModel.swift in Sources */,
-				1982B54B27634287003DAB1A /* UIViewController+HUD.swift in Sources */,
+				1982B54B27634287003DAB1A /* Loadable.swift in Sources */,
 				19436D2F2768A5DB00D2FA0A /* TestQuestionRouter.swift in Sources */,
 				19436D4D2768DA7C00D2FA0A /* UIStackView.swift in Sources */,
 				19304D6E2768925000EA403A /* TestListViewModel.swift in Sources */,
@@ -1237,6 +1244,7 @@
 				19304D6A2768925000EA403A /* TestListPresenter.swift in Sources */,
 				193D994D27624BF6004ACA7F /* R.generated.swift in Sources */,
 				19436D302768A5DB00D2FA0A /* TestQuestionViewController.swift in Sources */,
+				19221A44276B84950061495F /* Errorable.swift in Sources */,
 				19436D402768A85400D2FA0A /* TestAnswersCounterCell.swift in Sources */,
 				1952AA8E2761003D00675931 /* ViewOutput.swift in Sources */,
 				193D993727623E60004ACA7F /* MainScreenInteractor.swift in Sources */,

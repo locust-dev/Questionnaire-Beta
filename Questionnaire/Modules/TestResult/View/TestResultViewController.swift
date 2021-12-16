@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol TestResultViewInput: AnyObject, Loadable {
+protocol TestResultViewInput: Loadable, Errorable {
     func update(with viewModel: TestResultViewModel)
 }
 
@@ -79,4 +79,14 @@ extension TestResultViewController: TestResultViewInput {
         questionsWithMistakes.text = "You made mistakes in questions: \(viewModel.questionsWithMistakes)"
         quitButton.setTitle(viewModel.quitButtonTitle, for: .normal)
     }
+}
+
+
+// MARK: - ErrorPlaceholderDelegate
+extension TestResultViewController: ErrorPlaceholderDelegate {
+    
+    func didTapOkButton() {
+        presenter?.didTapOkErrorButton()
+    }
+    
 }

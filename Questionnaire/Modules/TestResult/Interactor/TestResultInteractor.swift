@@ -40,7 +40,7 @@ extension TestResultInteractor: TestResultInteractorInput {
                 
             case .success(let answersData):
                 guard let answers = answersData as? [Int] else {
-                    self?.presenter?.didFailObtainAnswers()
+                    self?.presenter?.didFailObtainAnswers(error: .notFindAnswers)
                     return
                 }
                 
@@ -48,7 +48,7 @@ extension TestResultInteractor: TestResultInteractorInput {
                 
             case .failure(let error):
                 print(error.localizedDescription)
-                self?.presenter?.didFailObtainAnswers()
+                self?.presenter?.didFailObtainAnswers(error: .notFindAnswers)
             }
         }
     }

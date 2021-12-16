@@ -49,10 +49,7 @@ extension ProfileAssembly {
     struct Model: TransitionModel {
         
         weak var moduleOutput: ProfileModuleOutput?
-        
         let tabBarTitle: String
-        let username: String
-        let userID: String
     }
     
 }
