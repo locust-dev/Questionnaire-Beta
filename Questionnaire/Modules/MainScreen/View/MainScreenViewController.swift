@@ -71,7 +71,7 @@ extension MainScreenViewController: MainScreenViewInput {
         
         for viewController in viewControllers {
             let profileVC = (viewController as? UINavigationController)?.topViewController as? ProfileViewController
-            profileVC?.title = username
+            profileVC?.tabBarItem.title = username
         }
     }
     
