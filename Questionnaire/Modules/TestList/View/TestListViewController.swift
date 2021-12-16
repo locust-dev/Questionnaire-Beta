@@ -11,6 +11,7 @@ import UIKit
 protocol TestListViewInput: Loadable, Alertable {
     func update(with viewModel: TestListViewModel)
     func showAlertIfNoQuestionsInTest()
+    func showAlertSureToStartTest(_ test: Test)
 }
 
 final class TestListViewController: UIViewController {
@@ -54,7 +55,19 @@ extension TestListViewController: TestListViewInput {
     
     func showAlertIfNoQuestionsInTest() {
         // TODO: - Config
-        showAlert(title: "Oops", message: "It seems this test does not have any questions yet! Attempt to try later!", buttonTitle: "Ok")
+        showAlert(title: "Ошибка",
+                  message: "Похоже, в этот тест еще не добавили ни одного вопроса!",
+                  buttonTitle: "Ок")
     }
     
+    func showAlertSureToStartTest(_ test: Test) {
+        
+        let okAction = AlertAction(title: "Начать", style: .default) {
+            self.presenter?.didTapStartTest(test)
+        }
+        
+        let cancelAction = AlertAction(title: "Отменить", style: .cancel)
+        showAlert(title: "Начать тест?", message: "Вы уверены?", actions: [okAction, cancelAction])
+    }
+
 }

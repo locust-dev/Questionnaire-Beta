@@ -6,7 +6,9 @@
 //  Copyright © 2021 FINCH. All rights reserved.
 //
 
-protocol TestListViewOutput: ViewOutput {  }
+protocol TestListViewOutput: ViewOutput {
+    func didTapStartTest(_ test: Test)
+}
 
 protocol TestListInteractorOutput: AnyObject {
     func didSuccessObtainTests(_ tests: [Test], allowedTests: [String])
@@ -70,9 +72,14 @@ extension TestListPresenter: TestListInteractorOutput {
 extension TestListPresenter: TestListTableViewManagerDelegate {
     
     func didTapOnTest(_ test: Test) {
+        view?.showAlertSureToStartTest(test)
+    }
+    
+    func didTapStartTest(_ test: Test) {
         
         guard let questions = test.questions,
-              let testId = test.testId
+              let testId = test.testId,
+              !questions.isEmpty
         else {
             view?.showAlertIfNoQuestionsInTest()
             return
@@ -80,4 +87,5 @@ extension TestListPresenter: TestListTableViewManagerDelegate {
         
         router?.openTest(with: questions, testId: testId)
     }
+    
 }

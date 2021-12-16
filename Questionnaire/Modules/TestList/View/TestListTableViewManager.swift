@@ -74,7 +74,7 @@ extension TestListTableViewManager: UITableViewDataSource {
 extension TestListTableViewManager: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+   
         guard let test = viewModel?.tests[safe: indexPath.row] else {
             return
         }

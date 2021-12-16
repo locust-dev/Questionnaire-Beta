@@ -41,6 +41,15 @@ extension TestListDataConverter: TestListDataConverterInput {
             return createTestRow(test: test)
         }
         
+        let tests: [Test] = tests.compactMap { test in
+            
+            guard allowedTests.filter({ $0 == test.testId }).first != nil else {
+                return nil
+            }
+            
+            return test
+        }
+            
         return TestListViewModel(rows: rows, tests: tests)
     }
     
