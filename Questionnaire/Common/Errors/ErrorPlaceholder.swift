@@ -11,11 +11,11 @@ protocol ErrorPlaceholderDelegate: AnyObject {
     func didTapErrorPlaceholderOkButton()
 }
 
-final class ErrorPlaceholder: NLView, Delegatable {
+final class ErrorPlaceholder: NLView {
     
     // MARK: - Properties
     
-    weak var delegate: AnyObject?
+    weak var delegate: ErrorPlaceholderDelegate?
     
     private let error: ErrorModel
     private let titleLabel = UILabel()

@@ -8,7 +8,7 @@
 import FirebaseDatabase
 import Foundation
 
-protocol FBDatabaseServiceProtocol: AnyObject {
+protocol FBDatabaseServiceInput: AnyObject {
     func getData(_ key: FBDatabasePath, completion: @escaping (Result<Any, ErrorModel>) -> Void)
     func saveNewUser(_ newUser: NewUserModel, completion: @escaping (Result<String, ErrorModel>) -> Void)
 }
@@ -23,7 +23,7 @@ final class FBDatabaseService {
 
 
 // MARK: - FirebaseDatabaseServiceProtocol
-extension FBDatabaseService: FBDatabaseServiceProtocol {
+extension FBDatabaseService: FBDatabaseServiceInput {
     
     func getData(_ key: FBDatabasePath, completion: @escaping (Result<Any, ErrorModel>) -> Void) {
         

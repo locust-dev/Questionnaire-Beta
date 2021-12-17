@@ -21,15 +21,15 @@ final class TestListInteractor {
     private var allowedTests: [String]?
     private var tests: [Test]?
     
-    private let databaseService: FBDatabaseServiceProtocol
-    private let authService: FBAuthServiceProtocol
+    private let databaseService: FBDatabaseServiceInput
+    private let authService: FBAuthServiceInput
     private let dispatchGroup = DispatchGroup()
     
 
     // MARK: - Init
     
-    init(databaseService: FBDatabaseServiceProtocol,
-         authService: FBAuthServiceProtocol) {
+    init(databaseService: FBDatabaseServiceInput,
+         authService: FBAuthServiceInput) {
         
         self.databaseService = databaseService
         self.authService = authService

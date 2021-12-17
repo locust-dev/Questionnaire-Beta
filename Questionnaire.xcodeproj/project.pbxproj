@@ -573,6 +573,24 @@
 			path = Authorization;
 			sourceTree = "<group>";
 		};
+		194013E7276CCAF600B87E67 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				19436D4C2768DA7C00D2FA0A /* UIStackView.swift */,
+				19D5C9C927673EBA000109F2 /* NSObject.swift */,
+				19D5C9C727673B21000109F2 /* UITableVIew+RegisterCell.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		194013E8276CCB1600B87E67 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				1952AA712760FD3D00675931 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
 		19436D212768A59E00D2FA0A /* TestQuestion */ = {
 			isa = PBXGroup;
 			children = (
@@ -682,13 +700,13 @@
 		1952AA702760FD3D00675931 /* Questionnaire */ = {
 			isa = PBXGroup;
 			children = (
+				194013E8276CCB1600B87E67 /* AppDelegate */,
 				19D5C9D9276755BC000109F2 /* Services */,
-				1982B5492763426F003DAB1A /* Extensions */,
+				1982B5492763426F003DAB1A /* Common */,
 				1952AA872760FE5200675931 /* Core */,
 				1952AA852760FE3700675931 /* Modules */,
 				1952AA7A2760FD3E00675931 /* Assets.xcassets */,
 				193D9947276249D0004ACA7F /* Colors.xcassets */,
-				193D994E27624C0C004ACA7F /* Constants.swift */,
 				193D994C27624BF6004ACA7F /* R.generated.swift */,
 				1952AA7C2760FD3E00675931 /* LaunchScreen.storyboard */,
 				1982B50B27632647003DAB1A /* GoogleService-Info.plist */,
@@ -715,7 +733,6 @@
 		1952AA872760FE5200675931 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				1952AA712760FD3D00675931 /* AppDelegate.swift */,
 				19D5C9DC2767AE9E000109F2 /* Parser */,
 			);
 			path = Core;
@@ -782,18 +799,17 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		1982B5492763426F003DAB1A /* Extensions */ = {
+		1982B5492763426F003DAB1A /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				193D994E27624C0C004ACA7F /* Constants.swift */,
+				1982B545276335F1003DAB1A /* DispatchQueue.swift */,
+				194013E7276CCAF600B87E67 /* Extensions */,
 				19D5C9C2276738EF000109F2 /* Views */,
 				1952AA8C2761003300675931 /* Protocols */,
 				19D5C9DF2767B2C9000109F2 /* Errors */,
-				1982B545276335F1003DAB1A /* DispatchQueue.swift */,
-				19D5C9C727673B21000109F2 /* UITableVIew+RegisterCell.swift */,
-				19D5C9C927673EBA000109F2 /* NSObject.swift */,
-				19436D4C2768DA7C00D2FA0A /* UIStackView.swift */,
 			);
-			path = Extensions;
+			path = Common;
 			sourceTree = "<group>";
 		};
 		1982B5542763583D003DAB1A /* TestCategories */ = {
@@ -892,22 +908,22 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		19BB25F42764C363004F165B /* Database */ = {
+		19BB25F42764C363004F165B /* DatabaseService */ = {
 			isa = PBXGroup;
 			children = (
 				19BB25F02764A8B4004F165B /* FBDatabaseService.swift */,
 				19BB25F22764C35E004F165B /* FBDatabaseReference.swift */,
 				19BB25F82764CC18004F165B /* FBDatabasePath.swift */,
 			);
-			path = Database;
+			path = DatabaseService;
 			sourceTree = "<group>";
 		};
-		19BB25F52764C36B004F165B /* Authorization */ = {
+		19BB25F52764C36B004F165B /* AuthorizationService */ = {
 			isa = PBXGroup;
 			children = (
 				1982B543276330B8003DAB1A /* FBAuthService.swift */,
 			);
-			path = Authorization;
+			path = AuthorizationService;
 			sourceTree = "<group>";
 		};
 		19C3907E276B2C6E003AFCAE /* Interactor */ = {
@@ -1368,8 +1384,8 @@
 		19D5C9D9276755BC000109F2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				19BB25F52764C36B004F165B /* Authorization */,
-				19BB25F42764C363004F165B /* Database */,
+				19BB25F52764C36B004F165B /* AuthorizationService */,
+				19BB25F42764C363004F165B /* DatabaseService */,
 			);
 			path = Services;
 			sourceTree = "<group>";

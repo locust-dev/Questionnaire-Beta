@@ -36,8 +36,8 @@ extension Errorable where Self: UIViewController {
         
         view.subviews.forEach { view in
             if let errorPlaceholeder = view as? ErrorPlaceholder {
-                errorPlaceholeder.removeFromSuperview()
                 errorPlaceholeder.delegate = nil
+                errorPlaceholeder.removeFromSuperview()
             }
         }
     }

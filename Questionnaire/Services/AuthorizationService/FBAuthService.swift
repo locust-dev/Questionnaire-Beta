@@ -7,7 +7,7 @@
 
 import FirebaseAuth
 
-protocol FBAuthServiceProtocol {
+protocol FBAuthServiceInput {
     
     var isAuthorized: Bool { get }
     var currentUserToken: String? { get }
@@ -35,7 +35,7 @@ final class FBAuthService {
 
 
 // MARK: - FirebaseAuthServiceProtocol
-extension FBAuthService: FBAuthServiceProtocol {
+extension FBAuthService: FBAuthServiceInput {
     
     var isAuthorized: Bool {
         userDefaults.value(forKey: UserDefaultsKey.userId.rawValue) != nil

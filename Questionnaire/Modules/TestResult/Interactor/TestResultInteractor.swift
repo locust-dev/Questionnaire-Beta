@@ -17,12 +17,12 @@ final class TestResultInteractor {
     
     weak var presenter: TestResultInteractorOutput?
     
-    private let databaseService: FBDatabaseServiceProtocol
+    private let databaseService: FBDatabaseServiceInput
     
     
     // MARK: - Init
  
-    init(databaseService: FBDatabaseServiceProtocol) {
+    init(databaseService: FBDatabaseServiceInput) {
         self.databaseService = databaseService
     }
     
