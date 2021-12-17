@@ -21,8 +21,10 @@ final class AuthorizationAssembly: Assembly {
         
         let view = AuthorizationViewController()
         let router = AuthorizationRouter(transition: view)
-        let interactor = AuthorizationInteractor(authorizationService: authService, databaseService: databaseService)
         let presenter = AuthorizationPresenter(moduleOutput: model.moduleOutput)
+        let interactor = AuthorizationInteractor(authorizationService: authService,
+                                                 databaseService: databaseService)
+        
         
         view.presenter = presenter
         
@@ -32,7 +34,7 @@ final class AuthorizationAssembly: Assembly {
         presenter.view = view
         presenter.router = router
         
-        view.tabBarItem.title = model.tabBarTitle
+        view.tabBarItem.title = model.defaultTabBarTitle
         view.tabBarItem.image = Images.tabbar_profile()
         
         return UINavigationController(rootViewController: view)
@@ -46,7 +48,8 @@ extension AuthorizationAssembly {
     
     struct Model: TransitionModel {
         
-        let tabBarTitle: String
         weak var moduleOutput: AuthorizationModuleOutput?
+        let defaultTabBarTitle: String
     }
+    
 }

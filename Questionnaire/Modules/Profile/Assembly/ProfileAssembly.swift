@@ -34,7 +34,7 @@ final class ProfileAssembly: Assembly {
         
         interactor.presenter = presenter
         
-        view.tabBarItem.title = model.tabBarTitle
+        view.tabBarItem.title = model.defaulTabBarTitle
         view.tabBarItem.image = Images.tabbar_profile()
         
         return UINavigationController(rootViewController: view)
@@ -49,7 +49,7 @@ extension ProfileAssembly {
     struct Model: TransitionModel {
         
         weak var moduleOutput: ProfileModuleOutput?
-        let tabBarTitle: String
+        let defaulTabBarTitle: String
     }
     
 }

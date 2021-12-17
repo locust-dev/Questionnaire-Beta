@@ -8,7 +8,6 @@
 
 protocol AuthorizationViewOutput: ViewOutput {
     func didTapConfirmButton(email: String?, password: String?)
-    func didTapForgotPasswordButton()
 }
 
 protocol AuthorizationInteractorOutput: AnyObject {
@@ -53,11 +52,6 @@ extension AuthorizationPresenter: AuthorizationViewOutput {
     func didTapConfirmButton(email: String?, password: String?) {
         view?.showHUD()
         interactor?.tryToSignIn(email: email ?? "", password: password ?? "")
-    }
-    
-    func didTapForgotPasswordButton() {
-        
-        // TODO: - Handle errors
     }
     
 }

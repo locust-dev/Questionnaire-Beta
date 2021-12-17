@@ -6,8 +6,8 @@
 //  Copyright © 2021 FINCH. All rights reserved.
 //
 
-import PureLayout
 import UIKit
+import PureLayout
 
 protocol AuthorizationViewInput: Alertable, Loadable {
     func update(with viewModel: AuthorizationViewModel)
@@ -57,6 +57,7 @@ final class AuthorizationViewController: UIViewController {
         passwordTextField.autocapitalizationType = .none
         
         confirmButton.addTarget(self, action: #selector(confirmLogin), for: .touchUpInside)
+        forgotPasswordButton.addTarget(self, action: #selector(forgotPassword), for: .touchUpInside)
         
         view.addSubview(mainLabel)
         view.addSubview(loginTextField)
@@ -99,7 +100,8 @@ final class AuthorizationViewController: UIViewController {
     }
     
     @objc private func forgotPassword() {
-        presenter?.didTapForgotPasswordButton()
+        // TODO: - From localized
+        showAlert(title: "Забыли пароль?", message: "Пожалуйста, обратитесь к @smallkot")
     }
 
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2021 FINCH. All rights reserved.
 //
 
-import SwiftUI
+import Foundation
 
 protocol AuthorizationInteractorInput: Parser {
     func tryToSignIn(email: String, password: String)

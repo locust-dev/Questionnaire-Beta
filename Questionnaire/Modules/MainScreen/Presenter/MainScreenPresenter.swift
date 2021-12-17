@@ -24,23 +24,23 @@ final class MainScreenPresenter {
     
     
     // MARK: - Private methods
-    
+
     private func createViewControllers() -> [UIViewController] {
         
         let userModule: Module
         
         if interactor?.isAuthorized == true {
-            let profileModel = ProfileAssembly.Model(moduleOutput: self , tabBarTitle: "username")
+            let profileModel = ProfileAssembly.Model(moduleOutput: self , defaulTabBarTitle: "Профиль")
             userModule = ProfileAssembly.assembleModule(with: profileModel)
             
         } else {
             // TODO: - From config
-            let authModel = AuthorizationAssembly.Model(tabBarTitle: "Profile", moduleOutput: self)
+            let authModel = AuthorizationAssembly.Model(moduleOutput: self, defaultTabBarTitle: "Профиль")
             userModule = AuthorizationAssembly.assembleModule(with: authModel)
         }
         
         // TODO: - From config
-        let testsModel = TestCategoriesAssembly.Model(tabBarTitle: "Tests")
+        let testsModel = TestCategoriesAssembly.Model(tabBarTitle: "Тесты")
         let testsModule = TestCategoriesAssembly.assembleModule(with: testsModel)
         
         return [testsModule, userModule]
@@ -63,6 +63,7 @@ extension MainScreenPresenter: MainScreenViewOutput {
 extension MainScreenPresenter: MainScreenInteractorOutput {
     
     func didObtainFullname(_ fullname: String?) {
+        // TODO: - ...
         view?.updateProfileTabUsername(fullname ?? "Profile")
     }
 }

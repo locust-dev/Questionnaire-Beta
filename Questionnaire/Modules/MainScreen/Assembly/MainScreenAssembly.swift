@@ -28,11 +28,3 @@ final class MainScreenAssembly: Assembly {
     }
 
 }
-
-
-// MARK: - Model
-extension MainScreenAssembly {
-    
-    struct Model: TransitionModel {  }
-    
-}

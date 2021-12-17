@@ -692,15 +692,6 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		1982B542276330AB003DAB1A /* Firebase */ = {
-			isa = PBXGroup;
-			children = (
-				19BB25F52764C36B004F165B /* Authorization */,
-				19BB25F42764C363004F165B /* Database */,
-			);
-			path = Firebase;
-			sourceTree = "<group>";
-		};
 		1982B5492763426F003DAB1A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -919,7 +910,8 @@
 		19D5C9D9276755BC000109F2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				1982B542276330AB003DAB1A /* Firebase */,
+				19BB25F52764C36B004F165B /* Authorization */,
+				19BB25F42764C363004F165B /* Database */,
 			);
 			path = Services;
 			sourceTree = "<group>";
