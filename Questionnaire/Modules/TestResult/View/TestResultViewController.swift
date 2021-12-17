@@ -32,7 +32,7 @@ final class TestResultViewController: UIViewController {
         drawSelf()
         presenter?.viewIsReady()
     }
-    
+
     
     // MARK: - Drawing
     
@@ -61,6 +61,13 @@ final class TestResultViewController: UIViewController {
     }
     
     
+    // MARK: - Public methods
+    
+    func didTapErrorPlaceholderOkButton() {
+        presenter?.didTapOkErrorButton()
+    }
+    
+    
     // MARK: - Actions
     
     @objc private func finishTest() {
@@ -79,14 +86,4 @@ extension TestResultViewController: TestResultViewInput {
         questionsWithMistakes.text = "You made mistakes in questions: \(viewModel.questionsWithMistakes)"
         quitButton.setTitle(viewModel.quitButtonTitle, for: .normal)
     }
-}
-
-
-// MARK: - ErrorPlaceholderDelegate
-extension TestResultViewController: ErrorPlaceholderDelegate {
-    
-    func didTapOkButton() {
-        presenter?.didTapOkErrorButton()
-    }
-    
 }

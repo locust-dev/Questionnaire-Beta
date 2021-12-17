@@ -38,7 +38,6 @@
 		19436D2F2768A5DB00D2FA0A /* TestQuestionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D252768A5DB00D2FA0A /* TestQuestionRouter.swift */; };
 		19436D302768A5DB00D2FA0A /* TestQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D262768A5DB00D2FA0A /* TestQuestionViewController.swift */; };
 		19436D312768A5DB00D2FA0A /* TestQuestionAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D272768A5DB00D2FA0A /* TestQuestionAssembly.swift */; };
-		19436D322768A5DB00D2FA0A /* TestQuestionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D282768A5DB00D2FA0A /* TestQuestionInteractor.swift */; };
 		19436D342768A5DB00D2FA0A /* TestQuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D2A2768A5DB00D2FA0A /* TestQuestionViewModel.swift */; };
 		19436D352768A5DB00D2FA0A /* TestQuestionTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D2B2768A5DB00D2FA0A /* TestQuestionTableViewManager.swift */; };
 		19436D3E2768A83F00D2FA0A /* TestQuestionTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D3D2768A83F00D2FA0A /* TestQuestionTitleCell.swift */; };
@@ -224,7 +223,6 @@
 		19436D252768A5DB00D2FA0A /* TestQuestionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionRouter.swift; sourceTree = "<group>"; };
 		19436D262768A5DB00D2FA0A /* TestQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionViewController.swift; sourceTree = "<group>"; };
 		19436D272768A5DB00D2FA0A /* TestQuestionAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionAssembly.swift; sourceTree = "<group>"; };
-		19436D282768A5DB00D2FA0A /* TestQuestionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionInteractor.swift; sourceTree = "<group>"; };
 		19436D2A2768A5DB00D2FA0A /* TestQuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionViewModel.swift; sourceTree = "<group>"; };
 		19436D2B2768A5DB00D2FA0A /* TestQuestionTableViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionTableViewManager.swift; sourceTree = "<group>"; };
 		19436D3D2768A83F00D2FA0A /* TestQuestionTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionTitleCell.swift; sourceTree = "<group>"; };
@@ -580,7 +578,6 @@
 			children = (
 				19436D362768A68100D2FA0A /* Assembly */,
 				19436D392768A69000D2FA0A /* Presenter */,
-				19436D3B2768A69A00D2FA0A /* Interactor */,
 				19436D372768A68700D2FA0A /* View */,
 				19436D3A2768A69600D2FA0A /* Model */,
 				19436D382768A68C00D2FA0A /* Router */,
@@ -629,14 +626,6 @@
 				19436D2A2768A5DB00D2FA0A /* TestQuestionViewModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		19436D3B2768A69A00D2FA0A /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				19436D282768A5DB00D2FA0A /* TestQuestionInteractor.swift */,
-			);
-			path = Interactor;
 			sourceTree = "<group>";
 		};
 		19436D3C2768A80300D2FA0A /* Cells */ = {
@@ -713,8 +702,8 @@
 			children = (
 				193D993927623E65004ACA7F /* MainScreen */,
 				193D994427624057004ACA7F /* Authorization */,
-				1982B55F27639887003DAB1A /* Profile */,
 				19861D90276A349D00D3C041 /* Registration */,
+				1982B55F27639887003DAB1A /* Profile */,
 				19436D4E2768DCED00D2FA0A /* TestResult */,
 				19436D212768A59E00D2FA0A /* TestQuestion */,
 				19304D612768923000EA403A /* TestList */,
@@ -1671,7 +1660,6 @@
 				19C83219276C906D0050747F /* NLSlider.swift in Sources */,
 				19304D81276898F100EA403A /* TestCell.swift in Sources */,
 				1982B5512763467C003DAB1A /* ProgressHUDContainer.swift in Sources */,
-				19436D322768A5DB00D2FA0A /* TestQuestionInteractor.swift in Sources */,
 				19C8321F276C906D0050747F /* NLControl.swift in Sources */,
 				19221A42276B81DE0061495F /* ErrorPlaceholder.swift in Sources */,
 				19C83220276C906D0050747F /* NLTextField.swift in Sources */,

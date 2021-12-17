@@ -11,7 +11,7 @@ import PureLayout
 
 protocol AuthorizationViewInput: Alertable, Loadable {
     func update(with viewModel: AuthorizationViewModel)
-    func showErrorAlert()
+    func showErrorAlert(message: String)
 }
 
 final class AuthorizationViewController: UIViewController {
@@ -110,9 +110,9 @@ final class AuthorizationViewController: UIViewController {
 // MARK: - AuthorizationViewInput
 extension AuthorizationViewController: AuthorizationViewInput {
     
-    func showErrorAlert() {
+    func showErrorAlert(message: String) {
         // TODO: - From localized
-        showAlert(title: "Oops", message: "Looks like your credentials are wrong", buttonTitle: "Ok")
+        showAlert(title: "Ошибка", message: message, buttonTitle: "Ok")
     }
     
     func update(with viewModel: AuthorizationViewModel) {

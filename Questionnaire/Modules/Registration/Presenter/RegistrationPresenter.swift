@@ -54,7 +54,6 @@ extension RegistrationPresenter: RegistrationViewOutput {
               !firstName.isEmpty,
               !lastName.isEmpty
         else {
-            // TODO: - localized
             view?.showAlertNonOptionalFields()
             return
         }
@@ -78,7 +77,7 @@ extension RegistrationPresenter: RegistrationInteractorOutput {
     
     func didFailToSaveNewUser(error: ErrorModel) {
         view?.hideHUD()
-        view?.showSavingAlertError()
+        view?.showSavingAlertError(message: error.description)
     }
     
 }

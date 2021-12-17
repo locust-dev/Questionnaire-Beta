@@ -62,7 +62,7 @@ extension AuthorizationPresenter: AuthorizationInteractorOutput {
     
     func didFailAuthorize(error: ErrorModel) {
         view?.hideHUD()
-        view?.showErrorAlert()
+        view?.showErrorAlert(message: error.description)
     }
     
     func didSuccessAuthorize(userToken: String?) {

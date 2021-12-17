@@ -61,8 +61,8 @@ extension TestListPresenter: TestListInteractorOutput {
     }
     
     func didFailObtainTests(error: ErrorModel) {
-        
-        // TODO: - ...
+        view?.hideHUD()
+        view?.showErrorPlaceholder(error)
     }
     
 }

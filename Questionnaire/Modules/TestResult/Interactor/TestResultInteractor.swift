@@ -47,8 +47,7 @@ extension TestResultInteractor: TestResultInteractorInput {
                 self?.presenter?.didSuccessObtainAnswers(answers)
                 
             case .failure(let error):
-                print(error.localizedDescription)
-                self?.presenter?.didFailObtainAnswers(error: .notFindAnswers)
+                self?.presenter?.didFailObtainAnswers(error: error)
             }
         }
     }

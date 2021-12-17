@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol TestCategoriesViewInput: Loadable, Alertable {
+protocol TestCategoriesViewInput: Loadable, Alertable, Errorable {
     func update(with viewModel: TestCategoriesViewModel)
     func showNonAuthorizedAlert()
 }
@@ -20,7 +20,7 @@ final class TestCategoriesViewController: UIViewController {
 	var presenter: TestCategoriesViewOutput?
     var tableViewManager: TestCategoriesTableViewManagerInput?
     
-    private let tableView = UITableView()
+    private let tableView = EmptyTableView()
     
     
     // MARK: - Life cycle

@@ -60,8 +60,7 @@ extension ProfileInteractor: ProfileInteractorInput {
                 self?.presenter?.didSuccessFetchUserData(profile: profileModel)
                 
             case .failure(let error):
-                print(error.localizedDescription)
-                self?.presenter?.didFailFetchUserData(error: .serverError)
+                self?.presenter?.didFailFetchUserData(error: error)
             }
         }
     }

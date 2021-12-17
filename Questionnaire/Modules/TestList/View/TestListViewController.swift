@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol TestListViewInput: Loadable, Alertable {
+protocol TestListViewInput: Loadable, Alertable, Errorable {
     func update(with viewModel: TestListViewModel)
     func showAlertIfNoQuestionsInTest()
     func showAlertSureToStartTest(_ test: Test)
@@ -21,7 +21,7 @@ final class TestListViewController: UIViewController {
 	var presenter: TestListViewOutput?
     var tableViewManager: TestListTableViewManagerInput?
     
-    private let tableView = UITableView()
+    private let tableView = EmptyTableView()
     
     
     // MARK: - Life cycle
@@ -71,3 +71,4 @@ extension TestListViewController: TestListViewInput {
     }
 
 }
+

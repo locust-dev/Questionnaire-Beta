@@ -32,7 +32,7 @@ extension FBDatabaseService: FBDatabaseServiceProtocol {
                 
                 mainQueue {
                     guard let value = data.value, error == nil else {
-                        completion(.failure(.somethingWentWrong))
+                        completion(.failure(.serverError))
                         return
                     }
                     

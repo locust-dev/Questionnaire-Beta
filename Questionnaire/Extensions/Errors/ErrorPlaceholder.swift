@@ -8,10 +8,10 @@
 import UIKit
 
 protocol ErrorPlaceholderDelegate: AnyObject {
-    func didTapOkButton()
+    func didTapErrorPlaceholderOkButton()
 }
 
-final class ErrorPlaceholder: UIView, Delegatable {
+final class ErrorPlaceholder: NLView, Delegatable {
     
     // MARK: - Properties
     
@@ -30,14 +30,12 @@ final class ErrorPlaceholder: UIView, Delegatable {
         drawSelf()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     
     // MARK: - Drawing
     
     private func drawSelf() {
+        
+        backgroundColor = .white
         
         titleLabel.text = error.description
         titleLabel.textAlignment = .center
@@ -64,7 +62,7 @@ final class ErrorPlaceholder: UIView, Delegatable {
     // MARK: - Actions
     
     @objc private func okTap() {
-        (delegate as? ErrorPlaceholderDelegate)?.didTapOkButton()
+        (delegate as? ErrorPlaceholderDelegate)?.didTapErrorPlaceholderOkButton()
     }
     
 }

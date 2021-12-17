@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol Errorable: AnyObject {
+protocol Errorable: ErrorPlaceholderDelegate {
     
     func showErrorPlaceholder(_ error: ErrorModel)
 }
@@ -18,8 +18,6 @@ extension Errorable where Self: UIViewController {
     
     func showErrorPlaceholder(_ error: ErrorModel) {
         
-        view.backgroundColor = .white
-        
         let errorPlaceholeder = ErrorPlaceholder(error: error)
         errorPlaceholeder.delegate = self
     
@@ -27,6 +25,21 @@ extension Errorable where Self: UIViewController {
         errorPlaceholeder.autoPinEdgesToSuperviewSafeArea()
     }
     
+    func didTapErrorPlaceholderOkButton() {
+        removeErrorFromSuperview()
+    }
+    
+    
+    // MARK: - Private methods
+    
+    private func removeErrorFromSuperview() {
+        
+        view.subviews.forEach { view in
+            if let errorPlaceholeder = view as? ErrorPlaceholder {
+                errorPlaceholeder.removeFromSuperview()
+                errorPlaceholeder.delegate = nil
+            }
+        }
+    }
+    
 }
-
-extension UIViewController: Errorable {}

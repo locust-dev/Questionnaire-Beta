@@ -18,11 +18,15 @@ final class TestCategoriesDataConverter {
     
     // MARK: - Private methods
 
-    private func createCategoryRow(category: TestCategoryModel) -> TestCategoriesViewModel.Row {
+    private func createCategoryRow(category: TestCategoryModel) -> TestCategoriesViewModel.Row? {
 
-        let model = TestCategoryCell.Model(name: category.fullTitle)
+        guard let title = category.fullTitle, let identifier = category.identifier else {
+            return nil
+        }
+        
+        let model = TestCategoryCell.Model(name: title)
         let configurator = CategoryCellConfigurator(item: model)
-        return TestCategoriesViewModel.Row(configurator: configurator, categoryId: category.identifier)
+        return TestCategoriesViewModel.Row(configurator: configurator, categoryId: identifier)
     }
 }
 
@@ -31,7 +35,7 @@ final class TestCategoriesDataConverter {
 extension TestCategoriesDataConverter: TestCategoriesDataConverterInput {
     
     func convert(categories: [TestCategoryModel]) -> TestCategoriesViewModel {
-        let rows = categories.map { createCategoryRow(category: $0) }
+        let rows = categories.compactMap { createCategoryRow(category: $0) }
         return TestCategoriesViewModel(rows: rows)
     }
     

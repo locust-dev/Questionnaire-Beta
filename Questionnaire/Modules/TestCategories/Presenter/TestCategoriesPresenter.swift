@@ -6,11 +6,11 @@
 //  Copyright © 2021 FINCH. All rights reserved.
 //
 
-protocol TestCategoriesViewOutput: ViewOutput {  }
+protocol TestCategoriesViewOutput: ViewOutput { }
 
 protocol TestCategoriesInteractorOutput: AnyObject {
     func didSuccessObtain(categories: [TestCategoryModel])
-    func didFailObtainCategories(error: Error?)
+    func didFailObtainCategories(error: ErrorModel)
 }
 
 final class TestCategoriesPresenter {
@@ -49,16 +49,16 @@ extension TestCategoriesPresenter: TestCategoriesViewOutput {
 extension TestCategoriesPresenter: TestCategoriesInteractorOutput {
     
     func didSuccessObtain(categories: [TestCategoryModel]) {
-        
         view?.hideHUD()
-        
         let viewModel = dataConverter.convert(categories: categories)
         view?.update(with: viewModel)
     }
     
-    func didFailObtainCategories(error: Error?) {
-        
-        // TODO: - ...
+    func didFailObtainCategories(error: ErrorModel) {
+        view?.hideHUD()
+        if error != .nullElements {
+            view?.showErrorPlaceholder(error)
+        }
     }
     
 }

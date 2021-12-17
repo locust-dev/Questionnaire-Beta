@@ -7,6 +7,6 @@
 
 struct TestCategoryModel: Decodable {
     
-    let identifier: String
-    let fullTitle: String
+    let identifier: String?
+    let fullTitle: String?
 }

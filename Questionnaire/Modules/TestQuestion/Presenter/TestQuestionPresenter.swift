@@ -8,15 +8,12 @@
 
 protocol TestQuestionViewOutput: ViewOutput {  }
 
-protocol TestQuestionInteractorOutput: AnyObject {  }
-
 final class TestQuestionPresenter {
     
     // MARK: - Properties
     
     weak var view: TestQuestionViewInput?
     
-    var interactor: TestQuestionInteractorInput?
     var router: TestQuestionRouterInput?
 
     private var userAnswers: [Int: Int] = [:]
@@ -64,11 +61,6 @@ extension TestQuestionPresenter: TestQuestionViewOutput {
         setQuestion()
     }
 }
-
-
-// MARK: - TestQuestionInteractorOutput
-extension TestQuestionPresenter: TestQuestionInteractorOutput {  }
-
 
 // MARK: - TestQuestionTableViewManagerDelegate
 extension TestQuestionPresenter: TestQuestionTableViewManagerDelegate {

@@ -10,7 +10,7 @@ import UIKit
 
 protocol RegistrationViewInput: Alertable, Loadable {
     func showAlertNonOptionalFields()
-    func showSavingAlertError()
+    func showSavingAlertError(message: String)
     func showSuccessRegistrationAlert()
 }
 
@@ -93,9 +93,9 @@ extension RegistrationViewController: RegistrationViewInput {
         showAlert(title: "Ошибка!", message: "Пожалуйста, заполните все обязятельные поля.")
     }
     
-    func showSavingAlertError() {
+    func showSavingAlertError(message: String) {
         // TODO: - Localized
-        showAlert(title: "Ошибка!", message: "К сожалению, мы не смогли вас зарегистрировать, попробуйте позже.")
+        showAlert(title: "Ошибка!", message: message)
     }
     
     func showSuccessRegistrationAlert() {

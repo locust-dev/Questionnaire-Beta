@@ -40,10 +40,7 @@ final class TestListInteractor {
     
     private func getAllowedTests() {
 
-        guard let userToken = authService.currentUserToken else {
-            error = .userNotAuthorized
-            return
-        }
+        let userToken = authService.currentUserToken ?? ""
     
         databaseService.getData(FBDatabasePath.allowedTests(token: userToken)) { [weak self] result in
             
@@ -51,7 +48,7 @@ final class TestListInteractor {
                 
             case .success(let allowedTestsData):
                 guard let allowedTests = allowedTestsData as? [String] else {
-                    self?.error = .serverError
+                    self?.error = .somethingWentWrong
                     return
                 }
                 
@@ -74,15 +71,14 @@ final class TestListInteractor {
             case .success(let testsData):
                 guard let testsModel = self?.parseJson(rawData: testsData, type: TestsModel.self)
                 else {
-                    self?.error = .serverError
+                    self?.error = .somethingWentWrong
                     return
                 }
                 
                 self?.tests = testsModel.each
 
             case .failure(let error):
-                print(error.localizedDescription)
-                self?.presenter?.didFailObtainTests(error: .serverError)
+                self?.presenter?.didFailObtainTests(error: error)
             }
             
             self?.dispatchGroup.leave()
@@ -106,12 +102,13 @@ extension TestListInteractor: TestListInteractorInput {
             
             if let error = self.error {
                 self.presenter?.didFailObtainTests(error: error)
+                return
             }
             
             guard let allowedTests = self.allowedTests,
                   let tests = self.tests
             else {
-                self.presenter?.didFailObtainTests(error: .serverError)
+                self.presenter?.didFailObtainTests(error: .somethingWentWrong)
                 return
             }
             

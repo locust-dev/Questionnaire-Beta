@@ -49,8 +49,8 @@ final class AuthorizationInteractor {
                 self?.authorizationService.setCurrentUserToken(token)
                 self?.presenter?.didSuccessAuthorize(userToken: nil)
                 
-            case .failure(_):
-                self?.presenter?.didFailAuthorize(error: .somethingWentWrong)
+            case .failure(let error):
+                self?.presenter?.didFailAuthorize(error: error)
             }
         }
     }
@@ -74,8 +74,8 @@ extension AuthorizationInteractor: AuthorizationInteractorInput {
                 
                 self?.checkIfUserAlreadyInDatabase(token: token)
                 
-            case .failure(_):
-                self?.presenter?.didFailAuthorize(error: .somethingWentWrong)
+            case .failure(let error):
+                self?.presenter?.didFailAuthorize(error: error)
             }
         }
     }
