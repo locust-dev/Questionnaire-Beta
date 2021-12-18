@@ -45,7 +45,7 @@ extension AuthorizationPresenter: AuthorizationViewOutput {
     func viewIsReady() {
         
         // TODO: - From config
-        let viewModel = AuthorizationViewModel(mainTitle: "Пожалуйста, войдите", confirmButtonTitle: "Войти", forgotPassButtonTitle: "Забыли пароль?")
+        let viewModel = AuthorizationViewModel(mainTitle: "Добро пожаловать!", subtitle: "Пожалуйста, войдите", confirmButtonTitle: "Войти", forgotPassButtonTitle: "Забыли пароль?")
         view?.update(with: viewModel)
     }
     

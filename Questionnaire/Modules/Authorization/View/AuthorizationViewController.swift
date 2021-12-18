@@ -20,12 +20,13 @@ final class AuthorizationViewController: UIViewController {
     
 	var presenter: AuthorizationViewOutput?
     
-    private let mainLabel = UILabel()
-    private let loginTextField = UITextField()
-    private let passwordTextField = UITextField()
-    private let confirmButton = UIButton()
+    private let titleLabel = UILabel()
+    private let subtitleLabel = UILabel()
+    private let loginTextField = BottomLineTextField()
+    private let passwordTextField = BottomLineTextField()
+    private let confirmButton = CommonButton()
     private let forgotPasswordButton = UIButton()
-    
+  
     
     // MARK: - Life cycle
     
@@ -45,51 +46,70 @@ final class AuthorizationViewController: UIViewController {
     
     private func drawSelf() {
         
-        view.backgroundColor = Colors.authBackground()
+        view.backgroundColor = Colors.mainBlueColor()
+        navigationController?.navigationBar.prefersLargeTitles = true
         
-        mainLabel.textAlignment = .center
-        mainLabel.numberOfLines = 0
+        let stackContainer = UIView()
+        stackContainer.backgroundColor = .white
+        stackContainer.layer.cornerRadius = 12
         
-        loginTextField.backgroundColor = .white
-        loginTextField.autocapitalizationType = .none
+        let appIconImageView = UIImageView(image: Images.mainIcon())
+        appIconImageView.contentMode = .scaleAspectFit
         
-        passwordTextField.backgroundColor = .white
-        passwordTextField.autocapitalizationType = .none
+        let appIconContainer = UIView()
         
-        confirmButton.addTarget(self, action: #selector(confirmLogin), for: .touchUpInside)
+        let stackView = UIStackView(arrangedSubviews: [titleLabel,
+                                                       subtitleLabel,
+                                                       loginTextField,
+                                                       passwordTextField,
+                                                       confirmButton])
+        stackView.axis = .vertical
+        stackView.spacing = 4
+        stackView.setCustomSpacing(50, after: subtitleLabel)
+        stackView.setCustomSpacing(30, after: loginTextField)
+        stackView.setCustomSpacing(60, after: passwordTextField)
+        
+        titleLabel.font = UIFont(name: MainFont.bold, size: 30)
+        titleLabel.textColor = .black
+        titleLabel.numberOfLines = 0
+        
+        subtitleLabel.font = UIFont(name: MainFont.regular, size: 16)
+        subtitleLabel.textColor = .black
+        subtitleLabel.numberOfLines = 0
+        
+        passwordTextField.type = .password
+        
+        forgotPasswordButton.setTitleColor(.black, for: .normal)
+        forgotPasswordButton.titleLabel?.font = UIFont(name: MainFont.medium, size: 14)
+        forgotPasswordButton.titleLabel?.textAlignment = .right
         forgotPasswordButton.addTarget(self, action: #selector(forgotPassword), for: .touchUpInside)
+        confirmButton.addTarget(self, action: #selector(confirmLogin), for: .touchUpInside)
         
-        view.addSubview(mainLabel)
-        view.addSubview(loginTextField)
-        view.addSubview(passwordTextField)
-        view.addSubview(confirmButton)
+        view.addSubview(stackContainer)
         view.addSubview(forgotPasswordButton)
+        view.addSubview(appIconContainer)
+        appIconContainer.addSubview(appIconImageView)
+        stackContainer.addSubview(stackView)
+
+        stackContainer.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 0, left: 0, bottom: -30, right: 0), excludingEdge: .top)
+        stackView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 40, left: 20, bottom: 80, right: 20))
         
-        mainLabel.autoPinEdge(.top, to: .top, of: view, withOffset: 100)
-        mainLabel.autoPinEdge(.left, to: .left, of: view, withOffset: 20)
-        mainLabel.autoPinEdge(.right, to: .right, of: view, withOffset: -20)
+        appIconContainer.autoPinEdge(.bottom, to: .top, of: stackContainer)
+        appIconContainer.autoPinEdgesToSuperviewEdges(
+            with: UIEdgeInsets(top: getStatusBarHeight(), left: 0, bottom: 0, right: 0),
+            excludingEdge: .bottom
+        )
         
-        loginTextField.autoPinEdge(.top, to: .bottom, of: mainLabel, withOffset: 100)
-        loginTextField.autoPinEdge(.left, to: .left, of: view, withOffset: 20)
-        loginTextField.autoPinEdge(.right, to: .right, of: view, withOffset: -20)
+        appIconImageView.autoCenterInSuperview()
+        appIconImageView.autoSetDimensions(to: CGSize(width: 50, height: 50))
+        
         loginTextField.autoSetDimension(.height, toSize: 50)
-        
-        passwordTextField.autoPinEdge(.top, to: .bottom, of: loginTextField, withOffset: 30)
-        passwordTextField.autoPinEdge(.left, to: .left, of: view, withOffset: 20)
-        passwordTextField.autoPinEdge(.right, to: .right, of: view, withOffset: -20)
         passwordTextField.autoSetDimension(.height, toSize: 50)
-        
         confirmButton.autoSetDimension(.height, toSize: 50)
-        confirmButton.autoPinEdge(.left, to: .left, of: view, withOffset: 20)
-        confirmButton.autoPinEdge(.right, to: .right, of: view, withOffset: -20)
-        confirmButton.autoPinEdge(.top, to: .bottom, of: passwordTextField, withOffset: 50)
-        confirmButton.autoAlignAxis(toSuperviewAxis: .vertical)
-        
-        forgotPasswordButton.autoSetDimension(.height, toSize: 50)
-        forgotPasswordButton.autoPinEdge(.left, to: .left, of: view, withOffset: 20)
-        forgotPasswordButton.autoPinEdge(.right, to: .right, of: view, withOffset: -20)
-        forgotPasswordButton.autoPinEdge(.top, to: .bottom, of: confirmButton, withOffset: 20)
-        forgotPasswordButton.autoAlignAxis(toSuperviewAxis: .vertical)
+
+        forgotPasswordButton.autoSetDimension(.height, toSize: 20)
+        forgotPasswordButton.autoPinEdge(.right, to: .right, of: passwordTextField)
+        forgotPasswordButton.autoPinEdge(.top, to: .bottom, of: passwordTextField, withOffset: 6)
     }
     
     
@@ -116,7 +136,8 @@ extension AuthorizationViewController: AuthorizationViewInput {
     }
     
     func update(with viewModel: AuthorizationViewModel) {
-        mainLabel.text = viewModel.mainTitle
+        titleLabel.text = viewModel.mainTitle
+        subtitleLabel.text = viewModel.subtitle
         confirmButton.setTitle(viewModel.confirmButtonTitle, for: .normal)
         forgotPasswordButton.setTitle(viewModel.forgotPassButtonTitle, for: .normal)
     }

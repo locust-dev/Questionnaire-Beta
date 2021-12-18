@@ -62,7 +62,7 @@ final class ErrorPlaceholder: NLView {
     // MARK: - Actions
     
     @objc private func okTap() {
-        (delegate as? ErrorPlaceholderDelegate)?.didTapErrorPlaceholderOkButton()
+        delegate?.didTapErrorPlaceholderOkButton()
     }
     
 }
