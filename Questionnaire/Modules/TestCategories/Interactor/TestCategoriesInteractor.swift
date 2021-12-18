@@ -53,7 +53,7 @@ extension TestCategoriesInteractor: TestCategoriesInteractorInput {
                 guard let categories = self?.parseJson(rawData: categoriesData, type: [TestCategoryModel].self)
                 else {
                     // TODO: - Error model
-                    self?.presenter?.didFailObtainCategories(error: .nullElements)
+                    self?.presenter?.didFailObtainCategories(error: .nonShowingError)
                     return
                 }
 

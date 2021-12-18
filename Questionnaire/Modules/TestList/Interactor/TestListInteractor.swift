@@ -48,8 +48,8 @@ final class TestListInteractor {
                 
             case .success(let allowedTestsData):
                 guard let allowedTests = allowedTestsData as? [String] else {
-                    self?.error = .somethingWentWrong
-                    return
+                    self?.error = .nonShowingError
+                    break
                 }
                 
                 self?.allowedTests = allowedTests
@@ -57,7 +57,7 @@ final class TestListInteractor {
             case .failure(let error):
                 self?.error = error
             }
-            
+    
             self?.dispatchGroup.leave()
         }
     }
@@ -72,7 +72,7 @@ final class TestListInteractor {
                 guard let testsModel = self?.parseJson(rawData: testsData, type: TestsModel.self)
                 else {
                     self?.error = .somethingWentWrong
-                    return
+                    break
                 }
                 
                 self?.tests = testsModel.each
@@ -80,7 +80,7 @@ final class TestListInteractor {
             case .failure(let error):
                 self?.presenter?.didFailObtainTests(error: error)
             }
-            
+           
             self?.dispatchGroup.leave()
         }
     }

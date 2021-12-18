@@ -18,6 +18,10 @@ extension Errorable where Self: UIViewController {
     
     func showErrorPlaceholder(_ error: ErrorModel) {
         
+        if error == .nonShowingError {
+            return
+        }
+        
         let errorPlaceholeder = ErrorPlaceholder(error: error)
         errorPlaceholeder.delegate = self
     

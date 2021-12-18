@@ -56,9 +56,7 @@ extension TestCategoriesPresenter: TestCategoriesInteractorOutput {
     
     func didFailObtainCategories(error: ErrorModel) {
         view?.hideHUD()
-        if error != .nullElements {
-            view?.showErrorPlaceholder(error)
-        }
+        view?.showErrorPlaceholder(error)
     }
     
 }

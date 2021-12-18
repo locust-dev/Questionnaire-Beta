@@ -12,7 +12,7 @@ enum ErrorModel: Error {
     // Entire
     case somethingWentWrong
     case serverError
-    case nullElements
+    case nonShowingError
   
     // Users
     case userNotFound
@@ -28,8 +28,8 @@ enum ErrorModel: Error {
         switch self {
             
         // TODO: - Localized
-        case .nullElements:
-            return "Кажется, мы ничего не нашли!"
+        case .nonShowingError:
+            return ""
             
         case .somethingWentWrong:
             return "Что то пошло не так."
