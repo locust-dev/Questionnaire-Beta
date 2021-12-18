@@ -101,7 +101,7 @@ final class AuthorizationViewController: UIViewController {
         )
         
         appIconImageView.autoCenterInSuperview()
-        appIconImageView.autoSetDimensions(to: CGSize(width: 50, height: 50))
+        appIconImageView.autoSetDimensions(to: CGSize(width: 60, height: 60))
         
         loginTextField.autoSetDimension(.height, toSize: 50)
         passwordTextField.autoSetDimension(.height, toSize: 50)
