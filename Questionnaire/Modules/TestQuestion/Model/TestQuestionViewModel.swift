@@ -17,6 +17,7 @@ struct TestQuestionViewModel {
         case title(TableCellConfiguratorProtocol)
         case answerCounter(TableCellConfiguratorProtocol)
         case confirmButton(TableCellConfiguratorProtocol)
+        case finishButton(TableCellConfiguratorProtocol)
         
         var identifier: String {
             type(of: configurator).reuseId
@@ -30,7 +31,8 @@ struct TestQuestionViewModel {
             switch self {
             case .title(let configurator),
                  .answerCounter(let configurator),
-                 .confirmButton(let configurator):
+                 .confirmButton(let configurator),
+                 .finishButton(let configurator):
                 return configurator
             }
         }
@@ -40,4 +42,5 @@ struct TestQuestionViewModel {
     // MARK: - Properties
     
     let rows: [Row]
+    let currentQuestionNumber: Int
 }

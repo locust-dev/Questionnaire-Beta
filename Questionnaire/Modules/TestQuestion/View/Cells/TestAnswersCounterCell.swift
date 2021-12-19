@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TestAnswersCounterCell: UITableViewCell, Delegatable {
+final class TestAnswersCounterCell: NLTableViewCell, Delegatable {
     
     
     // MARK: - Properties
@@ -24,8 +24,12 @@ final class TestAnswersCounterCell: UITableViewCell, Delegatable {
         drawSelf()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    
+    // MARK: - Life cycle
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 8, left: 30, bottom: 8, right: 30))
     }
     
     
@@ -33,16 +37,14 @@ final class TestAnswersCounterCell: UITableViewCell, Delegatable {
     
     private func drawSelf() {
     
-        contentView.backgroundColor = .lightGray
-        contentView.layer.borderWidth = 1
-        contentView.layer.borderColor = UIColor.blue.cgColor
+        backgroundColor = .clear
         
         answersStack.axis = .vertical
         answersStack.spacing = 20
         answersStack.distribution = .fillEqually
         
         contentView.addSubview(answersStack)
-        answersStack.autoPinEdgesToSuperviewEdges()
+        answersStack.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 30, left: 0, bottom: 30, right: 0))
     }
     
     
@@ -81,8 +83,10 @@ extension TestAnswersCounterCell: Configurable {
         
         model.answers.enumerated().forEach { (index, title) in
             let answerButton = AnswerButton(answerCount: index + 1, title: title)
+            answerButton.style = .reversedShadow
             answerButton.addTarget(self, action: #selector(selectAnswer), for: .touchUpInside)
             answersStack.addArrangedSubview(answerButton)
+            answerButton.autoSetDimension(.height, toSize: 50)
         }
     }
 }

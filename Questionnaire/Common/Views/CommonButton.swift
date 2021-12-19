@@ -7,12 +7,39 @@
 
 import UIKit
 
-final class CommonButton: NLButton {
+class CommonButton: NLButton {
+    
+    // MARK: - Types
+    
+    enum Style {
+        
+        case filled
+        case reversedFilled
+        case shadow
+        case reversedShadow
+    }
+    
+    
+    // MARK: - Properties
+    
+    var style: Style {
+        didSet {
+            drawSelf()
+        }
+    }
+    
     
     // MARK: - Init
     
     override init(frame: CGRect) {
+        style = .filled
         super.init(frame: frame)
+        drawSelf()
+    }
+    
+    convenience init(style: Style) {
+        self.init(frame: .zero)
+        self.style = style
         drawSelf()
     }
     
@@ -21,9 +48,32 @@ final class CommonButton: NLButton {
     
     private func drawSelf() {
         
-        layer.cornerRadius = 10
-        backgroundColor = Colors.mainBlueColor()
+        switch style {
+            
+        case .filled:
+            backgroundColor = Colors.mainBlueColor()
+            setTitleColor(.white, for: .normal)
+            
+        case .reversedFilled:
+            backgroundColor = .white
+            setTitleColor(Colors.mainBlueColor(), for: .normal)
+            
+        case .shadow:
+            backgroundColor = .white
+            layer.borderColor = Colors.mainBlueColor()?.cgColor
+            layer.borderWidth = 1.5
+            setTitleColor(Colors.mainBlueColor(), for: .normal)
+            
+        case .reversedShadow:
+            backgroundColor = Colors.mainBlueColor()
+            layer.borderColor = UIColor.white.cgColor
+            layer.borderWidth = 1.5
+            setTitleColor(.white, for: .normal)
+            
+        }
         
+        layer.cornerRadius = 10
         titleLabel?.font = UIFont(name: MainFont.bold, size: 16)
     }
+    
 }

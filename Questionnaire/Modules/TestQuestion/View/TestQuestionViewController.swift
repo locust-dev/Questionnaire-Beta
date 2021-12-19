@@ -37,11 +37,14 @@ final class TestQuestionViewController: UIViewController {
     
     private func drawSelf() {
         
+        view.backgroundColor = Colors.mainBlueColor()
+    
         tableViewManager?.setup(tableView: tableView)
         
         view.addSubview(tableView)
         tableView.autoPinEdgesToSuperviewSafeArea()
     }
+    
 }
 
 
@@ -49,6 +52,7 @@ final class TestQuestionViewController: UIViewController {
 extension TestQuestionViewController: TestQuestionViewInput {
     
     func update(with viewModel: TestQuestionViewModel) {
+        title = "Вопрос №\(viewModel.currentQuestionNumber)"
         tableViewManager?.update(with: viewModel)
     }
     

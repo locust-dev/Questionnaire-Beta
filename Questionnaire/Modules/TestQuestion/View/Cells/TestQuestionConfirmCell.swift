@@ -7,13 +7,13 @@
 
 import UIKit
 
-final class TestQuestionConfirmCell: UITableViewCell, Delegatable {
+final class TestQuestionConfirmCell: NLTableViewCell, Delegatable {
     
     // MARK: - Properties
     
     var delegate: AnyObject?
     
-    private let confirmButton = UIButton()
+    private let confirmButton = CommonButton(style: .reversedFilled)
     
     
     // MARK: - Init
@@ -22,24 +22,20 @@ final class TestQuestionConfirmCell: UITableViewCell, Delegatable {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         drawSelf()
     }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+
     
     // MARK: - Drawing
     
     private func drawSelf() {
     
-        contentView.backgroundColor = .lightGray
-        contentView.layer.borderWidth = 1
-        contentView.layer.borderColor = UIColor.blue.cgColor
+        contentView.backgroundColor = .clear
+        backgroundColor = .clear
         
         confirmButton.addTarget(self, action: #selector(confirmTap), for: .touchUpInside)
         
         contentView.addSubview(confirmButton)
-        confirmButton.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 10, left: 50, bottom: 10, right: 50))
+        confirmButton.autoSetDimension(.height, toSize: 50)
+        confirmButton.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20))
     }
     
     

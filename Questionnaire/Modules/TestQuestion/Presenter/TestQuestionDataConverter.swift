@@ -7,7 +7,7 @@
 //
 
 protocol TestQuestionDataConverterInput {
-    func convertQuestion(_ question: Question) -> TestQuestionViewModel
+    func convertQuestion(_ question: Question, currentQuestionNumber: Int) -> TestQuestionViewModel
 }
 
 final class TestQuestionDataConverter {
@@ -17,6 +17,7 @@ final class TestQuestionDataConverter {
     typealias TitleCellConfigurator = TableCellConfigurator<TestQuestionTitleCell, TestQuestionTitleCell.Model>
     typealias AnswerCounterCellConfigurator = TableCellConfigurator<TestAnswersCounterCell, TestAnswersCounterCell.Model>
     typealias ConfirmCellConfigurator = TableCellConfigurator<TestQuestionConfirmCell, TestQuestionConfirmCell.Model>
+    typealias FinishCellConfigurator = TableCellConfigurator<TestQuestionFinishTestCell, TestQuestionFinishTestCell.Model>
     
     
     // MARK: - Private methods
@@ -38,23 +39,30 @@ final class TestQuestionDataConverter {
         let configurator = ConfirmCellConfigurator(item: model)
         return .confirmButton(configurator)
     }
+    
+    private func createFinishButtonRow(title: String) -> TestQuestionViewModel.Row {
+        let model = TestQuestionFinishTestCell.Model(title: title)
+        let configurator = FinishCellConfigurator(item: model)
+        return .finishButton(configurator)
+    }
 }
 
 
 // MARK: - TestQuestionDataConverterInput
 extension TestQuestionDataConverter: TestQuestionDataConverterInput {
     
-    func convertQuestion(_ question: Question) -> TestQuestionViewModel {
+    func convertQuestion(_ question: Question, currentQuestionNumber: Int) -> TestQuestionViewModel {
         
         let titleRow = createTitleRow(title: question.text)
         let answersCounterRow = createAnswerCounterRow(answers: question.answers)
         
         // TODO: - From config
-        let confirmRow = createConfirmButtonRow(title: "Confirm")
+        let confirmRow = createConfirmButtonRow(title: "Подтвердить")
+        let finishRow = createFinishButtonRow(title: "Завершить тест")
         
         let rows = [titleRow, answersCounterRow, confirmRow]
         
-        return TestQuestionViewModel(rows: rows)
+        return TestQuestionViewModel(rows: rows, currentQuestionNumber: currentQuestionNumber)
     }
     
 }

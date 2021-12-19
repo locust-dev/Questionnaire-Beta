@@ -24,7 +24,7 @@ final class AuthorizationViewController: UIViewController {
     private let subtitleLabel = UILabel()
     private let loginTextField = BottomLineTextField()
     private let passwordTextField = BottomLineTextField()
-    private let confirmButton = CommonButton()
+    private let confirmButton = CommonButton(style: .filled)
     private let forgotPasswordButton = UIButton()
   
     

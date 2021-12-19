@@ -38,11 +38,15 @@ final class TestListViewController: UIViewController {
     
     private func drawSelf() {
         
+        title = "Доступные тесты"
+        view.backgroundColor = Colors.mainBlueColor()
+        
         tableViewManager?.setup(tableView: tableView)
         
         view.addSubview(tableView)
         tableView.autoPinEdgesToSuperviewSafeArea()
     }
+    
 }
 
 

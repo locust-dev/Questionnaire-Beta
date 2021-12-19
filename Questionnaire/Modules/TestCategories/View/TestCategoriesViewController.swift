@@ -37,10 +37,25 @@ final class TestCategoriesViewController: UIViewController {
     
     private func drawSelf() {
         
+        title = "Категории"
+      
+        setupNavBarAppearance()
+        
+        view.backgroundColor = Colors.mainBlueColor()
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         tableViewManager?.setup(tableView: tableView)
         
         view.addSubview(tableView)
         tableView.autoPinEdgesToSuperviewSafeArea()
+    }
+    
+    
+    // MARK: - Private methods
+    
+    private func setupNavBarAppearance() {
+        let navigationController = navigationController as? CommonNavigationController
+        navigationController?.largeNavBarTitleAppearance(.white, fontName: MainFont.extraBold, size: 34)
     }
     
 }

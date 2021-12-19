@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TestQuestionTitleCell: UITableViewCell {
+final class TestQuestionTitleCell: NLTableViewCell {
     
     // MARK: - Properties
     
@@ -21,23 +21,27 @@ final class TestQuestionTitleCell: UITableViewCell {
         drawSelf()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     
     // MARK: - Drawing
     
     private func drawSelf() {
+        
+        backgroundColor = .clear
+        contentView.backgroundColor = .clear
     
-        contentView.backgroundColor = .lightGray
-        contentView.layer.borderWidth = 1
-        contentView.layer.borderColor = UIColor.blue.cgColor
+        let containerView = UIView()
+        containerView.backgroundColor = .white
+        containerView.layer.cornerRadius = 8
         
         titleLabel.numberOfLines = 0
+        titleLabel.font = UIFont(name: MainFont.regular, size: 18)
+        titleLabel.textColor = .black
         
-        contentView.addSubview(titleLabel)
-        titleLabel.autoPinEdgesToSuperviewEdges()
+        contentView.addSubview(containerView)
+        containerView.addSubview(titleLabel)
+        
+        containerView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 30, left: 20, bottom: 0, right: 20))
+        titleLabel.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 10, left: 14, bottom: 10, right: 10))
     }
     
     
@@ -54,6 +58,6 @@ extension TestQuestionTitleCell: Configurable {
     
     func configure(with model: Model) {
         
-        titleLabel.text = model.title
+        titleLabel.text = "Харрис назвала неправильными утверждения, что ВОЗ лицензирует препараты исключительно западного производства?"
     }
 }

@@ -18,6 +18,15 @@ protocol TestCategoriesTableViewManagerInput {
 
 final class TestCategoriesTableViewManager: NSObject {
     
+    // MARK: - Locals
+    
+    private enum Locals {
+        
+        static let defaultRowHeight: CGFloat = 90
+        static let topContentInset: CGFloat = 20
+    }
+    
+    
     // MARK: - Properties
     
     weak var delegate: TestCategoriesTableViewManagerDelegate?
@@ -33,10 +42,12 @@ final class TestCategoriesTableViewManager: NSObject {
 extension TestCategoriesTableViewManager: TestCategoriesTableViewManagerInput {
     
     func setup(tableView: UITableView) {
-        tableView.register(TestCategoryCell.self)
+        tableView.register(CommonTableViewCell.self)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
+        tableView.contentInset.top = Locals.topContentInset
+        tableView.backgroundColor = .clear
         self.tableView = tableView
     }
     
@@ -50,20 +61,25 @@ extension TestCategoriesTableViewManager: TestCategoriesTableViewManagerInput {
 
 // MARK: - UITableViewDataSource
 extension TestCategoriesTableViewManager: UITableViewDataSource {
-   
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.rows.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
+        
         guard let row = viewModel?.rows[indexPath.row] else {
             return UITableViewCell()
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: row.identifier, for: indexPath)
+        cell.selectionStyle = .none
         row.configurator.configure(cell: cell)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        Locals.defaultRowHeight
     }
     
 }

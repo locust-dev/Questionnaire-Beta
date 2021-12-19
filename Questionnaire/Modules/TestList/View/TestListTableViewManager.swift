@@ -19,6 +19,14 @@ protocol TestListTableViewManagerInput {
 
 final class TestListTableViewManager: NSObject {
     
+    // MARK: - Locals
+    
+    private enum Locals {
+        
+        static let topContentInset: CGFloat = 20
+    }
+    
+    
     // MARK: - Properties
     
     weak var delegate: TestListTableViewManagerDelegate?
@@ -34,10 +42,12 @@ final class TestListTableViewManager: NSObject {
 extension TestListTableViewManager: TestListTableViewManagerInput {
     
     func setup(tableView: UITableView) {
-        tableView.register(TestCell.self)
+        tableView.register(CommonTableViewCell.self)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
+        tableView.backgroundColor = .clear
+        tableView.contentInset.top = Locals.topContentInset
         self.tableView = tableView
     }
     
@@ -63,6 +73,7 @@ extension TestListTableViewManager: UITableViewDataSource {
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: row.identifier, for: indexPath)
+        cell.selectionStyle = .none
         row.configurator.configure(cell: cell)
         return cell
     }

@@ -13,7 +13,7 @@ final class TestCategoriesDataConverter {
     
     // MARK: - Types
     
-    typealias CategoryCellConfigurator = TableCellConfigurator<TestCategoryCell, TestCategoryCell.Model>
+    typealias CategoryCellConfigurator = TableCellConfigurator<CommonTableViewCell, CommonTableViewCell.Model>
     
     
     // MARK: - Private methods
@@ -24,7 +24,7 @@ final class TestCategoriesDataConverter {
             return nil
         }
         
-        let model = TestCategoryCell.Model(name: title)
+        let model = CommonTableViewCell.Model(name: title)
         let configurator = CategoryCellConfigurator(item: model)
         return TestCategoriesViewModel.Row(configurator: configurator, categoryId: identifier)
     }

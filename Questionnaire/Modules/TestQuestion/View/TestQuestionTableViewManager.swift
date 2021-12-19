@@ -38,12 +38,13 @@ extension TestQuestionTableViewManager: TestQuestionTableViewManagerInput {
         
         tableView.register([TestQuestionTitleCell.self,
                             TestAnswersCounterCell.self,
-                            TestQuestionConfirmCell.self])
+                            TestQuestionConfirmCell.self,
+                            TestQuestionFinishTestCell.self])
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.bounces = false
         tableView.separatorStyle = .none
+        tableView.backgroundColor = .clear
         self.tableView = tableView
     }
     
@@ -69,6 +70,7 @@ extension TestQuestionTableViewManager: UITableViewDataSource {
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: row.identifier, for: indexPath)
+        cell.selectionStyle = .none
         row.configurator.configure(cell: cell)
         
         (cell as? Delegatable)?.delegate = delegate

@@ -47,7 +47,7 @@ final class TestQuestionPresenter {
             return
         }
         
-        let model = dataConverter.convertQuestion(question)
+        let model = dataConverter.convertQuestion(question, currentQuestionNumber: currentQuestionNumber)
         view?.update(with: model)
     }
     

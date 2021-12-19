@@ -14,13 +14,13 @@ final class TestListDataConverter {
     
     // MARK: - Types
     
-    typealias TestCellConfigurator = TableCellConfigurator<TestCell, TestCell.Model>
+    typealias TestCellConfigurator = TableCellConfigurator<CommonTableViewCell, CommonTableViewCell.Model>
     
     
     // MARK: - Private methods
 
     private func createTestRow(test: Test) -> TestListViewModel.Row {
-        let model = TestCell.Model(testName: test.testName ?? "< Test without name >")
+        let model = CommonTableViewCell.Model(name: test.testName ?? "< Test without name >")
         let configurator = TestCellConfigurator(item: model)
         return TestListViewModel.Row(configurator: configurator)
     }
