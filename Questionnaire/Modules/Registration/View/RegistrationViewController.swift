@@ -20,9 +20,11 @@ final class RegistrationViewController: UIViewController {
     
     var presenter: RegistrationViewOutput?
     
-    private let firstNameTextField = UITextField()
-    private let lastNameTextField = UITextField()
-    private let registerButton = UIButton()
+    private let mainLabel = UILabel()
+    private let subtitleLabel = UILabel()
+    private let firstNameTextField = BottomLineTextField()
+    private let lastNameTextField = BottomLineTextField()
+    private let registerButton = CommonButton()
     private let stack = UIStackView()
     
     
@@ -39,28 +41,65 @@ final class RegistrationViewController: UIViewController {
     // MARK: - Drawning
     
     private func drawSelf() {
+         
+        view.backgroundColor = Colors.mainBlueColor()
+        navigationController?.navigationBar.prefersLargeTitles = true
         
-        view.backgroundColor = .blue
+        firstNameTextField.type = .firstName
+        lastNameTextField.type = .lastName
+        
+        mainLabel.font = UIFont(name: MainFont.bold, size: 30)
+        mainLabel.textColor = .black
+        mainLabel.numberOfLines = 0
+        mainLabel.text = "Регистрация"
+        
+        subtitleLabel.font = UIFont(name: MainFont.regular, size: 16)
+        subtitleLabel.textColor = .black
+        subtitleLabel.numberOfLines = 0
+        subtitleLabel.text = "Вы успешно авторизовались, но, для продолжения, вам необходимо зарегистрироваться"
         
         // TODO: - Localized
-        firstNameTextField.placeholder = "Имя"
-        lastNameTextField.placeholder = "Фамилия"
         registerButton.setTitle("Зарегистрироваться", for: .normal)
         registerButton.addTarget(self, action: #selector(register), for: .touchUpInside)
         
-        stack.addArrangedSubviews([firstNameTextField,
+        let stackContainer = UIView()
+        stackContainer.backgroundColor = .white
+        stackContainer.layer.cornerRadius = 12
+        
+        let appIconContainer = UIView()
+        let appIconImageView = UIImageView(image: Images.mainIcon())
+        appIconImageView.contentMode = .scaleAspectFit
+        
+        stack.addArrangedSubviews([mainLabel,
+                                   subtitleLabel,
+                                   firstNameTextField,
                                    lastNameTextField,
                                    registerButton])
         stack.axis = .vertical
-        stack.distribution = .fillEqually
         stack.spacing = 20
+        stack.setCustomSpacing(4, after: mainLabel)
+        stack.setCustomSpacing(40, after: lastNameTextField)
+
+        view.addSubview(stackContainer)
+        stackContainer.addSubview(stack)
+        view.addSubview(appIconContainer)
+        appIconContainer.addSubview(appIconImageView)
         
-        configureTextFieldAppearance()
+        stackContainer.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 0, left: 0, bottom: -30, right: 0), excludingEdge: .top)
+        stack.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 40, left: 20, bottom: 80, right: 20))
         
-        view.addSubview(stack)
+        appIconContainer.autoPinEdge(.bottom, to: .top, of: stackContainer)
+        appIconContainer.autoPinEdgesToSuperviewEdges(
+            with: UIEdgeInsets(top: getStatusBarHeight(), left: 0, bottom: 0, right: 0),
+            excludingEdge: .bottom
+        )
+        
+        appIconImageView.autoCenterInSuperview()
+        appIconImageView.autoSetDimensions(to: CGSize(width: 70, height: 70))
+        
         firstNameTextField.autoSetDimension(.height, toSize: 50)
-        stack.autoPinEdgesToSuperviewSafeArea(with: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20),
-                                              excludingEdge: .bottom)
+        lastNameTextField.autoSetDimension(.height, toSize: 50)
+        registerButton.autoSetDimension(.height, toSize: 50)
     }
     
     
@@ -69,17 +108,6 @@ final class RegistrationViewController: UIViewController {
     @objc private func register() {
         presenter?.didTapRegisterButton(firstName: firstNameTextField.text,
                                         lastName: lastNameTextField.text)
-    }
-    
-    
-    // MARK: - Private methods
-    
-    private func configureTextFieldAppearance() {
-        stack.arrangedSubviews.forEach({
-            if let textField = $0 as? UITextField {
-                textField.backgroundColor = .white
-            }
-        })
     }
     
 }

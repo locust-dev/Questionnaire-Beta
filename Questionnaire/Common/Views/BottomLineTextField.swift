@@ -24,6 +24,8 @@ final class BottomLineTextField: NLTextField {
         
         case email
         case password
+        case firstName
+        case lastName
     }
     
     
@@ -117,6 +119,14 @@ final class BottomLineTextField: NLTextField {
             leftIcon.image = Images.lock()
             isSecureTextEntry = true
             placeholder = "Пароль"
+            
+        case .firstName:
+            leftIcon.image = Images.pencil()
+            placeholder = "Имя"
+            
+        case .lastName:
+            leftIcon.image = Images.pencil()
+            placeholder = "Фамилия"
         }
         
         leftIconContainer.addSubview(leftIcon)

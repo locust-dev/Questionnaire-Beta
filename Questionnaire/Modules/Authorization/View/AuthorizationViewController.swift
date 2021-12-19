@@ -66,7 +66,7 @@ final class AuthorizationViewController: UIViewController {
         stackView.axis = .vertical
         stackView.spacing = 4
         stackView.setCustomSpacing(50, after: subtitleLabel)
-        stackView.setCustomSpacing(30, after: loginTextField)
+        stackView.setCustomSpacing(20, after: loginTextField)
         stackView.setCustomSpacing(60, after: passwordTextField)
         
         titleLabel.font = UIFont(name: MainFont.bold, size: 30)
@@ -101,7 +101,7 @@ final class AuthorizationViewController: UIViewController {
         )
         
         appIconImageView.autoCenterInSuperview()
-        appIconImageView.autoSetDimensions(to: CGSize(width: 60, height: 60))
+        appIconImageView.autoSetDimensions(to: CGSize(width: 70, height: 70))
         
         loginTextField.autoSetDimension(.height, toSize: 50)
         passwordTextField.autoSetDimension(.height, toSize: 50)
