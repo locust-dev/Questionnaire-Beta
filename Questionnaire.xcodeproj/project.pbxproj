@@ -769,7 +769,6 @@
 			isa = PBXGroup;
 			children = (
 				19D5C9D627675382000109F2 /* Alertable */,
-				1982B54A27634287003DAB1A /* Loadable.swift */,
 				1952AA8D2761003D00675931 /* ViewOutput.swift */,
 				19861DAB276A627C00D3C041 /* Struct+Dictionary.swift */,
 			);
@@ -1433,6 +1432,7 @@
 		19D5C9E22767B5F1000109F2 /* ProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
+				1982B54A27634287003DAB1A /* Loadable.swift */,
 				1982B54C2763446B003DAB1A /* ProgressHUD.swift */,
 				1982B54E27634582003DAB1A /* ProgressHUDSize.swift */,
 				1982B5502763467C003DAB1A /* ProgressHUDContainer.swift */,

@@ -11,7 +11,6 @@ import PureLayout
 protocol Loadable {
     
     func showHUD()
-    func showHUD(_ size: ProgressHUDSize)
     func showHUDOnWindow()
     func hideHUD()
 }
@@ -34,10 +33,6 @@ extension Loadable where Self: UIViewController {
     
     func showHUD() {
         showHUD(in: view)
-    }
-    
-    func showHUD(_ size: ProgressHUDSize) {
-        showHUD(in: view, size: size)
     }
     
     func showHUDOnWindow() {

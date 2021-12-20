@@ -10,34 +10,25 @@ import SVProgressHUD
 
 final class ProgressHUD: SVIndefiniteAnimatedView {
     
-    // MARK: - Locals
-    
-    private enum Locals {
-        
-        static let strokeColor = UIColor.blue
-    }
-    
-    
     // MARK: - Private Properties
     
+    var color: UIColor
     private let size: ProgressHUDSize
     
     
     // MARK: - Init
     
-    init(size: ProgressHUDSize = .big) {
-        
+    init(size: ProgressHUDSize = .big, color: UIColor = .white) {
         self.size = size
+        self.color = color
         super.init(frame: CGRect.zero)
-        
         drawSelf()
     }
 
     required init?(coder aDecoder: NSCoder) {
-        
         size = .big
+        color = .white
         super.init(coder: aDecoder)
-        
         drawSelf()
     }
     
@@ -45,10 +36,9 @@ final class ProgressHUD: SVIndefiniteAnimatedView {
     // MARK: - Private Methods
 
     private func drawSelf() {
-        
         radius = size.radius
         strokeThickness = size.stroke
-        strokeColor = Locals.strokeColor
+        strokeColor = color
     }
     
 }
