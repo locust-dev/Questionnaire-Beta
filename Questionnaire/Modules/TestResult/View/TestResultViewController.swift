@@ -20,7 +20,7 @@ final class TestResultViewController: UIViewController {
     var tableViewManager: TestResultTableViewManagerInput?
     
     private let percentOfRightAnswers = UILabel()
-    private let quitButton = UIButton()
+    private let quitButton = CommonButton(style: .reversedFilled)
     private let questionsWithMistakes = UILabel()
     
     
@@ -39,6 +39,7 @@ final class TestResultViewController: UIViewController {
     private func drawSelf() {
         
         view.backgroundColor = .blue
+        navigationItem.hidesBackButton = true
         
         quitButton.addTarget(self, action: #selector(finishTest), for: .touchUpInside)
         
@@ -53,7 +54,7 @@ final class TestResultViewController: UIViewController {
         questionsWithMistakes.autoPinEdge(.right, to: .right, of: view, withOffset: 20)
         
         quitButton.autoPinEdge(.top, to: .bottom, of: questionsWithMistakes)
-        quitButton.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 20),
+        quitButton.autoPinEdgesToSuperviewSafeArea(with: UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 20),
                                                 excludingEdge: .top)
         
         percentOfRightAnswers.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 20),

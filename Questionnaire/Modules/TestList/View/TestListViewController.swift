@@ -15,10 +15,10 @@ protocol TestListViewInput: Loadable, Alertable, Errorable {
 }
 
 final class TestListViewController: UIViewController {
-	
+    
     // MARK: - Public properties
     
-	var presenter: TestListViewOutput?
+    var presenter: TestListViewOutput?
     var tableViewManager: TestListTableViewManagerInput?
     
     private let tableView = EmptyTableView()
@@ -26,7 +26,7 @@ final class TestListViewController: UIViewController {
     
     // MARK: - Life cycle
     
-	override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         drawSelf()
@@ -73,6 +73,6 @@ extension TestListViewController: TestListViewInput {
         let cancelAction = AlertAction(title: "Отменить", style: .cancel)
         showAlert(title: "Начать тест?", message: "Вы уверены?", actions: [okAction, cancelAction])
     }
-
+    
 }
 

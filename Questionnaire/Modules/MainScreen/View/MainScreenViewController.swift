@@ -44,12 +44,10 @@ final class MainScreenViewController: UITabBarController {
     
     private func drawSelf() {
             
-        view.backgroundColor = .white
-        
-        tabBar.isHidden = true
         tabBar.isTranslucent = false
         tabBar.shadowImage = UIImage()
         tabBar.backgroundImage = UIImage()
+        tabBar.clipsToBounds = true
     }
     
 }
@@ -59,7 +57,6 @@ final class MainScreenViewController: UITabBarController {
 extension MainScreenViewController: MainScreenViewInput {
     
     func set(viewControllers: [UIViewController]?) {
-        tabBar.isHidden = false
         self.viewControllers = viewControllers
     }
     

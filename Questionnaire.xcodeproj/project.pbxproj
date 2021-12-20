@@ -121,6 +121,7 @@
 		19BB25F12764A8B4004F165B /* FBDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BB25F02764A8B4004F165B /* FBDatabaseService.swift */; };
 		19BB25F32764C35E004F165B /* FBDatabaseReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BB25F22764C35E004F165B /* FBDatabaseReference.swift */; };
 		19BB25F92764CC18004F165B /* FBDatabasePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BB25F82764CC18004F165B /* FBDatabasePath.swift */; };
+		19BF7382277093BF00B95BB1 /* UINavigationController+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BF7381277093BF00B95BB1 /* UINavigationController+Appearance.swift */; };
 		19C39080276B2C76003AFCAE /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C3907F276B2C76003AFCAE /* ProfileInteractor.swift */; };
 		19C39082276B2F63003AFCAE /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C39081276B2F63003AFCAE /* ProfileModel.swift */; };
 		19C39084276B3009003AFCAE /* ProfileDataConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C39083276B3009003AFCAE /* ProfileDataConverter.swift */; };
@@ -291,6 +292,7 @@
 		19BB25F02764A8B4004F165B /* FBDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBDatabaseService.swift; sourceTree = "<group>"; };
 		19BB25F22764C35E004F165B /* FBDatabaseReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBDatabaseReference.swift; sourceTree = "<group>"; };
 		19BB25F82764CC18004F165B /* FBDatabasePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBDatabasePath.swift; sourceTree = "<group>"; };
+		19BF7381277093BF00B95BB1 /* UINavigationController+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Appearance.swift"; sourceTree = "<group>"; };
 		19C3907F276B2C76003AFCAE /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
 		19C39081276B2F63003AFCAE /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		19C39083276B3009003AFCAE /* ProfileDataConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataConverter.swift; sourceTree = "<group>"; };
@@ -590,6 +592,7 @@
 				19D5C9C727673B21000109F2 /* UITableVIew+RegisterCell.swift */,
 				19459884276E0E8A00F32033 /* UIFont+DefaultFont.swift */,
 				1945988C276E876500F32033 /* UIViewController+StatusBar.swift */,
+				19BF7381277093BF00B95BB1 /* UINavigationController+Appearance.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -828,7 +831,6 @@
 			children = (
 				193D994E27624C0C004ACA7F /* Constants.swift */,
 				1982B545276335F1003DAB1A /* DispatchQueue.swift */,
-				19A8793A276F4C5A0086B143 /* CommonNavigationController.swift */,
 				194013E7276CCAF600B87E67 /* Extensions */,
 				19D5C9C2276738EF000109F2 /* Views */,
 				1952AA8C2761003300675931 /* Protocols */,
@@ -1379,6 +1381,7 @@
 				19459886276E147D00F32033 /* BottomLineTextField.swift */,
 				19459888276E1B5200F32033 /* CommonButton.swift */,
 				19A8793C276F546C0086B143 /* CommonTableViewCell.swift */,
+				19A8793A276F4C5A0086B143 /* CommonNavigationController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1728,6 +1731,7 @@
 				193D99532762507D004ACA7F /* AuthorizationViewModel.swift in Sources */,
 				19C83223276C906D0050747F /* NLTableViewCell.swift in Sources */,
 				19861D9C276A353800D3C041 /* RegistrationAssembly.swift in Sources */,
+				19BF7382277093BF00B95BB1 /* UINavigationController+Appearance.swift in Sources */,
 				19C83255276C927D0050747F /* Delegatable.swift in Sources */,
 				19436D352768A5DB00D2FA0A /* TestQuestionTableViewManager.swift in Sources */,
 				19C8321A276C906D0050747F /* NLStackView.swift in Sources */,
@@ -1962,6 +1966,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UHQ7TS5P9H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Questionnaire/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1991,6 +1996,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UHQ7TS5P9H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Questionnaire/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

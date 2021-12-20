@@ -7,7 +7,7 @@
 //
 
 protocol TestQuestionDataConverterInput {
-    func convertQuestion(_ question: Question, currentQuestionNumber: Int) -> TestQuestionViewModel
+    func convert(question: Question, currentQuestionNumber: Int, questionsCount: Int) -> TestQuestionViewModel
 }
 
 final class TestQuestionDataConverter {
@@ -51,7 +51,7 @@ final class TestQuestionDataConverter {
 // MARK: - TestQuestionDataConverterInput
 extension TestQuestionDataConverter: TestQuestionDataConverterInput {
     
-    func convertQuestion(_ question: Question, currentQuestionNumber: Int) -> TestQuestionViewModel {
+    func convert(question: Question, currentQuestionNumber: Int, questionsCount: Int) -> TestQuestionViewModel {
         
         let titleRow = createTitleRow(title: question.text)
         let answersCounterRow = createAnswerCounterRow(answers: question.answers)
@@ -60,9 +60,9 @@ extension TestQuestionDataConverter: TestQuestionDataConverterInput {
         let confirmRow = createConfirmButtonRow(title: "Подтвердить")
         let finishRow = createFinishButtonRow(title: "Завершить тест")
         
-        let rows = [titleRow, answersCounterRow, confirmRow]
+        let rows = [titleRow, answersCounterRow, confirmRow, finishRow]
         
-        return TestQuestionViewModel(rows: rows, currentQuestionNumber: currentQuestionNumber)
+        return TestQuestionViewModel(rows: rows, currentQuestionNumber: currentQuestionNumber, questionsCount: questionsCount)
     }
     
 }

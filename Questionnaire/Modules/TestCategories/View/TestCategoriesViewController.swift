@@ -14,10 +14,10 @@ protocol TestCategoriesViewInput: Loadable, Alertable, Errorable {
 }
 
 final class TestCategoriesViewController: UIViewController {
-	
+    
     // MARK: - Properties
     
-	var presenter: TestCategoriesViewOutput?
+    var presenter: TestCategoriesViewOutput?
     var tableViewManager: TestCategoriesTableViewManagerInput?
     
     private let tableView = EmptyTableView()
@@ -25,7 +25,7 @@ final class TestCategoriesViewController: UIViewController {
     
     // MARK: - Life cycle
     
-	override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         drawSelf()
@@ -38,7 +38,7 @@ final class TestCategoriesViewController: UIViewController {
     private func drawSelf() {
         
         title = "Категории"
-      
+        
         setupNavBarAppearance()
         
         view.backgroundColor = Colors.mainBlueColor()
@@ -56,6 +56,7 @@ final class TestCategoriesViewController: UIViewController {
     private func setupNavBarAppearance() {
         let navigationController = navigationController as? CommonNavigationController
         navigationController?.largeNavBarTitleAppearance(.white, fontName: MainFont.extraBold, size: 34)
+        navigationItem.backButtonTitle = ""
     }
     
 }

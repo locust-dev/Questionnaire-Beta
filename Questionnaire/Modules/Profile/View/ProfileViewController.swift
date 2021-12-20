@@ -18,7 +18,7 @@ final class ProfileViewController: UIViewController {
     
 	var presenter: ProfileViewOutput?
     
-    private let logOutButton = UIButton()
+    private let logOutButton = CommonButton(style: .filled)
     
     
     // MARK: - Life cycle
@@ -35,13 +35,10 @@ final class ProfileViewController: UIViewController {
     
     private func drawSelf() {
         
+        view.backgroundColor = .white
         navigationController?.navigationBar.prefersLargeTitles = true
         
         logOutButton.addTarget(self, action: #selector(logOutTap), for: .touchUpInside)
-        logOutButton.layer.cornerRadius = 15
-        logOutButton.backgroundColor = .lightGray
-        logOutButton.layer.borderColor = UIColor.darkGray.cgColor
-        logOutButton.layer.borderWidth = 1
         
         view.addSubview(logOutButton)
         
@@ -68,6 +65,6 @@ extension ProfileViewController: ProfileViewInput {
         title = viewModel.fullName
         
         // TODO: - From localized
-        logOutButton.setTitle("Log out", for: .normal)
+        logOutButton.setTitle("Выйти", for: .normal)
     }
 }

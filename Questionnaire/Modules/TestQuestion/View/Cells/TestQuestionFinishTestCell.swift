@@ -42,7 +42,7 @@ final class TestQuestionFinishTestCell: NLTableViewCell, Delegatable {
     // MARK: - Actions
     
     @objc private func finishTap() {
-        
+        (delegate as? TestQuestionTableViewManagerDelegate)?.didTapFinishButton()
     }
 }
 

@@ -48,6 +48,7 @@ extension TestCategoriesTableViewManager: TestCategoriesTableViewManagerInput {
         tableView.separatorStyle = .none
         tableView.contentInset.top = Locals.topContentInset
         tableView.backgroundColor = .clear
+        tableView.bounces = false
         self.tableView = tableView
     }
     

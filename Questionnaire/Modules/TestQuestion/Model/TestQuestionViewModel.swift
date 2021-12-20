@@ -43,4 +43,5 @@ struct TestQuestionViewModel {
     
     let rows: [Row]
     let currentQuestionNumber: Int
+    let questionsCount: Int
 }

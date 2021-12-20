@@ -8,6 +8,7 @@
 
 protocol TestQuestionRouterInput {
     func openResults(userAnswers: [Int: Int], testId: String)
+    func closeModule()
 }
 
 final class TestQuestionRouter {
@@ -32,5 +33,9 @@ extension TestQuestionRouter: TestQuestionRouterInput {
     func openResults(userAnswers: [Int: Int], testId: String) {
         let model = TestResultAssembly.Model(userAnswers: userAnswers, testId: testId)
         transition.push(with: model, openModuleType: TestResultAssembly.self)
+    }
+    
+    func closeModule() {
+        transition.closeCurrentModule(animated: true)
     }
 }

@@ -47,7 +47,9 @@ final class TestQuestionPresenter {
             return
         }
         
-        let model = dataConverter.convertQuestion(question, currentQuestionNumber: currentQuestionNumber)
+        let model = dataConverter.convert(question: question,
+                                          currentQuestionNumber: currentQuestionNumber,
+                                          questionsCount: questions.count)
         view?.update(with: model)
     }
     
@@ -78,5 +80,9 @@ extension TestQuestionPresenter: TestQuestionTableViewManagerDelegate {
         
         currentQuestionNumber += 1
         setQuestion()
+    }
+    
+    func didTapFinishButton() {
+        router?.closeModule()
     }
 }

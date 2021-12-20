@@ -38,6 +38,7 @@ final class TestQuestionViewController: UIViewController {
     private func drawSelf() {
         
         view.backgroundColor = Colors.mainBlueColor()
+        navigationItem.hidesBackButton = true
     
         tableViewManager?.setup(tableView: tableView)
         
@@ -52,13 +53,13 @@ final class TestQuestionViewController: UIViewController {
 extension TestQuestionViewController: TestQuestionViewInput {
     
     func update(with viewModel: TestQuestionViewModel) {
-        title = "Вопрос №\(viewModel.currentQuestionNumber)"
+        title = "Вопрос \(viewModel.currentQuestionNumber)/\(viewModel.questionsCount)"
         tableViewManager?.update(with: viewModel)
     }
     
     func showNotConfirmAlert() {
         // TODO: - From localized
-        showAlert(title: "Oops", message: "You must choose answer before continue!", buttonTitle: "Ok")
+        showAlert(title: "Вы должны выбрать вариант ответа, прежде чем продолжить", buttonTitle: "Oк")
     }
 
 }

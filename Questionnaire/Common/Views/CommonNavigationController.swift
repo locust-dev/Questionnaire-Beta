@@ -28,8 +28,7 @@ final class CommonNavigationController: UINavigationController {
     // MARK: - Drawing
     
     private func drawSelf() {
-        
-       
+        setBackButtonDesign()
     }
     
     
