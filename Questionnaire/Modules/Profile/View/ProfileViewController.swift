@@ -36,7 +36,6 @@ final class ProfileViewController: UIViewController {
     private func drawSelf() {
         
         view.backgroundColor = .white
-        navigationController?.navigationBar.prefersLargeTitles = true
         
         logOutButton.addTarget(self, action: #selector(logOutTap), for: .touchUpInside)
         

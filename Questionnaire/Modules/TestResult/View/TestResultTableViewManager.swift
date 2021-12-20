@@ -8,7 +8,9 @@
 
 import UIKit
 
-protocol TestResultTableViewManagerDelegate: AnyObject {  }
+protocol TestResultTableViewManagerDelegate: AnyObject {
+    func didSelectQuestionWithMistake(by number: Int)
+}
 
 protocol TestResultTableViewManagerInput {
     func setup(tableView: UITableView)
@@ -33,13 +35,12 @@ extension TestResultTableViewManager: TestResultTableViewManagerInput {
     
     func setup(tableView: UITableView) {
         
-        // Configure your table view here
-        //
-        //        tableView.delegate = self
-        //        tableView.dataSource = self
-        
-        //...
-        
+        tableView.register([TestResultMistakesCell.self, TestResultCircleProgressCell.self])
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .white
+        tableView.alwaysBounceVertical = false
         self.tableView = tableView
     }
     
@@ -55,15 +56,26 @@ extension TestResultTableViewManager: TestResultTableViewManagerInput {
 extension TestResultTableViewManager: UITableViewDataSource {
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        0
+        return viewModel?.rows.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        
+        guard let row = viewModel?.rows[indexPath.row] else {
+            return UITableViewCell()
+        }
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: row.identifier, for: indexPath)
+        cell.selectionStyle = .none
+        row.configurator.configure(cell: cell)
+        
+        (cell as? Delegatable)?.delegate = delegate
+        
+        return cell
     }
     
 }
 
 
 // MARK: - UITableViewDelegate
-//extension TestResultTableViewManager: UITableViewDelegate {  }
+extension TestResultTableViewManager: UITableViewDelegate {  }

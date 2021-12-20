@@ -28,6 +28,8 @@ final class CommonNavigationController: UINavigationController {
     // MARK: - Drawing
     
     private func drawSelf() {
+        
+        navigationBar.prefersLargeTitles = true
         setBackButtonDesign()
     }
     

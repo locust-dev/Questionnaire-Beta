@@ -42,7 +42,6 @@ final class TestCategoriesViewController: UIViewController {
         setupNavBarAppearance()
         
         view.backgroundColor = Colors.mainBlueColor()
-        navigationController?.navigationBar.prefersLargeTitles = true
         
         tableViewManager?.setup(tableView: tableView)
         

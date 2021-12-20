@@ -47,7 +47,6 @@ final class AuthorizationViewController: UIViewController {
     private func drawSelf() {
         
         view.backgroundColor = Colors.mainBlueColor()
-        navigationController?.navigationBar.prefersLargeTitles = true
         
         let stackContainer = UIView()
         stackContainer.backgroundColor = .white

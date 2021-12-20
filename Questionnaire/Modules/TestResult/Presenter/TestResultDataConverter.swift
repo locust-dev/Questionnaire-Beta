@@ -19,7 +19,25 @@ final class TestResultDataConverter {
     let numberFormatter = NumberFormatter()
     
     
+    // MARK: - Typealias
+    
+    typealias CircleProgressCellConfigurator = TableCellConfigurator<TestResultCircleProgressCell, TestResultCircleProgressCell.Model>
+    typealias MistakesCellConfigurator = TableCellConfigurator<TestResultMistakesCell, TestResultMistakesCell.Model>
+    
+    
     // MARK: - Private methods
+ 
+    private func createCircleProgressRow(progressPercent: Double) -> TestResultViewModel.Row {
+        let model = TestResultCircleProgressCell.Model(progressPercent: progressPercent)
+        let configurator = CircleProgressCellConfigurator(item: model)
+        return .circleProgress(configurator)
+    }
+    
+    private func createMistakesRow(mistakesNumbers: [Int]) -> TestResultViewModel.Row {
+        let model = TestResultMistakesCell.Model(mistakesNumbers: mistakesNumbers)
+        let configurator = MistakesCellConfigurator(item: model)
+        return .mistakes(configurator)
+    }
     
     private func convertToPercent(_ number: Float) -> String? {
         numberFormatter.numberStyle = .percent
@@ -45,12 +63,11 @@ extension TestResultDataConverter: TestResultDataConverterInput {
             }
         }
         
-        let percentString = convertToPercent(Float(matches) / Float(rightAnswers.count))
+        let cirlceProgressRow = createCircleProgressRow(progressPercent: (Double(matches) / Double(rightAnswers.count)))
+        let mistakesRow = createMistakesRow(mistakesNumbers: questionWithMistakes)
+        let rows = [cirlceProgressRow, mistakesRow]
         
-        // TODO: - Localized
-        return TestResultViewModel(percentage: percentString,
-                                   questionsWithMistakes: questionWithMistakes,
-                                   quitButtonTitle: "Finish test")
+        return TestResultViewModel(rows: rows, finishButtonTitle: "Завершить тест")
     }
     
 }

@@ -43,7 +43,6 @@ final class RegistrationViewController: UIViewController {
     private func drawSelf() {
          
         view.backgroundColor = Colors.mainBlueColor()
-        navigationController?.navigationBar.prefersLargeTitles = true
         
         firstNameTextField.type = .firstName
         lastNameTextField.type = .lastName

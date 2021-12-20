@@ -13,52 +13,51 @@ protocol TestResultViewInput: Loadable, Errorable {
 }
 
 final class TestResultViewController: UIViewController {
-	
+    
     // MARK: - Pproperties
     
-	var presenter: TestResultViewOutput?
+    var presenter: TestResultViewOutput?
     var tableViewManager: TestResultTableViewManagerInput?
     
-    private let percentOfRightAnswers = UILabel()
-    private let quitButton = CommonButton(style: .reversedFilled)
-    private let questionsWithMistakes = UILabel()
+    private let tableView = UITableView()
+    private let finishButton = CommonButton(style: .shadow)
     
     
     // MARK: - Life cycle
     
-	override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         drawSelf()
         presenter?.viewIsReady()
     }
-
+    
     
     // MARK: - Drawing
     
     private func drawSelf() {
         
-        view.backgroundColor = .blue
-        navigationItem.hidesBackButton = true
+        view.backgroundColor = Colors.mainBlueColor()
+        setupNavBarAppearance()
         
-        quitButton.addTarget(self, action: #selector(finishTest), for: .touchUpInside)
+        tableViewManager?.setup(tableView: tableView)
+        tableView.layer.cornerRadius = 12
         
-        percentOfRightAnswers.font = .systemFont(ofSize: 40)
+        finishButton.addTarget(self, action: #selector(finishTest), for: .touchUpInside)
         
-        view.addSubview(percentOfRightAnswers)
-        view.addSubview(quitButton)
-        view.addSubview(questionsWithMistakes)
+        view.addSubview(tableView)
+        view.addSubview(finishButton)
         
-        questionsWithMistakes.autoPinEdge(.top, to: .bottom, of: percentOfRightAnswers, withOffset: 50)
-        questionsWithMistakes.autoPinEdge(.left, to: .left, of: view, withOffset: 20)
-        questionsWithMistakes.autoPinEdge(.right, to: .right, of: view, withOffset: 20)
-        
-        quitButton.autoPinEdge(.top, to: .bottom, of: questionsWithMistakes)
-        quitButton.autoPinEdgesToSuperviewSafeArea(with: UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 20),
-                                                excludingEdge: .top)
-        
-        percentOfRightAnswers.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 20),
-                                                           excludingEdge: .bottom)
+        finishButton.autoPinEdgesToSuperviewSafeArea(with: UIEdgeInsets(top: 0, left: 20, bottom: 30, right: 20), excludingEdge: .top)
+        finishButton.autoSetDimension(.height, toSize: 50)
+        tableView.autoPinEdgesToSuperviewSafeArea(with: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+    }
+    
+    
+    // MARK: - Actions
+    
+    @objc private func finishTest() {
+        presenter?.didTapFinishButton()
     }
     
     
@@ -69,10 +68,14 @@ final class TestResultViewController: UIViewController {
     }
     
     
-    // MARK: - Actions
+    // MARK: - Private methods
     
-    @objc private func finishTest() {
-        presenter?.didTapFinishButton()
+    private func setupNavBarAppearance() {
+        let navigationController = navigationController as? CommonNavigationController
+        navigationController?.largeNavBarTitleAppearance(.white, fontName: MainFont.extraBold, size: 34)
+        navigationItem.backButtonTitle = ""
+        title = "Результаты"
+        navigationItem.hidesBackButton = true
     }
     
 }
@@ -82,9 +85,8 @@ final class TestResultViewController: UIViewController {
 extension TestResultViewController: TestResultViewInput {
     
     func update(with viewModel: TestResultViewModel) {
-        
-        percentOfRightAnswers.text = viewModel.percentage
-        questionsWithMistakes.text = "You made mistakes in questions: \(viewModel.questionsWithMistakes)"
-        quitButton.setTitle(viewModel.quitButtonTitle, for: .normal)
+        finishButton.setTitle(viewModel.finishButtonTitle, for: .normal)
+        tableViewManager?.update(with: viewModel)
     }
+    
 }

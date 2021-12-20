@@ -81,4 +81,10 @@ extension TestResultPresenter: TestResultInteractorOutput {
 
 
 // MARK: - TestResultTableViewManagerDelegate
-extension TestResultPresenter: TestResultTableViewManagerDelegate {  }
+extension TestResultPresenter: TestResultTableViewManagerDelegate {
+    
+    func didSelectQuestionWithMistake(by number: Int) {
+        
+    }
+    
+}
