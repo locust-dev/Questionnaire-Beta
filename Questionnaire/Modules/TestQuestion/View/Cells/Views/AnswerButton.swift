@@ -37,11 +37,11 @@ final class AnswerButton: CommonButton {
     
     private func drawSelf() {
         
-        checkmarkImageView.image = Images.deselectedCirlce()
+        checkmarkImageView.image = Images.reverserDeselectedCircle()
         checkmarkImageView.contentMode = .scaleAspectFit
         
         mainTitleLabel.font = UIFont(name: MainFont.bold, size: 16)
-        mainTitleLabel.textColor = .white
+        mainTitleLabel.textColor = Colors.mainBlueColor()
         
         let stack = UIStackView(arrangedSubviews: [mainTitleLabel, checkmarkImageView])
         stack.spacing = 14
@@ -57,14 +57,14 @@ final class AnswerButton: CommonButton {
         switch isSelected {
             
         case true:
-            style = .reversedFilled
-            checkmarkImageView.image = Images.reversedSelectedCircle()
-            mainTitleLabel.textColor = Colors.mainBlueColor()
+            style = .filled
+            checkmarkImageView.image = Images.selectedCirlce()
+            mainTitleLabel.textColor = .white
             
         case false:
-            style = .reversedShadow
-            checkmarkImageView.image = Images.deselectedCirlce()
-            mainTitleLabel.textColor = .white
+            style = .shadow
+            checkmarkImageView.image = Images.reverserDeselectedCircle()
+            mainTitleLabel.textColor = Colors.mainBlueColor()
         }
     }
     

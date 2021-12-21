@@ -39,7 +39,7 @@ final class ProfileAssembly: Assembly {
         view.tabBarItem.title = model.defaulTabBarTitle
         view.tabBarItem.image = Images.tabbar_profile()
         
-        return UINavigationController(rootViewController: view)
+        return  CommonNavigationController(rootViewController: view)
     }
 
 }

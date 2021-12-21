@@ -83,7 +83,7 @@ extension TestAnswersCounterCell: Configurable {
         
         model.answers.enumerated().forEach { (index, title) in
             let answerButton = AnswerButton(answerCount: index + 1, title: title)
-            answerButton.style = .reversedShadow
+            answerButton.style = .shadow
             answerButton.addTarget(self, action: #selector(selectAnswer), for: .touchUpInside)
             answersStack.addArrangedSubview(answerButton)
         }

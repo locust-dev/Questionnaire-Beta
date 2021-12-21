@@ -10,8 +10,6 @@ import UIKit
 
 protocol TestQuestionTableViewManagerDelegate: AnyObject {
     func didSelectAnswer(by number: Int)
-    func didTapConfirmButton()
-    func didTapFinishButton()
 }
 
 protocol TestQuestionTableViewManagerInput {
@@ -38,15 +36,13 @@ extension TestQuestionTableViewManager: TestQuestionTableViewManagerInput {
     func setup(tableView: UITableView) {
         
         tableView.register([TestQuestionTitleCell.self,
-                            TestAnswersCounterCell.self,
-                            TestQuestionConfirmCell.self,
-                            TestQuestionFinishTestCell.self])
+                            TestAnswersCounterCell.self])
         
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
-        tableView.bounces = false
+        tableView.showsVerticalScrollIndicator = false
         self.tableView = tableView
     }
     

@@ -6,7 +6,10 @@
 //  Copyright © 2021 FINCH. All rights reserved.
 //
 
-protocol TestQuestionViewOutput: ViewOutput {  }
+protocol TestQuestionViewOutput: ViewOutput {
+    func didTapConfirmButton()
+    func didTapFinishButton()
+}
 
 final class TestQuestionPresenter {
     
@@ -64,16 +67,6 @@ extension TestQuestionPresenter: TestQuestionViewOutput {
         view?.hideTabBar()
     }
     
-}
-
-
-// MARK: - TestQuestionTableViewManagerDelegate
-extension TestQuestionPresenter: TestQuestionTableViewManagerDelegate {
-    
-    func didSelectAnswer(by number: Int) {
-        userAnswers[currentQuestionNumber] = number
-    }
-    
     func didTapConfirmButton() {
         
         guard userAnswers[currentQuestionNumber] != nil else {
@@ -89,4 +82,14 @@ extension TestQuestionPresenter: TestQuestionTableViewManagerDelegate {
         router?.closeModule()
         view?.showTabBar()
     }
+}
+
+
+// MARK: - TestQuestionTableViewManagerDelegate
+extension TestQuestionPresenter: TestQuestionTableViewManagerDelegate {
+    
+    func didSelectAnswer(by number: Int) {
+        userAnswers[currentQuestionNumber] = number
+    }
+    
 }

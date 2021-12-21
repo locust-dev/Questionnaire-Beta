@@ -29,19 +29,12 @@ final class TestQuestionTitleCell: NLTableViewCell {
         backgroundColor = .clear
         contentView.backgroundColor = .clear
     
-        let containerView = UIView()
-        containerView.backgroundColor = .white
-        containerView.layer.cornerRadius = 8
-        
         titleLabel.numberOfLines = 0
         titleLabel.font = UIFont(name: MainFont.regular, size: 18)
         titleLabel.textColor = .black
         
-        contentView.addSubview(containerView)
-        containerView.addSubview(titleLabel)
-        
-        containerView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 30, left: 20, bottom: 0, right: 20))
-        titleLabel.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 10, left: 14, bottom: 10, right: 10))
+        contentView.addSubview(titleLabel)
+        titleLabel.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 30, left: 30, bottom: 10, right: 30))
     }
     
     

@@ -42,7 +42,6 @@
 		19436D3E2768A83F00D2FA0A /* TestQuestionTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D3D2768A83F00D2FA0A /* TestQuestionTitleCell.swift */; };
 		19436D402768A85400D2FA0A /* TestAnswersCounterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D3F2768A85400D2FA0A /* TestAnswersCounterCell.swift */; };
 		19436D432768AB6D00D2FA0A /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D422768AB6D00D2FA0A /* AnswerButton.swift */; };
-		19436D492768C5E600D2FA0A /* TestQuestionConfirmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D482768C5E600D2FA0A /* TestQuestionConfirmCell.swift */; };
 		19436D4D2768DA7C00D2FA0A /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D4C2768DA7C00D2FA0A /* UIStackView.swift */; };
 		19436D562768DD1E00D2FA0A /* TestResultDataConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D4F2768DD1E00D2FA0A /* TestResultDataConverter.swift */; };
 		19436D572768DD1E00D2FA0A /* TestResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19436D502768DD1E00D2FA0A /* TestResultPresenter.swift */; };
@@ -120,7 +119,6 @@
 		1992E801277223AB0068FFFF /* ProfileListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1992E800277223AB0068FFFF /* ProfileListCell.swift */; };
 		19A8793B276F4C5A0086B143 /* CommonNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A8793A276F4C5A0086B143 /* CommonNavigationController.swift */; };
 		19A8793D276F546C0086B143 /* CommonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A8793C276F546C0086B143 /* CommonTableViewCell.swift */; };
-		19A8793F276F65790086B143 /* TestQuestionFinishTestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A8793E276F65790086B143 /* TestQuestionFinishTestCell.swift */; };
 		19BB25F12764A8B4004F165B /* FBDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BB25F02764A8B4004F165B /* FBDatabaseService.swift */; };
 		19BB25F32764C35E004F165B /* FBDatabaseReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BB25F22764C35E004F165B /* FBDatabaseReference.swift */; };
 		19BB25F92764CC18004F165B /* FBDatabasePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BB25F82764CC18004F165B /* FBDatabasePath.swift */; };
@@ -244,7 +242,6 @@
 		19436D3D2768A83F00D2FA0A /* TestQuestionTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionTitleCell.swift; sourceTree = "<group>"; };
 		19436D3F2768A85400D2FA0A /* TestAnswersCounterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAnswersCounterCell.swift; sourceTree = "<group>"; };
 		19436D422768AB6D00D2FA0A /* AnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
-		19436D482768C5E600D2FA0A /* TestQuestionConfirmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionConfirmCell.swift; sourceTree = "<group>"; };
 		19436D4C2768DA7C00D2FA0A /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		19436D4F2768DD1E00D2FA0A /* TestResultDataConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultDataConverter.swift; sourceTree = "<group>"; };
 		19436D502768DD1E00D2FA0A /* TestResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultPresenter.swift; sourceTree = "<group>"; };
@@ -298,7 +295,6 @@
 		1992E800277223AB0068FFFF /* ProfileListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListCell.swift; sourceTree = "<group>"; };
 		19A8793A276F4C5A0086B143 /* CommonNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonNavigationController.swift; sourceTree = "<group>"; };
 		19A8793C276F546C0086B143 /* CommonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTableViewCell.swift; sourceTree = "<group>"; };
-		19A8793E276F65790086B143 /* TestQuestionFinishTestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionFinishTestCell.swift; sourceTree = "<group>"; };
 		19BB25F02764A8B4004F165B /* FBDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBDatabaseService.swift; sourceTree = "<group>"; };
 		19BB25F22764C35E004F165B /* FBDatabaseReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBDatabaseReference.swift; sourceTree = "<group>"; };
 		19BB25F82764CC18004F165B /* FBDatabasePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBDatabasePath.swift; sourceTree = "<group>"; };
@@ -681,8 +677,6 @@
 			children = (
 				19436D3D2768A83F00D2FA0A /* TestQuestionTitleCell.swift */,
 				19436D3F2768A85400D2FA0A /* TestAnswersCounterCell.swift */,
-				19436D482768C5E600D2FA0A /* TestQuestionConfirmCell.swift */,
-				19A8793E276F65790086B143 /* TestQuestionFinishTestCell.swift */,
 				19436D412768AB5400D2FA0A /* Views */,
 			);
 			path = Cells;
@@ -1755,7 +1749,6 @@
 				193D994227624052004ACA7F /* AuthorizationViewController.swift in Sources */,
 				1982B564276398E7003DAB1A /* ProfilePresenter.swift in Sources */,
 				19436D3E2768A83F00D2FA0A /* TestQuestionTitleCell.swift in Sources */,
-				19436D492768C5E600D2FA0A /* TestQuestionConfirmCell.swift in Sources */,
 				19C8321B276C906D0050747F /* NLBarButtonItem.swift in Sources */,
 				19C832D5276C92A80050747F /* Dictionary+StringFromHTTPParameters.swift in Sources */,
 				19D5C9E12767B2D0000109F2 /* ErrorModel.swift in Sources */,
@@ -1855,7 +1848,6 @@
 				19BF738B2770ED8200B95BB1 /* TestResultMistakesCell.swift in Sources */,
 				19C8321E276C906D0050747F /* NLButton.swift in Sources */,
 				1945988D276E876500F32033 /* UIViewController+StatusBar.swift in Sources */,
-				19A8793F276F65790086B143 /* TestQuestionFinishTestCell.swift in Sources */,
 				193D993627623E60004ACA7F /* MainScreenAssembly.swift in Sources */,
 				19C832DC276C92A80050747F /* String+Capitalizing.swift in Sources */,
 				19D5C9C827673B21000109F2 /* UITableVIew+RegisterCell.swift in Sources */,
@@ -2015,7 +2007,7 @@
 				INFOPLIST_FILE = Questionnaire/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -2045,7 +2037,7 @@
 				INFOPLIST_FILE = Questionnaire/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

@@ -40,6 +40,7 @@ final class TestCategoriesViewController: UIViewController {
     private func drawSelf() {
         
         title = "Категории"
+        tabBarItem.title = "Тесты"
         setupNavBarAppearance()
         
         view.backgroundColor = Colors.mainBlueColor()

@@ -16,8 +16,6 @@ final class TestQuestionDataConverter {
     
     typealias TitleCellConfigurator = TableCellConfigurator<TestQuestionTitleCell, TestQuestionTitleCell.Model>
     typealias AnswerCounterCellConfigurator = TableCellConfigurator<TestAnswersCounterCell, TestAnswersCounterCell.Model>
-    typealias ConfirmCellConfigurator = TableCellConfigurator<TestQuestionConfirmCell, TestQuestionConfirmCell.Model>
-    typealias FinishCellConfigurator = TableCellConfigurator<TestQuestionFinishTestCell, TestQuestionFinishTestCell.Model>
     
     
     // MARK: - Private methods
@@ -34,17 +32,6 @@ final class TestQuestionDataConverter {
         return .answerCounter(configurator)
     }
     
-    private func createConfirmButtonRow(title: String) -> TestQuestionViewModel.Row {
-        let model = TestQuestionConfirmCell.Model(title: title)
-        let configurator = ConfirmCellConfigurator(item: model)
-        return .confirmButton(configurator)
-    }
-    
-    private func createFinishButtonRow(title: String) -> TestQuestionViewModel.Row {
-        let model = TestQuestionFinishTestCell.Model(title: title)
-        let configurator = FinishCellConfigurator(item: model)
-        return .finishButton(configurator)
-    }
 }
 
 
@@ -56,11 +43,7 @@ extension TestQuestionDataConverter: TestQuestionDataConverterInput {
         let titleRow = createTitleRow(title: question.text)
         let answersCounterRow = createAnswerCounterRow(answers: question.answers)
         
-        // TODO: - From config
-        let confirmRow = createConfirmButtonRow(title: "Подтвердить")
-        let finishRow = createFinishButtonRow(title: "Завершить тест")
-        
-        let rows = [titleRow, answersCounterRow, confirmRow, finishRow]
+        let rows = [titleRow, answersCounterRow]
         
         return TestQuestionViewModel(rows: rows, currentQuestionNumber: currentQuestionNumber, questionsCount: questionsCount)
     }
