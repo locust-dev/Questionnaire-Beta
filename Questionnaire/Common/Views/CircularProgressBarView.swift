@@ -24,6 +24,11 @@ final class CircularProgressBarView: NLView {
         Locals.radius * 2
     }
     
+    private var timer: Timer?
+    private var timerCounter = 0
+    private var duration: Double = 0
+    private var percentage: Double = 0
+    
     private let circleForegroundLayer = CAShapeLayer()
     private let circleBackgroundLayer = CAShapeLayer()
     private let pulsatingLayer = CAShapeLayer()
@@ -47,6 +52,10 @@ final class CircularProgressBarView: NLView {
     
     func start(duration: Double, percentage: Double) {
         
+        self.duration = duration
+        self.percentage = percentage
+        
+        let delay = duration / (percentage * 100)
         let progressAnimation = CABasicAnimation(keyPath: "strokeEnd")
         progressAnimation.duration = duration
         progressAnimation.fromValue = 0
@@ -54,8 +63,19 @@ final class CircularProgressBarView: NLView {
         progressAnimation.fillMode = .forwards
         progressAnimation.isRemovedOnCompletion = false
         circleForegroundLayer.add(progressAnimation, forKey: "progressAnim")
-        updateProgressLabel(duration: duration, percentage: percentage)
         animatePulsatingLayer()
+        
+        timer = Timer.scheduledTimer(
+            timeInterval: delay,
+            target: self,
+            selector: #selector(updateLabel),
+            userInfo: nil,
+            repeats: true
+        )
+        
+        if let timer = timer {
+            RunLoop.current.add(timer, forMode: .common)
+        }
     }
     
     
@@ -125,26 +145,25 @@ final class CircularProgressBarView: NLView {
     }
     
     
-    // MARK: - Private methods
+    // MARK: - Actions
     
-    private func updateProgressLabel(duration: Double, percentage: Double) {
+    @objc private func updateLabel() {
         
-        var count = 0
         let percents = percentage * 100
-        let delay = duration / percents
-
-        Timer.scheduledTimer(withTimeInterval: delay, repeats: true) { timer in
+        
+        if (timerCounter == Int(percents)) {
+            self.percentageCenterLabel.text = "\(String(Int(percents)))%"
+            self.pulsatingLayer.removeAnimation(forKey: "pulsing")
             
-            if (count == Int(percents)) {
-                self.percentageCenterLabel.text = "\(String(Int(percents)))%"
-                self.pulsatingLayer.removeAnimation(forKey: "pulsing")
+            if let timer = timer {
                 timer.invalidate()
-                return
             }
-           
-            count += 1
-            self.percentageCenterLabel.text = "\(String(count))%"
+            
+            return
         }
+       
+        timerCounter += 1
+        percentageCenterLabel.text = "\(String(timerCounter))%"
     }
     
 }
