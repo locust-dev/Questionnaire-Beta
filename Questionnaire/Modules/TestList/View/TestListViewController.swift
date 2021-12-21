@@ -23,7 +23,8 @@ final class TestListViewController: UIViewController {
     var presenter: TestListViewOutput?
     var tableViewManager: TestListTableViewManagerInput?
     
-    private let tableView = EmptyTableView()
+    private let tableView = CommonTableView()
+    
     
     
     // MARK: - Life cycle
@@ -44,6 +45,7 @@ final class TestListViewController: UIViewController {
         view.backgroundColor = Colors.mainBlueColor()
         
         tableViewManager?.setup(tableView: tableView)
+        tableView.refreshModuleOutput = presenter
         
         view.addSubview(tableView)
         tableView.autoPinEdgesToSuperviewSafeArea()
@@ -83,5 +85,6 @@ extension TestListViewController: TestListViewInput {
     func hideLoader() {
         tableView.hideLoader()
     }
+    
 }
 

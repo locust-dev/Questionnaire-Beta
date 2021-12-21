@@ -6,7 +6,7 @@
 //  Copyright © 2021 FINCH. All rights reserved.
 //
 
-protocol TestListViewOutput: ViewOutput {
+protocol TestListViewOutput: ViewOutput, RefreshControlModuleOutput {
     func didTapStartTest(_ test: Test)
 }
 
@@ -44,6 +44,11 @@ final class TestListPresenter {
 extension TestListPresenter: TestListViewOutput {
     
     func viewIsReady() {
+        view?.showLoader()
+        interactor?.fetchTests(by: categoryId)
+    }
+    
+    func didRefresh() {
         view?.showLoader()
         interactor?.fetchTests(by: categoryId)
     }

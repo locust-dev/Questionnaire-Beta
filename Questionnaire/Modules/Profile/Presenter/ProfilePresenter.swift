@@ -55,6 +55,7 @@ extension ProfilePresenter: ProfileViewOutput {
     func didTapLogOutButton() {
         moduleOutput?.didTapLogOutButton()
     }
+    
 }
 
 

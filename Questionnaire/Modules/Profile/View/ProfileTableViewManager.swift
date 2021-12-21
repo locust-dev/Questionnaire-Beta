@@ -45,7 +45,6 @@ extension ProfileTableViewManager: ProfileTableViewManagerInput {
         tableView.dataSource = self
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
-        tableView.bounces = false
         self.tableView = tableView
     }
     

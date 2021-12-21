@@ -20,7 +20,7 @@ final class ProfileViewController: UIViewController {
     var tableViewManager: ProfileTableViewManagerInput?
     
     private let logOutButton = CommonButton(style: .filled)
-    private let tableView = EmptyTableView()
+    private let tableView = CommonTableView()
     
     
     // MARK: - Life cycle

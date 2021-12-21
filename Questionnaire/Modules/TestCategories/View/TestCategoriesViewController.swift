@@ -22,7 +22,7 @@ final class TestCategoriesViewController: UIViewController {
     var presenter: TestCategoriesViewOutput?
     var tableViewManager: TestCategoriesTableViewManagerInput?
     
-    private let tableView = EmptyTableView()
+    private let tableView = CommonTableView()
     
     
     // MARK: - Life cycle
@@ -46,6 +46,7 @@ final class TestCategoriesViewController: UIViewController {
         view.backgroundColor = Colors.mainBlueColor()
         
         tableViewManager?.setup(tableView: tableView)
+        tableView.refreshModuleOutput = presenter
         
         view.addSubview(tableView)
         tableView.autoPinEdgesToSuperviewSafeArea()

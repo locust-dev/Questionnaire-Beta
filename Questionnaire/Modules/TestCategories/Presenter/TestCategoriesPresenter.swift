@@ -6,7 +6,7 @@
 //  Copyright © 2021 FINCH. All rights reserved.
 //
 
-protocol TestCategoriesViewOutput: ViewOutput { }
+protocol TestCategoriesViewOutput: ViewOutput, RefreshControlModuleOutput { }
 
 protocol TestCategoriesInteractorOutput: AnyObject {
     func didSuccessObtain(categories: [TestCategoryModel])
@@ -38,6 +38,11 @@ final class TestCategoriesPresenter {
 extension TestCategoriesPresenter: TestCategoriesViewOutput {
     
     func viewIsReady() {
+        view?.showLoader()
+        interactor?.getCategories()
+    }
+    
+    func didRefresh() {
         view?.showLoader()
         interactor?.getCategories()
     }

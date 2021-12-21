@@ -1,5 +1,5 @@
 //
-//  EmptyTableView.swift
+//  CommonTableView.swift
 //  Questionnaire
 //
 //  Created by Ilya Turin on 13.12.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class EmptyTableView: UITableView {
+final class CommonTableView: UITableView {
 
     // MARK: - Properties
 
@@ -17,8 +17,23 @@ final class EmptyTableView: UITableView {
         }
     }
     
+    var refreshControlColor: UIColor? {
+        didSet {
+            customRefreshControl.tintColor = refreshControlColor ?? .white
+        }
+    }
+    
+    weak var refreshModuleOutput: RefreshControlModuleOutput? {
+        didSet {
+            addSubview(customRefreshControl)
+            customRefreshControl.tintColor = .white
+            customRefreshControl.setupWith(view: self, moduleOutput: refreshModuleOutput)
+        }
+    }
+    
     private var isLoading = false
     
+    private let customRefreshControl = RefreshControl()
     private let loaderView = ProgressHUD()
     private let emptyLabel: UILabel = {
         let emptyLabel = UILabel()
@@ -31,7 +46,7 @@ final class EmptyTableView: UITableView {
         emptyLabel.text = "Кажется, мы ничего не нашли\nПопробуйте обновить, потянув вниз"
         return emptyLabel
     }()
-
+    
 
     // MARK: - Life cycle
 
@@ -44,12 +59,13 @@ final class EmptyTableView: UITableView {
         super.reloadSections(sections, with: animation)
         addEmptyLabel()
     }
-
+    
     
     // MARK: - Public methods
     
     func showLoader() {
         isLoading = true
+        emptyLabel.removeFromSuperview()
         addSubview(loaderView)
         loaderView.autoCenterInSuperview()
     }
@@ -58,6 +74,7 @@ final class EmptyTableView: UITableView {
         isLoading = false
         loaderView.removeFromSuperview()
         addEmptyLabel()
+        customRefreshControl.finishedLoading()
     }
     
 

@@ -48,7 +48,6 @@ extension TestListTableViewManager: TestListTableViewManagerInput {
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
         tableView.contentInset.top = Locals.topContentInset
-        tableView.bounces = false
         self.tableView = tableView
     }
     
