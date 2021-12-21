@@ -44,7 +44,7 @@ final class TestListPresenter {
 extension TestListPresenter: TestListViewOutput {
     
     func viewIsReady() {
-        view?.showHUD()
+        view?.showLoader()
         interactor?.fetchTests(by: categoryId)
     }
     
@@ -55,13 +55,13 @@ extension TestListPresenter: TestListViewOutput {
 extension TestListPresenter: TestListInteractorOutput {
     
     func didSuccessObtainTests(_ tests: [Test], allowedTests: [String]) {
-        view?.hideHUD()
+        view?.hideLoader()
         let viewModel = dataConverter.convert(tests: tests, allowedTests: allowedTests)
         view?.update(with: viewModel)
     }
     
     func didFailObtainTests(error: ErrorModel) {
-        view?.hideHUD()
+        view?.hideLoader()
         view?.showErrorPlaceholder(error)
     }
     

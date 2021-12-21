@@ -38,7 +38,7 @@ final class TestCategoriesPresenter {
 extension TestCategoriesPresenter: TestCategoriesViewOutput {
     
     func viewIsReady() {
-        view?.showHUD()
+        view?.showLoader()
         interactor?.getCategories()
     }
     
@@ -49,13 +49,13 @@ extension TestCategoriesPresenter: TestCategoriesViewOutput {
 extension TestCategoriesPresenter: TestCategoriesInteractorOutput {
     
     func didSuccessObtain(categories: [TestCategoryModel]) {
-        view?.hideHUD()
+        view?.hideLoader()
         let viewModel = dataConverter.convert(categories: categories)
         view?.update(with: viewModel)
     }
     
     func didFailObtainCategories(error: ErrorModel) {
-        view?.hideHUD()
+        view?.hideLoader()
         view?.showErrorPlaceholder(error)
     }
     

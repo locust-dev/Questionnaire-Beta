@@ -1,5 +1,5 @@
 //
-//  TabBarShowable.swift
+//  TabBarPresentable.swift
 //  Questionnaire
 //
 //  Created by Ilya Turin on 21.12.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol TabBarShowable {
+protocol TabBarPresentable {
     
     func showTabBar()
     func hideTabBar()
@@ -15,7 +15,7 @@ protocol TabBarShowable {
 
 
 // MARK: - Default Implementation
-extension TabBarShowable where Self: UIViewController {
+extension TabBarPresentable where Self: UIViewController {
     
     func showTabBar() {
         setTabBarHidden(false)
@@ -50,4 +50,4 @@ extension TabBarShowable where Self: UIViewController {
 }
 
 
-extension UIViewController: TabBarShowable { }
+extension UIViewController: TabBarPresentable { }

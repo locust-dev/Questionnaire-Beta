@@ -19,7 +19,7 @@ final class ErrorPlaceholder: NLView {
     
     private let error: ErrorModel
     private let titleLabel = UILabel()
-    private let okButton = UIButton()
+    private let okButton = CommonButton(style: .filled)
     
     
     // MARK: - Init
@@ -37,25 +37,20 @@ final class ErrorPlaceholder: NLView {
         
         backgroundColor = .white
         
+        titleLabel.font = UIFont(name: MainFont.medium, size: 18)
+        titleLabel.textColor = .black
         titleLabel.text = error.description
         titleLabel.textAlignment = .center
         titleLabel.numberOfLines = 0
         
-        okButton.setTitle("OK", for: .normal)
-        okButton.setTitleColor(.black, for: .normal)
+        okButton.setTitle("Oк", for: .normal)
         okButton.addTarget(self, action: #selector(okTap), for: .touchUpInside)
         
         addSubview(titleLabel)
         addSubview(okButton)
-        
-        okButton.autoPinEdgesToSuperviewEdges(
-            with: UIEdgeInsets(top: 0, left: 20, bottom: 20, right: 20),
-            excludingEdge: .top
-        )
-        
-        titleLabel.autoCenterInSuperview()
-        titleLabel.autoPinEdge(.left, to: .left, of: self, withOffset: 30)
-        titleLabel.autoPinEdge(.right, to: .right, of: self, withOffset: -30)
+        okButton.autoPinEdgesToSuperviewSafeArea(with: UIEdgeInsets(top: 0, left: 20, bottom: 20, right: 20), excludingEdge: .top)
+        okButton.autoPinEdge(.top, to: .bottom, of: titleLabel, withOffset: 20)
+        titleLabel.autoPinEdgesToSuperviewSafeArea(with: UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 20), excludingEdge: .bottom)
     }
     
     

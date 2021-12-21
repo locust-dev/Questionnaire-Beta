@@ -8,9 +8,11 @@
 
 import UIKit
 
-protocol TestCategoriesViewInput: Loadable, Alertable, Errorable {
+protocol TestCategoriesViewInput: Alertable, ErrorPresentable {
     func update(with viewModel: TestCategoriesViewModel)
     func showNonAuthorizedAlert()
+    func showLoader()
+    func hideLoader()
 }
 
 final class TestCategoriesViewController: UIViewController {
@@ -38,7 +40,6 @@ final class TestCategoriesViewController: UIViewController {
     private func drawSelf() {
         
         title = "Категории"
-        
         setupNavBarAppearance()
         
         view.backgroundColor = Colors.mainBlueColor()
@@ -71,5 +72,13 @@ extension TestCategoriesViewController: TestCategoriesViewInput {
     func showNonAuthorizedAlert() {
         // TODO: - From config
         showAlert(title: "Oops", message: "You must be authorized!", buttonTitle: "Ok")
+    }
+    
+    func showLoader() {
+        tableView.showLoader()
+    }
+    
+    func hideLoader() {
+        tableView.hideLoader()
     }
 }

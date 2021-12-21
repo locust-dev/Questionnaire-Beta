@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		19221A42276B81DE0061495F /* ErrorPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19221A41276B81DE0061495F /* ErrorPlaceholder.swift */; };
-		19221A44276B84950061495F /* Errorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19221A43276B84950061495F /* Errorable.swift */; };
+		19221A44276B84950061495F /* ErrorPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19221A43276B84950061495F /* ErrorPresentable.swift */; };
 		19304D692768925000EA403A /* TestListDataConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D622768925000EA403A /* TestListDataConverter.swift */; };
 		19304D6A2768925000EA403A /* TestListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D632768925000EA403A /* TestListPresenter.swift */; };
 		19304D6B2768925000EA403A /* TestListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19304D642768925000EA403A /* TestListRouter.swift */; };
@@ -115,7 +115,9 @@
 		19861D9D276A353800D3C041 /* RegistrationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19861D96276A353800D3C041 /* RegistrationInteractor.swift */; };
 		19861D9E276A353800D3C041 /* NewUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19861D97276A353800D3C041 /* NewUserModel.swift */; };
 		19861DAC276A627C00D3C041 /* Struct+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19861DAB276A627C00D3C041 /* Struct+Dictionary.swift */; };
-		1992E7FA2771ECB50068FFFF /* TabBarShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1992E7F92771ECB50068FFFF /* TabBarShowable.swift */; };
+		1992E7FA2771ECB50068FFFF /* TabBarPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1992E7F92771ECB50068FFFF /* TabBarPresentable.swift */; };
+		1992E7FE2772226C0068FFFF /* ProfileTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1992E7FD2772226C0068FFFF /* ProfileTableViewManager.swift */; };
+		1992E801277223AB0068FFFF /* ProfileListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1992E800277223AB0068FFFF /* ProfileListCell.swift */; };
 		19A8793B276F4C5A0086B143 /* CommonNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A8793A276F4C5A0086B143 /* CommonNavigationController.swift */; };
 		19A8793D276F546C0086B143 /* CommonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A8793C276F546C0086B143 /* CommonTableViewCell.swift */; };
 		19A8793F276F65790086B143 /* TestQuestionFinishTestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A8793E276F65790086B143 /* TestQuestionFinishTestCell.swift */; };
@@ -208,7 +210,7 @@
 
 /* Begin PBXFileReference section */
 		19221A41276B81DE0061495F /* ErrorPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPlaceholder.swift; sourceTree = "<group>"; };
-		19221A43276B84950061495F /* Errorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errorable.swift; sourceTree = "<group>"; };
+		19221A43276B84950061495F /* ErrorPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresentable.swift; sourceTree = "<group>"; };
 		19304D622768925000EA403A /* TestListDataConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListDataConverter.swift; sourceTree = "<group>"; };
 		19304D632768925000EA403A /* TestListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListPresenter.swift; sourceTree = "<group>"; };
 		19304D642768925000EA403A /* TestListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListRouter.swift; sourceTree = "<group>"; };
@@ -291,7 +293,9 @@
 		19861D96276A353800D3C041 /* RegistrationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationInteractor.swift; sourceTree = "<group>"; };
 		19861D97276A353800D3C041 /* NewUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserModel.swift; sourceTree = "<group>"; };
 		19861DAB276A627C00D3C041 /* Struct+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Struct+Dictionary.swift"; sourceTree = "<group>"; };
-		1992E7F92771ECB50068FFFF /* TabBarShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarShowable.swift; sourceTree = "<group>"; };
+		1992E7F92771ECB50068FFFF /* TabBarPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPresentable.swift; sourceTree = "<group>"; };
+		1992E7FD2772226C0068FFFF /* ProfileTableViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewManager.swift; sourceTree = "<group>"; };
+		1992E800277223AB0068FFFF /* ProfileListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListCell.swift; sourceTree = "<group>"; };
 		19A8793A276F4C5A0086B143 /* CommonNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonNavigationController.swift; sourceTree = "<group>"; };
 		19A8793C276F546C0086B143 /* CommonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTableViewCell.swift; sourceTree = "<group>"; };
 		19A8793E276F65790086B143 /* TestQuestionFinishTestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionFinishTestCell.swift; sourceTree = "<group>"; };
@@ -557,7 +561,9 @@
 		19304D8B27689EC800EA403A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1992E7FF2772239F0068FFFF /* Cells */,
 				1982B562276398E7003DAB1A /* ProfileViewController.swift */,
+				1992E7FD2772226C0068FFFF /* ProfileTableViewManager.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -781,7 +787,7 @@
 				19D5C9D627675382000109F2 /* Alertable */,
 				1952AA8D2761003D00675931 /* ViewOutput.swift */,
 				19861DAB276A627C00D3C041 /* Struct+Dictionary.swift */,
-				1992E7F92771ECB50068FFFF /* TabBarShowable.swift */,
+				1992E7F92771ECB50068FFFF /* TabBarPresentable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -944,6 +950,14 @@
 				19861D92276A353800D3C041 /* RegistrationPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		1992E7FF2772239F0068FFFF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1992E800277223AB0068FFFF /* ProfileListCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		19BB25F42764C363004F165B /* DatabaseService */ = {
@@ -1447,7 +1461,7 @@
 			children = (
 				19D5C9E02767B2D0000109F2 /* ErrorModel.swift */,
 				19221A41276B81DE0061495F /* ErrorPlaceholder.swift */,
-				19221A43276B84950061495F /* Errorable.swift */,
+				19221A43276B84950061495F /* ErrorPresentable.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -1719,6 +1733,7 @@
 				19C8322B276C906D0050747F /* FontApplicable.swift in Sources */,
 				19BF73892770ED7900B95BB1 /* TestResultCircleProgressCell.swift in Sources */,
 				19304D79276897B400EA403A /* Question.swift in Sources */,
+				1992E7FE2772226C0068FFFF /* ProfileTableViewManager.swift in Sources */,
 				19C83228276C906D0050747F /* PlaceholderView.swift in Sources */,
 				19C83253276C927D0050747F /* CollectionDataConverterInput.swift in Sources */,
 				19436D582768DD1E00D2FA0A /* TestResultRouter.swift in Sources */,
@@ -1759,7 +1774,7 @@
 				19BF7382277093BF00B95BB1 /* UINavigationController+Appearance.swift in Sources */,
 				19C83255276C927D0050747F /* Delegatable.swift in Sources */,
 				19436D352768A5DB00D2FA0A /* TestQuestionTableViewManager.swift in Sources */,
-				1992E7FA2771ECB50068FFFF /* TabBarShowable.swift in Sources */,
+				1992E7FA2771ECB50068FFFF /* TabBarPresentable.swift in Sources */,
 				19C8321A276C906D0050747F /* NLStackView.swift in Sources */,
 				19C8321D276C906D0050747F /* NLPageViewController.swift in Sources */,
 				19459889276E1B5200F32033 /* CommonButton.swift in Sources */,
@@ -1783,11 +1798,12 @@
 				193D994327624052004ACA7F /* AuthorizationAssembly.swift in Sources */,
 				19C39084276B3009003AFCAE /* ProfileDataConverter.swift in Sources */,
 				19304D6A2768925000EA403A /* TestListPresenter.swift in Sources */,
+				1992E801277223AB0068FFFF /* ProfileListCell.swift in Sources */,
 				193D994D27624BF6004ACA7F /* R.generated.swift in Sources */,
 				19C83254276C927D0050747F /* Setupable.swift in Sources */,
 				19436D302768A5DB00D2FA0A /* TestQuestionViewController.swift in Sources */,
 				19D0C0E327711F780096EAFC /* CommonAlertController.swift in Sources */,
-				19221A44276B84950061495F /* Errorable.swift in Sources */,
+				19221A44276B84950061495F /* ErrorPresentable.swift in Sources */,
 				19436D402768A85400D2FA0A /* TestAnswersCounterCell.swift in Sources */,
 				1952AA8E2761003D00675931 /* ViewOutput.swift in Sources */,
 				193D993727623E60004ACA7F /* MainScreenInteractor.swift in Sources */,

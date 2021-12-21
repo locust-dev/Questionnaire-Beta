@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol TestResultViewInput: Loadable, Errorable, TabBarShowable {
+protocol TestResultViewInput: Loadable, ErrorPresentable, TabBarPresentable {
     func update(with viewModel: TestResultViewModel)
 }
 

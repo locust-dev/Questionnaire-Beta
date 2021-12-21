@@ -12,7 +12,12 @@ final class ProgressHUD: SVIndefiniteAnimatedView {
     
     // MARK: - Private Properties
     
-    var color: UIColor
+    var color: UIColor {
+        didSet {
+            strokeColor = color
+        }
+    }
+    
     private let size: ProgressHUDSize
     
     

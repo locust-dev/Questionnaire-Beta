@@ -8,10 +8,12 @@
 
 import UIKit
 
-protocol TestListViewInput: Loadable, Alertable, Errorable {
+protocol TestListViewInput: Alertable, ErrorPresentable {
     func update(with viewModel: TestListViewModel)
     func showAlertIfNoQuestionsInTest()
     func showAlertSureToStartTest(_ test: Test)
+    func showLoader()
+    func hideLoader()
 }
 
 final class TestListViewController: UIViewController {
@@ -74,5 +76,12 @@ extension TestListViewController: TestListViewInput {
         showAlert(title: "Начать тест?", message: "Вы уверены?", actions: [okAction, cancelAction])
     }
     
+    func showLoader() {
+        tableView.showLoader()
+    }
+    
+    func hideLoader() {
+        tableView.hideLoader()
+    }
 }
 

@@ -17,8 +17,10 @@ final class ProfileViewController: UIViewController {
     // MARK: - Properties
     
 	var presenter: ProfileViewOutput?
+    var tableViewManager: ProfileTableViewManagerInput?
     
     private let logOutButton = CommonButton(style: .filled)
+    private let tableView = EmptyTableView()
     
     
     // MARK: - Life cycle
@@ -37,12 +39,16 @@ final class ProfileViewController: UIViewController {
         
         view.backgroundColor = .white
         
+        tableViewManager?.setup(tableView: tableView)
+        
         logOutButton.addTarget(self, action: #selector(logOutTap), for: .touchUpInside)
         
         view.addSubview(logOutButton)
+        view.addSubview(tableView)
         
+        tableView.autoPinEdgesToSuperviewSafeArea(with: UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0), excludingEdge: .bottom)
         logOutButton.autoPinEdgesToSuperviewSafeArea(with: UIEdgeInsets(top: 0, left: 20, bottom: 20, right: 20), excludingEdge: .top)
-       
+        logOutButton.autoPinEdge(.top, to: .bottom, of: tableView)
     }
     
     
@@ -61,8 +67,10 @@ extension ProfileViewController: ProfileViewInput {
     func update(with viewModel: ProfileViewModel) {
         
         title = viewModel.fullName
-        
+    
         // TODO: - From localized
         logOutButton.setTitle("Выйти", for: .normal)
+        tableViewManager?.update(with: viewModel)
     }
+    
 }

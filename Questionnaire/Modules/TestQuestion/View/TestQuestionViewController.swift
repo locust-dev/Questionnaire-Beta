@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol TestQuestionViewInput: Alertable, TabBarShowable {
+protocol TestQuestionViewInput: Alertable, TabBarPresentable {
     func update(with viewModel: TestQuestionViewModel)
     func showNotConfirmAlert()
 }

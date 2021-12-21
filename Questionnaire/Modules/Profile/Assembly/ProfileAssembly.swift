@@ -20,6 +20,7 @@ final class ProfileAssembly: Assembly {
         let authService = FBAuthService()
         
         let dataConverter = ProfileDataConverter()
+        let tableViewManager = ProfileTableViewManager()
         
         let interactor = ProfileInteractor(databaseService: databaseService, authService: authService)
         let view = ProfileViewController()
@@ -27,6 +28,7 @@ final class ProfileAssembly: Assembly {
         let presenter = ProfilePresenter(dataConverter: dataConverter, moduleOutput: model.moduleOutput)
         
         view.presenter = presenter
+        view.tableViewManager = tableViewManager
         
         presenter.view = view
         presenter.router = router
