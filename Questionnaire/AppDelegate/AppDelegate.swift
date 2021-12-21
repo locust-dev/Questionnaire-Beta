@@ -8,6 +8,10 @@
 import UIKit
 import Firebase
 
+#if DEBUG
+    import CocoaDebug
+#endif
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
