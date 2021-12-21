@@ -20,18 +20,25 @@ final class AuthorizationViewController: UIViewController {
     
 	var presenter: AuthorizationViewOutput?
     
+    private var activeTextField: UITextField?
+    
     private let titleLabel = UILabel()
     private let subtitleLabel = UILabel()
     private let loginTextField = BottomLineTextField()
     private let passwordTextField = BottomLineTextField()
     private let confirmButton = CommonButton(style: .filled)
     private let forgotPasswordButton = UIButton()
+    private let notifitacionCenter = NotificationCenter.default
   
     
     // MARK: - Life cycle
     
-	override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
+        
+        notifitacionCenter.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        notifitacionCenter.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
         drawSelf()
         presenter?.viewIsReady()
     }
@@ -47,6 +54,10 @@ final class AuthorizationViewController: UIViewController {
     private func drawSelf() {
         
         view.backgroundColor = Colors.mainBlueColor()
+        navigationItem.backButtonTitle = ""
+        
+        loginTextField.delegate = self
+        passwordTextField.delegate = self
         
         let stackContainer = UIView()
         stackContainer.backgroundColor = .white
@@ -91,7 +102,7 @@ final class AuthorizationViewController: UIViewController {
         stackContainer.addSubview(stackView)
 
         stackContainer.autoPinEdgesToSuperviewSafeArea(with: UIEdgeInsets(top: 10, left: 10, bottom: 20, right: 10), excludingEdge: .top)
-        stackView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 40, left: 20, bottom: 80, right: 20))
+        stackView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 40, left: 20, bottom: 20, right: 20))
         
         appIconContainer.autoPinEdge(.bottom, to: .top, of: stackContainer)
         appIconContainer.autoPinEdgesToSuperviewEdges(
@@ -119,7 +130,28 @@ final class AuthorizationViewController: UIViewController {
     
     @objc private func forgotPassword() {
         // TODO: - From localized
-        showAlert(title: "Забыли пароль?", message: "Пожалуйста, обратитесь к @smallkot")
+        showAlert(title: "Забыли пароль?", message: "Пожалуйста, обратитесь к @turin_ilya")
+    }
+    
+    @objc private func keyboardWillShow(notification: NSNotification) {
+        
+        guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey],
+              let keyboardSize = (keyboardFrame as? NSValue)?.cgRectValue,
+              let activeTextField = activeTextField
+        else {
+            return
+        }
+        
+        let bottomOfTextField = activeTextField.convert(activeTextField.bounds, to: view).maxY
+        let topOfKeyboard = view.frame.height - keyboardSize.height
+        
+        if bottomOfTextField > topOfKeyboard {
+            view.frame.origin.y = -(bottomOfTextField - topOfKeyboard + 20)
+        }
+    }
+
+    @objc private func keyboardWillHide() {
+        view.frame.origin.y = 0
     }
 
 }
@@ -139,4 +171,18 @@ extension AuthorizationViewController: AuthorizationViewInput {
         confirmButton.setTitle(viewModel.confirmButtonTitle, for: .normal)
         forgotPasswordButton.setTitle(viewModel.forgotPassButtonTitle, for: .normal)
     }
+}
+
+
+// MARK: - UITextFieldDelegate
+extension AuthorizationViewController : UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        activeTextField = textField
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        activeTextField = nil
+    }
+    
 }

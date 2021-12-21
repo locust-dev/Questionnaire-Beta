@@ -20,12 +20,15 @@ final class RegistrationViewController: UIViewController {
     
     var presenter: RegistrationViewOutput?
     
+    private var activeTextField: UITextField?
+    
     private let mainLabel = UILabel()
     private let subtitleLabel = UILabel()
     private let firstNameTextField = BottomLineTextField()
     private let lastNameTextField = BottomLineTextField()
     private let registerButton = CommonButton()
     private let stack = UIStackView()
+    private let notifitacionCenter = NotificationCenter.default
     
     
     // MARK: - Life cycle
@@ -33,8 +36,16 @@ final class RegistrationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        notifitacionCenter.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        notifitacionCenter.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
         drawSelf()
         presenter?.viewIsReady()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
     }
     
     
@@ -45,7 +56,10 @@ final class RegistrationViewController: UIViewController {
         view.backgroundColor = Colors.mainBlueColor()
         
         firstNameTextField.type = .firstName
+        firstNameTextField.delegate = self
+        
         lastNameTextField.type = .lastName
+        lastNameTextField.delegate = self
         
         mainLabel.font = UIFont(name: MainFont.bold, size: 30)
         mainLabel.textColor = .black
@@ -84,8 +98,8 @@ final class RegistrationViewController: UIViewController {
         view.addSubview(appIconContainer)
         appIconContainer.addSubview(appIconImageView)
         
-        stackContainer.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 0, left: 0, bottom: -30, right: 0), excludingEdge: .top)
-        stack.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 40, left: 20, bottom: 80, right: 20))
+        stackContainer.autoPinEdgesToSuperviewSafeArea(with: UIEdgeInsets(top: 10, left: 10, bottom: 20, right: 10), excludingEdge: .top)
+        stack.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 40, left: 20, bottom: 20, right: 20))
         
         appIconContainer.autoPinEdge(.bottom, to: .top, of: stackContainer)
         appIconContainer.autoPinEdgesToSuperviewEdges(
@@ -106,6 +120,27 @@ final class RegistrationViewController: UIViewController {
     @objc private func register() {
         presenter?.didTapRegisterButton(firstName: firstNameTextField.text,
                                         lastName: lastNameTextField.text)
+    }
+    
+    @objc private func keyboardWillShow(notification: NSNotification) {
+        
+        guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey],
+              let keyboardSize = (keyboardFrame as? NSValue)?.cgRectValue,
+              let activeTextField = activeTextField
+        else {
+            return
+        }
+        
+        let bottomOfTextField = activeTextField.convert(activeTextField.bounds, to: view).maxY
+        let topOfKeyboard = view.frame.height - keyboardSize.height
+        
+        if bottomOfTextField > topOfKeyboard {
+            view.frame.origin.y = -(bottomOfTextField - topOfKeyboard + 20)
+        }
+    }
+
+    @objc private func keyboardWillHide() {
+        view.frame.origin.y = 0
     }
     
 }
@@ -129,4 +164,18 @@ extension RegistrationViewController: RegistrationViewInput {
         showAlert(title: "Ура!", message: "Вы зарегистрированы. Теперь вы можете проходить тесты.")
     }
 
+}
+
+
+// MARK: - UITextFieldDelegate
+extension RegistrationViewController : UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        activeTextField = textField
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        activeTextField = nil
+    }
+    
 }
