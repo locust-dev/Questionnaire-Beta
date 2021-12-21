@@ -41,9 +41,8 @@ final class ProfileViewController: UIViewController {
         
         view.addSubview(logOutButton)
         
-        logOutButton.autoPinEdge(.bottom, to: .bottom, of: view, withOffset: -20)
-        logOutButton.autoAlignAxis(toSuperviewAxis: .vertical)
-        logOutButton.autoSetDimensions(to: CGSize(width: 150, height: 50))
+        logOutButton.autoPinEdgesToSuperviewSafeArea(with: UIEdgeInsets(top: 0, left: 20, bottom: 20, right: 20), excludingEdge: .top)
+       
     }
     
     

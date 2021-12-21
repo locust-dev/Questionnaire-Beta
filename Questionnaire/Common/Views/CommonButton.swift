@@ -48,6 +48,8 @@ class CommonButton: NLButton {
     
     private func drawSelf() {
         
+        autoSetDimension(.height, toSize: 50)
+        
         switch style {
             
         case .filled:

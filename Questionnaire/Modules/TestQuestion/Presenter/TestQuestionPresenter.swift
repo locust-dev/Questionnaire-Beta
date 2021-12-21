@@ -61,8 +61,11 @@ extension TestQuestionPresenter: TestQuestionViewOutput {
     
     func viewIsReady() {
         setQuestion()
+        view?.hideTabBar()
     }
+    
 }
+
 
 // MARK: - TestQuestionTableViewManagerDelegate
 extension TestQuestionPresenter: TestQuestionTableViewManagerDelegate {
@@ -84,5 +87,6 @@ extension TestQuestionPresenter: TestQuestionTableViewManagerDelegate {
     
     func didTapFinishButton() {
         router?.closeModule()
+        view?.showTabBar()
     }
 }

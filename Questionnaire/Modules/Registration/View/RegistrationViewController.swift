@@ -98,7 +98,6 @@ final class RegistrationViewController: UIViewController {
         
         firstNameTextField.autoSetDimension(.height, toSize: 50)
         lastNameTextField.autoSetDimension(.height, toSize: 50)
-        registerButton.autoSetDimension(.height, toSize: 50)
     }
     
     

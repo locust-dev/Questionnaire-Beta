@@ -49,6 +49,7 @@ extension TestResultPresenter: TestResultViewOutput {
     
     func didTapFinishButton() {
         router?.closeModule()
+        view?.showTabBar()
     }
     
     func didTapOkErrorButton() {

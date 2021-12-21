@@ -33,6 +33,7 @@ final class TestResultCircleProgressCell: NLTableViewCell {
         contentView.backgroundColor = .clear
         backgroundColor = .clear
         
+        titleLabel.textColor = .black
         titleLabel.font = UIFont(name: MainFont.regular, size: 20)
         titleLabel.numberOfLines = 0
         titleLabel.textAlignment = .center
@@ -65,7 +66,7 @@ extension TestResultCircleProgressCell: Configurable {
         
         switch model.progressPercent {
             
-        case ..<0.25:
+        case ..<0.26:
             titleLabel.text = "Похоже, вам стоит немного подтянуть эту тему :("
             
         case 0.26...0.75:

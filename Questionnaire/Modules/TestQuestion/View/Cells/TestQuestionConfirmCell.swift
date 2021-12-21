@@ -34,7 +34,6 @@ final class TestQuestionConfirmCell: NLTableViewCell, Delegatable {
         confirmButton.addTarget(self, action: #selector(confirmTap), for: .touchUpInside)
         
         contentView.addSubview(confirmButton)
-        confirmButton.autoSetDimension(.height, toSize: 50)
         confirmButton.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20))
     }
     

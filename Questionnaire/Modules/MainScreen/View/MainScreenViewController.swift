@@ -21,6 +21,8 @@ final class MainScreenViewController: UITabBarController {
     
     private var isFirstLoaded = true
     
+    private let customTabBarView = UIView()
+    
     
     // MARK: - Life cycle
     
@@ -28,6 +30,12 @@ final class MainScreenViewController: UITabBarController {
         super.viewDidLoad()
         
         drawSelf()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        customTabBarView.frame = tabBar.frame
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,11 +51,31 @@ final class MainScreenViewController: UITabBarController {
     // MARK: - Drawing
     
     private func drawSelf() {
-            
-        tabBar.isTranslucent = false
-        tabBar.shadowImage = UIImage()
+        
+        customTabBarView.backgroundColor = .white
+        customTabBarView.layer.cornerRadius = 20
+        customTabBarView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        customTabBarView.clipsToBounds = true
+        
+        customTabBarView.layer.masksToBounds = false
+        customTabBarView.layer.shadowColor = UIColor.black.cgColor
+        customTabBarView.layer.shadowOffset = CGSize(width: 0, height: -8.0)
+        customTabBarView.layer.shadowOpacity = 0.12
+        customTabBarView.layer.shadowRadius = 10.0
+        
+        view.addSubview(customTabBarView)
+        view.bringSubviewToFront(tabBar)
+        
         tabBar.backgroundImage = UIImage()
+        tabBar.shadowImage = UIImage()
         tabBar.clipsToBounds = true
+    }
+    
+    
+    // MARK: - Public methods
+    
+    func setCustomViewFrame(_ frame: CGRect) {
+        customTabBarView.frame = frame
     }
     
 }

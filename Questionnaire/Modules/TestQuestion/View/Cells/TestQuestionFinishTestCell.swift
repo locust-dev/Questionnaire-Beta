@@ -34,7 +34,6 @@ final class TestQuestionFinishTestCell: NLTableViewCell, Delegatable {
         finishButton.addTarget(self, action: #selector(finishTap), for: .touchUpInside)
         
         contentView.addSubview(finishButton)
-        finishButton.autoSetDimension(.height, toSize: 50)
         finishButton.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 10, left: 20, bottom: 20, right: 20))
     }
     

@@ -36,6 +36,7 @@ final class TestResultMistakesCell: NLTableViewCell {
         
         mistakesNumbersStack.spacing = 10
         
+        titleLabel.textColor = .black
         titleLabel.font = UIFont(name: MainFont.regular, size: 16)
         titleLabel.numberOfLines = 0
         titleLabel.textAlignment = .center

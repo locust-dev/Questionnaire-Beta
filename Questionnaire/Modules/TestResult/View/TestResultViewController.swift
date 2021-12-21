@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol TestResultViewInput: Loadable, Errorable {
+protocol TestResultViewInput: Loadable, Errorable, TabBarShowable {
     func update(with viewModel: TestResultViewModel)
 }
 
@@ -49,7 +49,6 @@ final class TestResultViewController: UIViewController {
         view.addSubview(finishButton)
         
         finishButton.autoPinEdgesToSuperviewSafeArea(with: UIEdgeInsets(top: 0, left: 20, bottom: 30, right: 20), excludingEdge: .top)
-        finishButton.autoSetDimension(.height, toSize: 50)
         tableView.autoPinEdgesToSuperviewSafeArea(with: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
     }
     

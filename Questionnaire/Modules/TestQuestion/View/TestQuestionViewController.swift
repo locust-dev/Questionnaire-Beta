@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol TestQuestionViewInput: Alertable {
+protocol TestQuestionViewInput: Alertable, TabBarShowable {
     func update(with viewModel: TestQuestionViewModel)
     func showNotConfirmAlert()
 }
@@ -61,5 +61,5 @@ extension TestQuestionViewController: TestQuestionViewInput {
         // TODO: - From localized
         showAlert(title: "Вы должны выбрать вариант ответа, прежде чем продолжить", buttonTitle: "Oк")
     }
-
+    
 }

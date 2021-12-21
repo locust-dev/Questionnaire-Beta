@@ -37,12 +37,6 @@ final class BottomLineTextField: NLTextField {
         }
     }
     
-    override var isSecureTextEntry: Bool {
-        didSet {
-            
-        }
-    }
-    
     
     // MARK: - Init
     
@@ -139,7 +133,8 @@ final class BottomLineTextField: NLTextField {
         attributedPlaceholder = NSAttributedString(
             string: placeholder ?? "",
             attributes: [
-                NSAttributedString.Key.font: UIFont(name: MainFont.regular, size: 16) as Any
+                NSAttributedString.Key.font: UIFont(name: MainFont.regular, size: 16) as Any,
+                NSAttributedString.Key.foregroundColor: UIColor.lightGray as Any
             ]
         )
     }

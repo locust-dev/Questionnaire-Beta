@@ -29,8 +29,6 @@ final class TestQuestionAssembly: Assembly {
         presenter.view = view
         presenter.router = router
         
-        view.hidesBottomBarWhenPushed = true
-        
         return view
     }
 

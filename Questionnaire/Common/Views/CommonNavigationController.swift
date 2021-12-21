@@ -9,10 +9,6 @@ import UIKit
 
 final class CommonNavigationController: UINavigationController {
     
-    // MARK: - Properties
-    
-    
-    
     // MARK: - Init
     
     override init(rootViewController: UIViewController) {
@@ -44,8 +40,5 @@ final class CommonNavigationController: UINavigationController {
         
         navigationBar.largeTitleTextAttributes = attributes as [NSAttributedString.Key : Any]
     }
-    
-    
-    // MARK: - Private methods
     
 }

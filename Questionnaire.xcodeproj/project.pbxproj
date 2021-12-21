@@ -115,6 +115,7 @@
 		19861D9D276A353800D3C041 /* RegistrationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19861D96276A353800D3C041 /* RegistrationInteractor.swift */; };
 		19861D9E276A353800D3C041 /* NewUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19861D97276A353800D3C041 /* NewUserModel.swift */; };
 		19861DAC276A627C00D3C041 /* Struct+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19861DAB276A627C00D3C041 /* Struct+Dictionary.swift */; };
+		1992E7FA2771ECB50068FFFF /* TabBarShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1992E7F92771ECB50068FFFF /* TabBarShowable.swift */; };
 		19A8793B276F4C5A0086B143 /* CommonNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A8793A276F4C5A0086B143 /* CommonNavigationController.swift */; };
 		19A8793D276F546C0086B143 /* CommonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A8793C276F546C0086B143 /* CommonTableViewCell.swift */; };
 		19A8793F276F65790086B143 /* TestQuestionFinishTestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A8793E276F65790086B143 /* TestQuestionFinishTestCell.swift */; };
@@ -189,6 +190,7 @@
 		19C832F2276C92B40050747F /* InternetConnectionReachabilityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C832E5276C92B40050747F /* InternetConnectionReachabilityHandler.swift */; };
 		19C832F3276C92B40050747F /* InternetConnectionReachabilityCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C832E6276C92B40050747F /* InternetConnectionReachabilityCenter.swift */; };
 		19C832FA276C92B40050747F /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C832EF276C92B40050747F /* Notifications.swift */; };
+		19D0C0E327711F780096EAFC /* CommonAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D0C0E227711F780096EAFC /* CommonAlertController.swift */; };
 		19D5C9BE27673692000109F2 /* TestCategoriesTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D5C9BD27673692000109F2 /* TestCategoriesTableViewManager.swift */; };
 		19D5C9C1276736D0000109F2 /* TestCategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D5C9C0276736D0000109F2 /* TestCategoriesViewModel.swift */; };
 		19D5C9C4276738FA000109F2 /* EmptyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D5C9C3276738FA000109F2 /* EmptyTableView.swift */; };
@@ -289,6 +291,7 @@
 		19861D96276A353800D3C041 /* RegistrationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationInteractor.swift; sourceTree = "<group>"; };
 		19861D97276A353800D3C041 /* NewUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserModel.swift; sourceTree = "<group>"; };
 		19861DAB276A627C00D3C041 /* Struct+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Struct+Dictionary.swift"; sourceTree = "<group>"; };
+		1992E7F92771ECB50068FFFF /* TabBarShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarShowable.swift; sourceTree = "<group>"; };
 		19A8793A276F4C5A0086B143 /* CommonNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonNavigationController.swift; sourceTree = "<group>"; };
 		19A8793C276F546C0086B143 /* CommonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTableViewCell.swift; sourceTree = "<group>"; };
 		19A8793E276F65790086B143 /* TestQuestionFinishTestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionFinishTestCell.swift; sourceTree = "<group>"; };
@@ -363,6 +366,7 @@
 		19C832E5276C92B40050747F /* InternetConnectionReachabilityHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetConnectionReachabilityHandler.swift; sourceTree = "<group>"; };
 		19C832E6276C92B40050747F /* InternetConnectionReachabilityCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetConnectionReachabilityCenter.swift; sourceTree = "<group>"; };
 		19C832EF276C92B40050747F /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		19D0C0E227711F780096EAFC /* CommonAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonAlertController.swift; sourceTree = "<group>"; };
 		19D5C9BD27673692000109F2 /* TestCategoriesTableViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCategoriesTableViewManager.swift; sourceTree = "<group>"; };
 		19D5C9C0276736D0000109F2 /* TestCategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCategoriesViewModel.swift; sourceTree = "<group>"; };
 		19D5C9C3276738FA000109F2 /* EmptyTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTableView.swift; sourceTree = "<group>"; };
@@ -777,6 +781,7 @@
 				19D5C9D627675382000109F2 /* Alertable */,
 				1952AA8D2761003D00675931 /* ViewOutput.swift */,
 				19861DAB276A627C00D3C041 /* Struct+Dictionary.swift */,
+				1992E7F92771ECB50068FFFF /* TabBarShowable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1398,6 +1403,7 @@
 				19459888276E1B5200F32033 /* CommonButton.swift */,
 				19A8793C276F546C0086B143 /* CommonTableViewCell.swift */,
 				19A8793A276F4C5A0086B143 /* CommonNavigationController.swift */,
+				19D0C0E227711F780096EAFC /* CommonAlertController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1753,6 +1759,7 @@
 				19BF7382277093BF00B95BB1 /* UINavigationController+Appearance.swift in Sources */,
 				19C83255276C927D0050747F /* Delegatable.swift in Sources */,
 				19436D352768A5DB00D2FA0A /* TestQuestionTableViewManager.swift in Sources */,
+				1992E7FA2771ECB50068FFFF /* TabBarShowable.swift in Sources */,
 				19C8321A276C906D0050747F /* NLStackView.swift in Sources */,
 				19C8321D276C906D0050747F /* NLPageViewController.swift in Sources */,
 				19459889276E1B5200F32033 /* CommonButton.swift in Sources */,
@@ -1779,6 +1786,7 @@
 				193D994D27624BF6004ACA7F /* R.generated.swift in Sources */,
 				19C83254276C927D0050747F /* Setupable.swift in Sources */,
 				19436D302768A5DB00D2FA0A /* TestQuestionViewController.swift in Sources */,
+				19D0C0E327711F780096EAFC /* CommonAlertController.swift in Sources */,
 				19221A44276B84950061495F /* Errorable.swift in Sources */,
 				19436D402768A85400D2FA0A /* TestAnswersCounterCell.swift in Sources */,
 				1952AA8E2761003D00675931 /* ViewOutput.swift in Sources */,

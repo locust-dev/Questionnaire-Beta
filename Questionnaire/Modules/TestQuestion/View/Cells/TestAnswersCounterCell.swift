@@ -86,7 +86,7 @@ extension TestAnswersCounterCell: Configurable {
             answerButton.style = .reversedShadow
             answerButton.addTarget(self, action: #selector(selectAnswer), for: .touchUpInside)
             answersStack.addArrangedSubview(answerButton)
-            answerButton.autoSetDimension(.height, toSize: 50)
         }
     }
+    
 }

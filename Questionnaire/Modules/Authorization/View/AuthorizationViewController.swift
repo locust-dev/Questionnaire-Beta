@@ -47,7 +47,6 @@ final class AuthorizationViewController: UIViewController {
     private func drawSelf() {
         
         view.backgroundColor = Colors.mainBlueColor()
-        navigationController?.navigationBar.prefersLargeTitles = true
         
         let stackContainer = UIView()
         stackContainer.backgroundColor = .white
@@ -91,7 +90,7 @@ final class AuthorizationViewController: UIViewController {
         appIconContainer.addSubview(appIconImageView)
         stackContainer.addSubview(stackView)
 
-        stackContainer.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 0, left: 0, bottom: -30, right: 0), excludingEdge: .top)
+        stackContainer.autoPinEdgesToSuperviewSafeArea(with: UIEdgeInsets(top: 10, left: 10, bottom: 20, right: 10), excludingEdge: .top)
         stackView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 40, left: 20, bottom: 80, right: 20))
         
         appIconContainer.autoPinEdge(.bottom, to: .top, of: stackContainer)
@@ -105,7 +104,6 @@ final class AuthorizationViewController: UIViewController {
         
         loginTextField.autoSetDimension(.height, toSize: 50)
         passwordTextField.autoSetDimension(.height, toSize: 50)
-        confirmButton.autoSetDimension(.height, toSize: 50)
 
         forgotPasswordButton.autoSetDimension(.height, toSize: 20)
         forgotPasswordButton.autoPinEdge(.right, to: .right, of: passwordTextField)
