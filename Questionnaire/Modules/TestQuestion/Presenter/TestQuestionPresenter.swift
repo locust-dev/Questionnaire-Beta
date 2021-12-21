@@ -46,7 +46,7 @@ final class TestQuestionPresenter {
         guard let question = questions[safe: currentQuestionNumber - 1],
               currentQuestionNumber <= questions.count
         else {
-            router?.openResults(userAnswers: userAnswers, testId: testId)
+            router?.openResults(moduleOutput: self, userAnswers: userAnswers, testId: testId)
             return
         }
         
@@ -90,6 +90,21 @@ extension TestQuestionPresenter: TestQuestionTableViewManagerDelegate {
     
     func didSelectAnswer(by number: Int) {
         userAnswers[currentQuestionNumber] = number
+    }
+    
+}
+
+
+// MARK: - TestResultModuleOutput
+extension TestQuestionPresenter: TestResultModuleOutput {
+    
+    func didTapMistakeQuestion(by number: Int, wrongAnswer: Int, rightAnswer: Int) {
+        
+        guard let question = questions[safe: number - 1] else {
+            return
+        }
+              
+        router?.openQuestion(question, wrongAnswer: wrongAnswer, rightAnswer: rightAnswer)
     }
     
 }

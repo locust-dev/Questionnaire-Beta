@@ -22,7 +22,10 @@ final class TestResultAssembly: Assembly {
         let interactor = TestResultInteractor(databaseService: databaseService)
         let view = TestResultViewController()
         let router = TestResultRouter(transition: view)
-        let presenter = TestResultPresenter(dataConverter: dataConverter, userAnswers: model.userAnswers, testId: model.testId)
+        let presenter = TestResultPresenter(moduleOutput: model.moduleOutput,
+                                            dataConverter: dataConverter,
+                                            userAnswers: model.userAnswers,
+                                            testId: model.testId)
         
         tableViewManager.delegate = presenter
         
@@ -46,6 +49,7 @@ extension TestResultAssembly {
     
     struct Model: TransitionModel {
         
+        weak var moduleOutput: TestResultModuleOutput?
         let userAnswers: [Int: Int]
         let testId: String
     }

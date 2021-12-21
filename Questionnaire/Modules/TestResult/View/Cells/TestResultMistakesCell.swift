@@ -7,9 +7,11 @@
 
 import UIKit
 
-final class TestResultMistakesCell: NLTableViewCell {
+final class TestResultMistakesCell: NLTableViewCell, Delegatable {
     
     // MARK: - Properties
+    
+    var delegate: AnyObject?
     
     private let titleLabel = UILabel()
     private let mistakesNumbersStack = UIStackView()
@@ -55,6 +57,13 @@ final class TestResultMistakesCell: NLTableViewCell {
         
     }
     
+    
+    // MARK: - Actions
+    
+    @objc private func didTapMistake(_ sender: UIButton) {
+        (delegate as? TestResultTableViewManagerDelegate)?.didSelectQuestionWithMistake(by: sender.tag)
+    }
+    
 }
 
 
@@ -82,6 +91,8 @@ extension TestResultMistakesCell: Configurable {
             mistakeButton.setTitle(String(mistake), for: .normal)
             mistakeButton.autoSetDimensions(to: CGSize(width: 50, height: 50))
             mistakeButton.layer.cornerRadius = 6
+            mistakeButton.tag = mistake
+            mistakeButton.addTarget(self, action: #selector(didTapMistake(_:)), for: .touchUpInside)
             mistakesNumbersStack.addArrangedSubview(mistakeButton)
         }
     }

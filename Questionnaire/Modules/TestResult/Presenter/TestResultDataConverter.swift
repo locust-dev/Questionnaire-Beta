@@ -34,7 +34,7 @@ final class TestResultDataConverter {
     }
     
     private func createMistakesRow(mistakesNumbers: [Int]) -> TestResultViewModel.Row {
-        let model = TestResultMistakesCell.Model(mistakesNumbers: mistakesNumbers)
+        let model = TestResultMistakesCell.Model(mistakesNumbers: mistakesNumbers.sorted(by: <))
         let configurator = MistakesCellConfigurator(item: model)
         return .mistakes(configurator)
     }
