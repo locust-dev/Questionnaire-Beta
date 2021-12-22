@@ -11,24 +11,21 @@ final class AnswerButton: CommonButton {
     
     // MARK: - Properties
     
-    let answerCount: Int
-    
-    private let mainTitleLabel = UILabel()
-    private let checkmarkImageView = UIImageView()
-    
     override var isSelected: Bool {
         didSet {
             setStyle()
         }
     }
+   
+    private let mainTitleLabel = UILabel()
+    private let checkmarkImageView = UIImageView()
     
     
     // MARK: - Init
     
-    init(answerCount: Int, title: String) {
-        self.answerCount = answerCount
+    init(title: String) {
         super.init(frame: .zero)
-        mainTitleLabel.text = "\(answerCount). \(title)"
+        mainTitleLabel.text = title
         drawSelf()
     }
     
@@ -51,6 +48,26 @@ final class AnswerButton: CommonButton {
         stack.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 4, left: 20, bottom: 4, right: 20))
         checkmarkImageView.autoSetDimensions(to: CGSize(width: 20, height: 20))
     }
+    
+    
+    // MARK: - Public methods
+    
+    func setRightAnswerStyle() {
+        backgroundColor = Colors.rightAnswer()
+        mainTitleLabel.textColor = .white
+        checkmarkImageView.image = Images.deselectedCirlce()
+        layer.borderWidth = 0
+    }
+    
+    func setWrongAnswerStyle() {
+        backgroundColor = Colors.wrongAnswer()
+        mainTitleLabel.textColor = .white
+        checkmarkImageView.image = Images.selectedCirlce()
+        layer.borderWidth = 0
+    }
+    
+    
+    // MARK: - Private methods
     
     private func setStyle() {
         

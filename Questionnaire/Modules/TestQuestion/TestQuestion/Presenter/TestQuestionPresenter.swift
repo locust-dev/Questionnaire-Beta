@@ -103,8 +103,14 @@ extension TestQuestionPresenter: TestResultModuleOutput {
         guard let question = questions[safe: number - 1] else {
             return
         }
-              
-        router?.openQuestion(question, wrongAnswer: wrongAnswer, rightAnswer: rightAnswer)
+        
+        let model = QuestionMistakeModel(question: question,
+                                         rightAnswer: rightAnswer,
+                                         wrongAnswer: wrongAnswer,
+                                         currentQuestionNumber: number,
+                                         questionsCount: questions.count)
+        
+        router?.openQuestionWithMistake(model)
     }
     
 }

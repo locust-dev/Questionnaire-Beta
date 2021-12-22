@@ -19,7 +19,9 @@ final class TestQuestionAssembly: Assembly {
         
         let view = TestQuestionViewController()
         let router = TestQuestionRouter(transition: view)
-        let presenter = TestQuestionPresenter(dataConverter: dataConverter, questions: model.questions, testId: model.testId)
+        let presenter = TestQuestionPresenter(dataConverter: dataConverter,
+                                              questions: model.questions,
+                                              testId: model.testId)
         
         tableViewManager.delegate = presenter
         

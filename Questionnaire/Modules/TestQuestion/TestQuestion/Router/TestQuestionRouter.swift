@@ -8,7 +8,7 @@
 
 protocol TestQuestionRouterInput {
     func openResults(moduleOutput: TestResultModuleOutput, userAnswers: [Int: Int], testId: String)
-    func openQuestion(_ question: Question, wrongAnswer: Int, rightAnswer: Int)
+    func openQuestionWithMistake(_ questionMistakeModel: QuestionMistakeModel)
     func closeModule()
 }
 
@@ -44,9 +44,9 @@ extension TestQuestionRouter: TestQuestionRouterInput {
         transition.closeCurrentModule(animated: true)
     }
     
-    func openQuestion(_ question: Question, wrongAnswer: Int, rightAnswer: Int) {
-        
-       
+    func openQuestionWithMistake(_ questionMistakeModel: QuestionMistakeModel) {
+        let model = TestQuestionMistakeAssembly.Model(questionMistakeModel: questionMistakeModel)
+        transition.present(with: model, openModuleType: TestQuestionMistakeAssembly.self)
     }
     
 }

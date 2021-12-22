@@ -9,7 +9,6 @@ import UIKit
 
 final class TestAnswersCounterCell: NLTableViewCell, Delegatable {
     
-    
     // MARK: - Properties
     
     var delegate: AnyObject?
@@ -61,10 +60,10 @@ final class TestAnswersCounterCell: NLTableViewCell, Delegatable {
     
     // MARK: - Actions
     
-    @objc private func selectAnswer(sender: AnswerButton) {
+    @objc private func selectAnswer(_ sender: UIButton) {
         setAllButtonsUnselected()
         sender.isSelected = true
-        (delegate as? TestQuestionTableViewManagerDelegate)?.didSelectAnswer(by: sender.answerCount)
+        (delegate as? TestQuestionTableViewManagerDelegate)?.didSelectAnswer(by: sender.tag)
     }
 }
 
@@ -82,8 +81,11 @@ extension TestAnswersCounterCell: Configurable {
         answersStack.removeAllArrangedSubviewsFully()
         
         model.answers.enumerated().forEach { (index, title) in
-            let answerButton = AnswerButton(answerCount: index + 1, title: title)
+            
+            let answerCount = index + 1
+            let answerButton = AnswerButton(title: "\(answerCount). \(title)")
             answerButton.style = .shadow
+            answerButton.tag = answerCount
             answerButton.addTarget(self, action: #selector(selectAnswer), for: .touchUpInside)
             answersStack.addArrangedSubview(answerButton)
         }

@@ -59,6 +59,14 @@
 		19459887276E147D00F32033 /* BottomLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19459886276E147D00F32033 /* BottomLineTextField.swift */; };
 		19459889276E1B5200F32033 /* CommonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19459888276E1B5200F32033 /* CommonButton.swift */; };
 		1945988D276E876500F32033 /* UIViewController+StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1945988C276E876500F32033 /* UIViewController+StatusBar.swift */; };
+		194E05152773178F00881D30 /* TestQuestionMistakeDataConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E050E2773178F00881D30 /* TestQuestionMistakeDataConverter.swift */; };
+		194E05162773178F00881D30 /* TestQuestionMistakePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E050F2773178F00881D30 /* TestQuestionMistakePresenter.swift */; };
+		194E05182773178F00881D30 /* TestQuestionMistakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E05112773178F00881D30 /* TestQuestionMistakeViewController.swift */; };
+		194E05192773178F00881D30 /* TestQuestionMistakeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E05122773178F00881D30 /* TestQuestionMistakeAssembly.swift */; };
+		194E051A2773178F00881D30 /* TestQuestionMistakeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E05132773178F00881D30 /* TestQuestionMistakeViewModel.swift */; };
+		194E051B2773178F00881D30 /* TestQuestionMistakeTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E05142773178F00881D30 /* TestQuestionMistakeTableViewManager.swift */; };
+		194E051F27731BAC00881D30 /* TestQuestionMistakeAnswersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E051E27731BAC00881D30 /* TestQuestionMistakeAnswersCell.swift */; };
+		194E05242773254C00881D30 /* QuestionMistakeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E05232773254C00881D30 /* QuestionMistakeModel.swift */; };
 		1952AA722760FD3D00675931 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1952AA712760FD3D00675931 /* AppDelegate.swift */; };
 		1952AA7B2760FD3E00675931 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1952AA7A2760FD3E00675931 /* Assets.xcassets */; };
 		1952AA7E2760FD3E00675931 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1952AA7C2760FD3E00675931 /* LaunchScreen.storyboard */; };
@@ -260,6 +268,14 @@
 		19459886276E147D00F32033 /* BottomLineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomLineTextField.swift; sourceTree = "<group>"; };
 		19459888276E1B5200F32033 /* CommonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonButton.swift; sourceTree = "<group>"; };
 		1945988C276E876500F32033 /* UIViewController+StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+StatusBar.swift"; sourceTree = "<group>"; };
+		194E050E2773178F00881D30 /* TestQuestionMistakeDataConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionMistakeDataConverter.swift; sourceTree = "<group>"; };
+		194E050F2773178F00881D30 /* TestQuestionMistakePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionMistakePresenter.swift; sourceTree = "<group>"; };
+		194E05112773178F00881D30 /* TestQuestionMistakeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionMistakeViewController.swift; sourceTree = "<group>"; };
+		194E05122773178F00881D30 /* TestQuestionMistakeAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionMistakeAssembly.swift; sourceTree = "<group>"; };
+		194E05132773178F00881D30 /* TestQuestionMistakeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionMistakeViewModel.swift; sourceTree = "<group>"; };
+		194E05142773178F00881D30 /* TestQuestionMistakeTableViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionMistakeTableViewManager.swift; sourceTree = "<group>"; };
+		194E051E27731BAC00881D30 /* TestQuestionMistakeAnswersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionMistakeAnswersCell.swift; sourceTree = "<group>"; };
+		194E05232773254C00881D30 /* QuestionMistakeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionMistakeModel.swift; sourceTree = "<group>"; };
 		1952AA6E2760FD3D00675931 /* Questionnaire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Questionnaire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1952AA712760FD3D00675931 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1952AA7A2760FD3E00675931 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -622,11 +638,8 @@
 		19436D212768A59E00D2FA0A /* TestQuestion */ = {
 			isa = PBXGroup;
 			children = (
-				19436D362768A68100D2FA0A /* Assembly */,
-				19436D392768A69000D2FA0A /* Presenter */,
-				19436D372768A68700D2FA0A /* View */,
-				19436D3A2768A69600D2FA0A /* Model */,
-				19436D382768A68C00D2FA0A /* Router */,
+				194E050D2773176D00881D30 /* TestQuestionMistake */,
+				194E050C2773175A00881D30 /* TestQuestion */,
 			);
 			path = TestQuestion;
 			sourceTree = "<group>";
@@ -670,6 +683,7 @@
 			isa = PBXGroup;
 			children = (
 				19436D2A2768A5DB00D2FA0A /* TestQuestionViewModel.swift */,
+				194E05232773254C00881D30 /* QuestionMistakeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -714,6 +728,72 @@
 				1945986F276E0C4500F32033 /* Nunito-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		194E050C2773175A00881D30 /* TestQuestion */ = {
+			isa = PBXGroup;
+			children = (
+				19436D362768A68100D2FA0A /* Assembly */,
+				19436D392768A69000D2FA0A /* Presenter */,
+				19436D372768A68700D2FA0A /* View */,
+				19436D3A2768A69600D2FA0A /* Model */,
+				19436D382768A68C00D2FA0A /* Router */,
+			);
+			path = TestQuestion;
+			sourceTree = "<group>";
+		};
+		194E050D2773176D00881D30 /* TestQuestionMistake */ = {
+			isa = PBXGroup;
+			children = (
+				194E052127731BB800881D30 /* Assembly */,
+				194E052027731BB200881D30 /* Presenter */,
+				194E051C27731B8D00881D30 /* View */,
+				194E052227731BC100881D30 /* Model */,
+			);
+			path = TestQuestionMistake;
+			sourceTree = "<group>";
+		};
+		194E051C27731B8D00881D30 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				194E051D27731B9800881D30 /* Cells */,
+				194E05112773178F00881D30 /* TestQuestionMistakeViewController.swift */,
+				194E05142773178F00881D30 /* TestQuestionMistakeTableViewManager.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		194E051D27731B9800881D30 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				194E051E27731BAC00881D30 /* TestQuestionMistakeAnswersCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		194E052027731BB200881D30 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				194E050E2773178F00881D30 /* TestQuestionMistakeDataConverter.swift */,
+				194E050F2773178F00881D30 /* TestQuestionMistakePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		194E052127731BB800881D30 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				194E05122773178F00881D30 /* TestQuestionMistakeAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		194E052227731BC100881D30 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				194E05132773178F00881D30 /* TestQuestionMistakeViewModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		1952AA652760FD3D00675931 = {
@@ -1711,6 +1791,8 @@
 				19436D5B2768DD1E00D2FA0A /* TestResultViewModel.swift in Sources */,
 				1982B55C27635858003DAB1A /* TestCategoriesAssembly.swift in Sources */,
 				1982B54827633B1A003DAB1A /* AuthorizationInteractor.swift in Sources */,
+				194E05162773178F00881D30 /* TestQuestionMistakePresenter.swift in Sources */,
+				194E051B2773178F00881D30 /* TestQuestionMistakeTableViewManager.swift in Sources */,
 				19436D592768DD1E00D2FA0A /* TestResultViewController.swift in Sources */,
 				19C832DB276C92A80050747F /* String+HTMLAttributed.swift in Sources */,
 				193D994127624052004ACA7F /* AuthorizationRouter.swift in Sources */,
@@ -1741,6 +1823,7 @@
 				19C8321F276C906D0050747F /* NLControl.swift in Sources */,
 				19221A42276B81DE0061495F /* ErrorPlaceholder.swift in Sources */,
 				19C83220276C906D0050747F /* NLTextField.swift in Sources */,
+				194E05182773178F00881D30 /* TestQuestionMistakeViewController.swift in Sources */,
 				19C8324D276C927D0050747F /* SJCenterFlowLayout.swift in Sources */,
 				19861D9A276A353800D3C041 /* RegistrationRouter.swift in Sources */,
 				19C8324F276C927D0050747F /* CollectionViewManagerInput.swift in Sources */,
@@ -1769,6 +1852,7 @@
 				19861D9C276A353800D3C041 /* RegistrationAssembly.swift in Sources */,
 				19BF7382277093BF00B95BB1 /* UINavigationController+Appearance.swift in Sources */,
 				19C83255276C927D0050747F /* Delegatable.swift in Sources */,
+				194E051A2773178F00881D30 /* TestQuestionMistakeViewModel.swift in Sources */,
 				19436D352768A5DB00D2FA0A /* TestQuestionTableViewManager.swift in Sources */,
 				1992E7FA2771ECB50068FFFF /* TabBarPresentable.swift in Sources */,
 				19C8321A276C906D0050747F /* NLStackView.swift in Sources */,
@@ -1820,11 +1904,13 @@
 				193D993527623E60004ACA7F /* MainScreenViewController.swift in Sources */,
 				19C832D0276C92A80050747F /* UIEdgeInsets.swift in Sources */,
 				19C83257276C927D0050747F /* TableCellConfigurator.swift in Sources */,
+				194E051F27731BAC00881D30 /* TestQuestionMistakeAnswersCell.swift in Sources */,
 				19D5C9CF27674098000109F2 /* TestCategoriesInteractor.swift in Sources */,
 				19C83237276C92580050747F /* TransitionModel.swift in Sources */,
 				19C832F3276C92B40050747F /* InternetConnectionReachabilityCenter.swift in Sources */,
 				19C832F1276C92B40050747F /* InternetConnectionReachability.swift in Sources */,
 				19C832CA276C92A80050747F /* UIScreen+Type.swift in Sources */,
+				194E05192773178F00881D30 /* TestQuestionMistakeAssembly.swift in Sources */,
 				1982B565276398E7003DAB1A /* ProfileRouter.swift in Sources */,
 				1982B56C27639B10003DAB1A /* AuthorizedUserModel.swift in Sources */,
 				19861DAC276A627C00D3C041 /* Struct+Dictionary.swift in Sources */,
@@ -1843,6 +1929,7 @@
 				193D993327623E60004ACA7F /* MainScreenPresenter.swift in Sources */,
 				1982B54D2763446B003DAB1A /* ProgressHUD.swift in Sources */,
 				19C832DD276C92A80050747F /* String+Substring.swift in Sources */,
+				194E05152773178F00881D30 /* TestQuestionMistakeDataConverter.swift in Sources */,
 				19C83256276C927D0050747F /* TableHeaderFooterConfigurator.swift in Sources */,
 				19C832CD276C92A80050747F /* UICollectionView.swift in Sources */,
 				19304D692768925000EA403A /* TestListDataConverter.swift in Sources */,
@@ -1853,6 +1940,7 @@
 				19C8321E276C906D0050747F /* NLButton.swift in Sources */,
 				1945988D276E876500F32033 /* UIViewController+StatusBar.swift in Sources */,
 				193D993627623E60004ACA7F /* MainScreenAssembly.swift in Sources */,
+				194E05242773254C00881D30 /* QuestionMistakeModel.swift in Sources */,
 				19C832DC276C92A80050747F /* String+Capitalizing.swift in Sources */,
 				19D5C9C827673B21000109F2 /* UITableVIew+RegisterCell.swift in Sources */,
 				1982B566276398E7003DAB1A /* ProfileViewController.swift in Sources */,
