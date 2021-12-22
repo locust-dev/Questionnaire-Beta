@@ -47,6 +47,18 @@ final class CommonTableView: UITableView {
         return emptyLabel
     }()
     
+    
+    // MARK: - Init
+    
+    override init(frame: CGRect, style: UITableView.Style) {
+        super.init(frame: frame, style: style)
+        drawSelf()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 
     // MARK: - Life cycle
 
@@ -58,6 +70,14 @@ final class CommonTableView: UITableView {
     override func reloadSections(_ sections: IndexSet, with animation: UITableView.RowAnimation) {
         super.reloadSections(sections, with: animation)
         addEmptyLabel()
+    }
+    
+    
+    // MARK: - Drawing
+    
+    private func drawSelf() {
+        
+        loaderColor = .white
     }
     
     

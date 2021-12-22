@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol AuthorizationInteractorInput: Parser {
+protocol AuthorizationInteractorInput {
     func tryToSignIn(email: String, password: String)
 }
 
@@ -36,24 +36,20 @@ final class AuthorizationInteractor {
     
     private func checkIfUserAlreadyInDatabase(token: String) {
         
-        databaseService.getData(.user(token: token)) { [weak self] result in
+        databaseService.getData(.user(token: token), model: ProfileModel.self) { [weak self] result in
             
             switch result {
                 
-            case .success(let userData):
-                guard (userData as? NSDictionary) != nil else {
-                    self?.presenter?.didSuccessAuthorize(userToken: token)
-                    return
-                }
-                
+            case .success(_):
                 self?.authorizationService.setCurrentUserToken(token)
                 self?.presenter?.didSuccessAuthorize(userToken: nil)
                 
-            case .failure(let error):
-                self?.presenter?.didFailAuthorize(error: error)
+            case .failure(_):
+                self?.presenter?.didSuccessAuthorize(userToken: token)
             }
         }
     }
+
     
 }
 
@@ -64,7 +60,7 @@ extension AuthorizationInteractor: AuthorizationInteractorInput {
     func tryToSignIn(email: String, password: String) {
         
         authorizationService.signIn(email: email, password: password) { [weak self] result in
-            
+        
             switch result {
             case .success(let token):
                 guard let token = token else {

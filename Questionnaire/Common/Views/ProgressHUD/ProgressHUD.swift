@@ -12,7 +12,7 @@ final class ProgressHUD: SVIndefiniteAnimatedView {
     
     // MARK: - Private Properties
     
-    var color: UIColor {
+    var color: UIColor? = Colors.mainBlueColor() {
         didSet {
             strokeColor = color
         }
@@ -23,9 +23,8 @@ final class ProgressHUD: SVIndefiniteAnimatedView {
     
     // MARK: - Init
     
-    init(size: ProgressHUDSize = .big, color: UIColor = .white) {
+    init(size: ProgressHUDSize = .big) {
         self.size = size
-        self.color = color
         super.init(frame: CGRect.zero)
         drawSelf()
     }

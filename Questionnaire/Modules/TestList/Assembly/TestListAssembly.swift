@@ -14,7 +14,8 @@ final class TestListAssembly: Assembly {
             fatalError("Wrong model for TestsModule")
         }
         
-        let databaseService = FBDatabaseService()
+        let networkClient = NetworkClient()
+        let databaseService = FBDatabaseService(networkClient: networkClient)
         let authService = FBAuthService()
         
         let tableViewManager = TestListTableViewManager()

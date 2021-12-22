@@ -49,9 +49,12 @@ extension FBAuthService: FBAuthServiceInput {
         
         globalQueue {
             FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) { result, error in
-                error != nil
-                    ? completion(.failure(.userNotFound))
-                    : completion(.success(result?.user.uid))
+                
+                mainQueue {
+                    error != nil
+                        ? completion(.failure(.userNotFound))
+                        : completion(.success(result?.user.uid))
+                }
             }
         }
     }

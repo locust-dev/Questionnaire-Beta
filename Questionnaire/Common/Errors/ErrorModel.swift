@@ -22,6 +22,9 @@ enum ErrorModel: Error {
     
     // Answers
     case notFindAnswers
+    
+    // JSON
+    case parseError
 
     var description: String {
         
@@ -51,6 +54,9 @@ enum ErrorModel: Error {
             
         case .userNotFound:
             return "Пользователь не найден."
+            
+        case .parseError:
+            return "Ошибка парсинга JSON"
         }
     }
 }

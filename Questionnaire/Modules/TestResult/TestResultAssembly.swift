@@ -14,7 +14,8 @@ final class TestResultAssembly: Assembly {
             fatalError("Wrong model for TestResultModule")
         }
         
-        let databaseService = FBDatabaseService()
+        let networkClient = NetworkClient()
+        let databaseService = FBDatabaseService(networkClient: networkClient)
         
         let tableViewManager = TestResultTableViewManager()
         let dataConverter = TestResultDataConverter()

@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol MainScreenInteractorInput: Parser {
+protocol MainScreenInteractorInput {
     
     var isAuthorized: Bool { get }
     
@@ -21,11 +21,11 @@ final class MainScreenInteractor {
     // MARK: - Properties
     
     weak var presenter: MainScreenInteractorOutput?
-
+    
     private let databaseService: FBDatabaseService
     private let authService: FBAuthService
     
-
+    
     // MARK: - Init
     
     init(databaseService: FBDatabaseService,
@@ -55,17 +55,17 @@ extension MainScreenInteractor: MainScreenInteractorInput {
             return
         }
         
-        databaseService.getData(.user(token: userToken)) { [weak self] result in
+        databaseService.getData(.user(token: userToken), model: ProfileModel.self) { [weak self] result in
             
             switch result {
                 
-            case .success(let userData):
-                let fullname = self?.parseJson(rawData: userData, type: ProfileModel.self)?.fullName
-                self?.presenter?.didObtainFullname(fullname)
+            case .success(let profileModel):
+                self?.presenter?.didObtainFullname(profileModel.fullName)
                 
             case .failure(_):
                 break
             }
         }
     }
+    
 }

@@ -5,11 +5,11 @@
 //  Created by Ilya Turin on 11.12.2021.
 //
 
-import FirebaseDatabase
 import Foundation
+import FirebaseDatabase
 
 protocol FBDatabaseServiceInput: AnyObject {
-    func getData(_ key: FBDatabasePath, completion: @escaping (Result<Any, ErrorModel>) -> Void)
+    func getData<Model: Decodable>(_ key: FBDatabasePath, model: Model.Type, completion: @escaping (Result<Model, ErrorModel>) -> Void)
     func saveNewUser(_ newUser: NewUserModel, completion: @escaping (Result<String, ErrorModel>) -> Void)
 }
 
@@ -18,6 +18,14 @@ final class FBDatabaseService {
     // MARK: - Properties
     
     private let databaseReference = Database.database(url: FBDatabaseReference.realtime.rawValue).reference()
+    private let networkClient: NetworkClientInput
+    
+    
+    // MARK: - Init
+    
+    init(networkClient: NetworkClientInput) {
+        self.networkClient = networkClient
+    }
     
 }
 
@@ -25,21 +33,32 @@ final class FBDatabaseService {
 // MARK: - FirebaseDatabaseServiceProtocol
 extension FBDatabaseService: FBDatabaseServiceInput {
     
-    func getData(_ key: FBDatabasePath, completion: @escaping (Result<Any, ErrorModel>) -> Void) {
+    func getData<Model: Decodable>(_ key: FBDatabasePath,
+                                   model: Model.Type,
+                                   completion: @escaping (Result<Model, ErrorModel>) -> Void) {
         
         globalQueue {
-            self.databaseReference.child(key.stringPath).getData { error, data in
+            
+            self.databaseReference.child(key.stringPath).getData { [weak self] error, data in
+                guard let dataValue = data.value, error == nil else {
+                    completion(.failure(.serverError))
+                    return
+                }
                 
-                mainQueue {
-                    guard let value = data.value, error == nil else {
-                        completion(.failure(.serverError))
-                        return
-                    }
+                self?.networkClient.parse(rawData: dataValue, type: model) { model in
                     
-                    completion(.success(value))
+                    mainQueue {
+                        guard let model = model else {
+                            completion(.failure(.parseError))
+                            return
+                        }
+                        
+                        completion(.success(model))
+                    }
                 }
             }
         }
+        
     }
     
     func saveNewUser(_ newUser: NewUserModel, completion: @escaping (Result<String, ErrorModel>) -> Void) {
@@ -50,8 +69,8 @@ extension FBDatabaseService: FBDatabaseServiceInput {
                 
                 mainQueue {
                     error != nil
-                        ? completion(.failure(.errorToSaveNewUser))
-                        : completion(.success(newUser.uniqueToken))
+                    ? completion(.failure(.errorToSaveNewUser))
+                    : completion(.success(newUser.uniqueToken))
                 }
             }
         }

@@ -15,7 +15,8 @@ final class RegistrationAssembly: Assembly {
         }
         
         let authService = FBAuthService()
-        let databaseService = FBDatabaseService()
+        let networkClient = NetworkClient()
+        let databaseService = FBDatabaseService(networkClient: networkClient)
         
         let view = RegistrationViewController()
         let router = RegistrationRouter(transition: view)

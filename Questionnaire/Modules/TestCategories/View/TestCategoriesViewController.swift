@@ -73,7 +73,7 @@ extension TestCategoriesViewController: TestCategoriesViewInput {
     
     func showNonAuthorizedAlert() {
         // TODO: - From config
-        showAlert(title: "Oops", message: "You must be authorized!", buttonTitle: "Ok")
+        showAlert(title: "Вы должны авторизоваться, чтобы начать проходить тесты", buttonTitle: "Ok")
     }
     
     func showLoader() {

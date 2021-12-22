@@ -45,6 +45,8 @@ final class TestQuestionMistakeViewController: UIViewController {
         containerView.layer.cornerRadius = 12
         
         closeButton.setImage(Images.closeButton(), for: .normal)
+        closeButton.addTarget(self, action: #selector(didTapCloseButton), for: .touchUpInside)
+        
         questionCountLabel.font = UIFont(name: MainFont.extraBold, size: 34)
         questionCountLabel.textColor = .white
         
@@ -65,6 +67,14 @@ final class TestQuestionMistakeViewController: UIViewController {
         containerView.autoPinEdgesToSuperviewSafeArea(with: UIEdgeInsets(top: 0, left: 10, bottom: 20, right: 10), excludingEdge: .top)
         tableView.autoPinEdgesToSuperviewEdges()
     }
+    
+    
+    // MARK: - Actions
+    
+    @objc private func didTapCloseButton() {
+        presenter?.didTapCloseButton()
+    }
+    
 }
 
 

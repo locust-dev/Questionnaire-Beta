@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol TestListInteractorInput: Parser {
+protocol TestListInteractorInput {
     func fetchTests(by categoryId: String)
 }
 
@@ -41,44 +41,34 @@ final class TestListInteractor {
     private func getAllowedTests() {
 
         let userToken = authService.currentUserToken ?? ""
+        let path = FBDatabasePath.allowedTests(token: userToken)
     
-        databaseService.getData(FBDatabasePath.allowedTests(token: userToken)) { [weak self] result in
-            
+        databaseService.getData(path, model: [String].self) { [weak self] result in
+
             switch result {
-                
-            case .success(let allowedTestsData):
-                guard let allowedTests = allowedTestsData as? [String] else {
-                    self?.error = .nonShowingError
-                    break
-                }
-                
+
+            case .success(let allowedTests):
                 self?.allowedTests = allowedTests
-                
+
             case .failure(let error):
                 self?.error = error
             }
-    
+
             self?.dispatchGroup.leave()
         }
     }
 
     private func getTests(by categoryId: String) {
         
-        databaseService.getData(.test(categoryId: categoryId)) { [weak self] result in
+        databaseService.getData(.test(categoryId: categoryId), model: TestsModel.self) { [weak self] result in
 
             switch result {
 
-            case .success(let testsData):
-                guard let testsModel = self?.parseJson(rawData: testsData, type: TestsModel.self)
-                else {
-                    self?.error = .somethingWentWrong
-                    break
-                }
-                
+            case .success(let testsModel):
                 self?.tests = testsModel.each
 
             case .failure(let error):
-                self?.presenter?.didFailObtainTests(error: error)
+                self?.error = error
             }
            
             self?.dispatchGroup.leave()

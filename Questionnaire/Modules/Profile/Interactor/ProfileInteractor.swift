@@ -5,7 +5,7 @@
 //  Created by Ilya Turin on 16.12.2021.
 //
 
-protocol ProfileInteractorInput: Parser {
+protocol ProfileInteractorInput {
     func fetchUserData()
     func logOut()
 }
@@ -46,17 +46,11 @@ extension ProfileInteractor: ProfileInteractorInput {
             return
         }
         
-        databaseService.getData(.user(token: userToken)) { [weak self] result in
+        databaseService.getData(.user(token: userToken), model: ProfileModel.self) { [weak self] result in
             
             switch result {
                 
-            case .success(let userData):
-                guard let profileModel = self?.parseJson(rawData: userData, type: ProfileModel.self)
-                else {
-                    self?.presenter?.didFailFetchUserData(error: .errorToLoadUserInfo)
-                    return
-                }
-                
+            case .success(let profileModel):
                 self?.presenter?.didSuccessFetchUserData(profile: profileModel)
                 
             case .failure(let error):
@@ -64,4 +58,5 @@ extension ProfileInteractor: ProfileInteractorInput {
             }
         }
     }
+    
 }

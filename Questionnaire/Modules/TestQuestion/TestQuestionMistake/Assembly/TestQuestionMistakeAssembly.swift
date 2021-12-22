@@ -18,6 +18,7 @@ final class TestQuestionMistakeAssembly: Assembly {
         let dataConverter = TestQuestionMistakeDataConverter()
         
         let view = TestQuestionMistakeViewController()
+        let router = TestQuestionMistakeRouter(transition: view)
         let presenter = TestQuestionMistakePresenter(dataConverter: dataConverter,
                                                      questionMistakeModel: model.questionMistakeModel)
         
@@ -27,6 +28,7 @@ final class TestQuestionMistakeAssembly: Assembly {
         view.tableViewManager = tableViewManager
         
         presenter.view = view
+        presenter.router = router
         
         return view
     }

@@ -34,16 +34,11 @@ extension TestResultInteractor: TestResultInteractorInput {
     
     func getRightAnswers(by testId: String) {
         
-        databaseService.getData(.rightAnswers(testId: testId)) { [weak self] result in
+        databaseService.getData(.rightAnswers(testId: testId), model: [Int].self) { [weak self] result in
             
             switch result {
                 
-            case .success(let answersData):
-                guard let answers = answersData as? [Int] else {
-                    self?.presenter?.didFailObtainAnswers(error: .notFindAnswers)
-                    return
-                }
-                
+            case .success(let answers):
                 self?.presenter?.didSuccessObtainAnswers(answers)
                 
             case .failure(let error):

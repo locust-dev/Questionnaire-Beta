@@ -16,8 +16,9 @@ final class AuthorizationAssembly: Assembly {
             fatalError("Wrong model for AuthorizationModule")
         }
         
+        let networkClient = NetworkClient()
         let authService = FBAuthService()
-        let databaseService = FBDatabaseService()
+        let databaseService = FBDatabaseService(networkClient: networkClient)
         
         let view = AuthorizationViewController()
         let router = AuthorizationRouter(transition: view)

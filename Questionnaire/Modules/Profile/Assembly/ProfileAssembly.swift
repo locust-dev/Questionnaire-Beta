@@ -16,7 +16,8 @@ final class ProfileAssembly: Assembly {
             fatalError("Wrong model for ProfileModule")
         }
         
-        let databaseService = FBDatabaseService()
+        let networkClient = NetworkClient()
+        let databaseService = FBDatabaseService(networkClient: networkClient)
         let authService = FBAuthService()
         
         let dataConverter = ProfileDataConverter()

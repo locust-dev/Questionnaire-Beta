@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol TestCategoriesInteractorInput: Parser {
+protocol TestCategoriesInteractorInput {
     
     var isAuthorized: Bool { get }
     
@@ -45,19 +45,12 @@ extension TestCategoriesInteractor: TestCategoriesInteractorInput {
     
     func getCategories() {
         
-        databaseService.getData(FBDatabasePath.categories) { [weak self] result in
+        databaseService.getData(.categories, model: [TestCategoryModel].self) { [weak self] result in
             
             switch result {
-                
-            case .success(let categoriesData):
-                guard let categories = self?.parseJson(rawData: categoriesData, type: [TestCategoryModel].self)
-                else {
-                    // TODO: - Error model
-                    self?.presenter?.didFailObtainCategories(error: .nonShowingError)
-                    return
-                }
 
-                self?.presenter?.didSuccessObtain(categories: categories)
+            case .success(let categoriesModel):
+                self?.presenter?.didSuccessObtain(categories: categoriesModel)
 
             case .failure(let error):
                 self?.presenter?.didFailObtainCategories(error: error)

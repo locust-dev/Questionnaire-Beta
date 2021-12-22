@@ -6,13 +6,17 @@
 //  Copyright © 2021 FINCH. All rights reserved.
 //
 
-protocol TestQuestionMistakeViewOutput: ViewOutput {  }
+protocol TestQuestionMistakeViewOutput: ViewOutput {
+    func didTapCloseButton()
+}
 
 final class TestQuestionMistakePresenter {
     
     // MARK: - Properties
     
     weak var view: TestQuestionMistakeViewInput?
+    
+    var router: TestQuestionMistakeRouterInput?
 
     private let dataConverter: TestQuestionMistakeDataConverterInput
     private let questionMistakeModel: QuestionMistakeModel
@@ -36,6 +40,10 @@ extension TestQuestionMistakePresenter: TestQuestionMistakeViewOutput {
     func viewIsReady() {
         let viewModel = dataConverter.convert(questionMistakeModel: questionMistakeModel)
         view?.update(with: viewModel)
+    }
+    
+    func didTapCloseButton() {
+        router?.closeModule()
     }
     
 }

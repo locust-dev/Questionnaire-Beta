@@ -17,7 +17,8 @@ final class TestCategoriesAssembly: Assembly {
         }
         
         let authService = FBAuthService()
-        let databaseService = FBDatabaseService()
+        let networkClient = NetworkClient()
+        let databaseService = FBDatabaseService(networkClient: networkClient)
     
         let dataConverter = TestCategoriesDataConverter()
         let tableViewManager = TestCategoriesTableViewManager()
